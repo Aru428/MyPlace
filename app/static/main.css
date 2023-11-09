@@ -1,0 +1,92 @@
+/* :root {
+} */
+
+/* body {
+  margin: 0;
+  padding: 0;
+} */
+
+/* ABeeZee font import */
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+h1 {
+  text-align: center;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+nav {
+  font-size: 12pt;
+  font-family: 'PT Sans', Arial, Sans-serif;
+  position: relative;
+}
+nav ul {
+  padding: 0;
+  margin: 0 auto;
+  width: auto;
+}
+nav {
+  line-height: 50px;
+  height: 50px;
+}
+nav li {
+  box-sizing: border-box;
+  /* -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; */
+}
+nav li:last-child {
+  border-right: 0;
+}
+
+ul {
+  /*list-style-type: none;*/
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  text-align: center;
+}
+li {
+  /*position: relative;*/
+  display: inline-block;
+}
+li {
+  color: #ffffff;
+  text-align: center;
+  padding: 14.5px 16px;
+  text-decoration: none;
+}
+li:hover {
+  /*color: #597812;*/
+  color: #ffd400;
+  font-weight: normal;
+}
+li menu_a {
+  text-align: left;
+}
+.menu {
+  width: 5000px;
+  height: 50px;
+  text-align: center;
+  max-width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-color: #333333;
+  color: white;
+  position: absolute;
+  z-index: 1;
+}
+
+.container_myplace {
+  display: block; /* display: none 의 속성을 제거하여 텍스트를 표시 */
+  position: absolute;
+  text-align: center;
+  top: 200px;
+  width: 1000px;
+  height: 500px;
+  background-color: #8d8d8d;
+  display: flex;
+  justify-content: center;
+}
+
+/* .container_myplace p {
+  text-align: center;
+} */
