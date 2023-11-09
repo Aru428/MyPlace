@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap'>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="/static/editProfile.css">
+</head>
+<body>
+    <div class="editProfile-wrapper">
+        <h2>회원정보 수정</h2>
+        <form method="post" action="" id="editProfile-form">
+            <label for="u-id" class="visually">이메일</label>
+            <input type="text" name="u-id" placeholder="Email">
+
+            <label for="name" class="visually">이름</label>
+            <input type="text" name="name" placeholder="Name">
+
+            <label for="password" class="visually">현재 비밀번호</label>
+            <input type="password" name="password" placeholder="Password">
+
+            <p>비밀번호 변경 시에만 입력</p>
+
+            <label for="password" class="visually">새 비밀번호</label>
+            <input type="password" name="password" placeholder="Password">
+
+            <label for="password" class="visually">새 비밀번호 확인</label>
+            <input type="password" name="password" placeholder="Password">
+
+            <input type="button" name="edit" value="수정">
+            <input type="button" name="delete" value="탈퇴">
+        </form>
+    </div>
+</body>
+</html>
