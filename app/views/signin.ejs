@@ -14,12 +14,16 @@
     <link rel="stylesheet" href="/static/signin.css">
 </head>
 <body>
-    <div class="login-wrapper">
+    <div class="signin-wrapper">
         <h2>로그인</h2>
-        <form method="post" action="" id="login-form">
-            <input type="text" name="u_id" placeholder="Email">
-            <input type="password" name="userPassword" placeholder="Password">
-            <input type="submit" value="로그인">
+        <form method="post" action="" id="signin-form">
+            <label for="u-id" class="visually">이메일</label>
+            <input type="text" name="u-id" placeholder="Email">
+
+            <label for="password" class="visually">비밀번호</label>
+            <input type="password" name="password" placeholder="Password">
+
+            <input type="button" value="로그인">
         </form>
     </div>
 </body>
