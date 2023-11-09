@@ -9,6 +9,10 @@ app.get('/', function (req, res) {
   res.send('Hello project');
 });
 
+app.get('/main', function (req, res) {
+  res.render('main');
+});
+
 app.get('/signin', function (req, res) {
   res.render('signin');
 });
