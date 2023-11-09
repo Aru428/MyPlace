@@ -23,6 +23,13 @@ app.get('/signup', function (req, res) {
 
 app.get('/editProfile', function (req, res) {
   res.render('editProfile');
+});
+
+app.get('/list', function (req, res) {
+  res.render('list');
+});
+
+
 
 app.listen(PORT, function () {
   console.log(`Sever Open: ${PORT}`);
