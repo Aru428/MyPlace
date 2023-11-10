@@ -4,7 +4,7 @@ function Gallery(Sequelize, DataTypes) {
         {
             // g_id, g_name, address,deadline, website, category
             g_id: {
-                type: DataTypes.INT,
+                type: DataTypes.INTEGER,
                 allowNull: false,
                 primaryKey: true,
                 autoIncrement: true,
