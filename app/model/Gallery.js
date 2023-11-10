@@ -32,8 +32,7 @@ function Gallery(Sequelize, DataTypes) {
         },
         {
             tableName: "Gallery",
-            freezeTableName: true,
-            timestamps: false,
+
         }
     );
 }
