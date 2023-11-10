@@ -10,21 +10,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap'>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="/static/signin.css">
+     
 </head>
 <body>
     <div class="signin-wrapper">
         <h2>로그인</h2>
-        <form method="post" action="" id="signin-form">
-            <label for="u-id" class="visually">이메일</label>
-            <input type="text" name="u-id" placeholder="Email">
+        <form name="form-signin">
+            <label for="u_id" class="visually">이메일</label>
+            <input type="text" name="u_id" placeholder="Email">
 
             <label for="password" class="visually">비밀번호</label>
             <input type="password" name="password" placeholder="Password">
 
-            <input type="button" value="로그인">
+            <input type="button" value="로그인" onclick="signin();">
         </form>
     </div>
+
+    <script>
+        function signin() {
+          const form = document.forms["form-signin"];
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return false;
+          }
+
+          let user = {
+            u_id: form.u_id.value,
+            password: form.password.value,
+          };
+          
+          axios({
+            method: 'post',
+            url: '/main',
+            data: user
+          }).then((res) => {
+            if (res.data.result == true) {
+              alert("로그인 성공");
+            } else {
+              alert("로그인 실패");
+            }
+          });
+        }
+      </script>
 </body>
 </html>
