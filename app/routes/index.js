@@ -27,8 +27,17 @@ userRouter.delete("/profile/delete/:u_id", profile.profileDelete);
 const category = require("../controller/Clist");
 galleryRouter.get("/category", category.categoryPage);
 
+
+const router = express.Router();
+router.get("/editProfile_select", function (req, res) {
+  res.render("editProfile_select");
+});
+
+
+
 module.exports = {
   mainRouter,
   userRouter,
   galleryRouter,
+  router,
 };
