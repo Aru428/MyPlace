@@ -18,15 +18,13 @@ nav {
   font-size: 12pt;
   font-family: 'PT Sans', Arial, Sans-serif;
   position: relative;
+  line-height: 50px;
+  height: 50px;
 }
 nav ul {
   padding: 0;
   margin: 0 auto;
   width: auto;
-}
-nav {
-  line-height: 50px;
-  height: 50px;
 }
 nav li {
   box-sizing: border-box;
@@ -47,8 +45,6 @@ ul {
 li {
   /*position: relative;*/
   display: inline-block;
-}
-li {
   color: #ffffff;
   text-align: center;
   padding: 14.5px 16px;
@@ -59,6 +55,8 @@ li:hover {
   color: #ffd400;
   font-weight: normal;
 }
+
+/* menu_a는 왼쪽으로, menu_b는 오른쪽으로 이동할 것 */
 li menu_a {
   text-align: left;
 }
@@ -75,18 +73,143 @@ li menu_a {
   z-index: 1;
 }
 
-.container_myplace {
+.main-container {
   display: block; /* display: none 의 속성을 제거하여 텍스트를 표시 */
   position: absolute;
   text-align: center;
   top: 200px;
-  width: 1000px;
-  height: 500px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
   background-color: #8d8d8d;
   display: flex;
   justify-content: center;
 }
 
-/* .container_myplace p {
+.main-image {
+  width: 1000px;
+}
+
+.main-image img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  /* 반응형. 이미지가 400px 보다 작아지지 않도록 함 */
+  /* min-width: 400px; */
+}
+
+.main-text {
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+}
+
+.main-text h2,
+h4,
+a {
+  margin: 0;
+  text-align: left;
+  color: white;
+}
+
+.main-select {
+  width: 100%;
+  top: 700px;
+  display: flex;
+  position: absolute;
+  /* flex-wrap: wrap; */
+  align-items: flex-start;
+  justify-content: space-evenly;
   text-align: center;
-} */
+}
+
+.row {
+  /* 가로 - 여러 줄로 묶음 */
+  flex-wrap: wrap;
+}
+
+.col-4 {
+  width: 100px;
+}
+
+.banner {
+  width: 500px;
+  height: 20px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
+
+/* 멀티 슬라이드 */
+.slide_wrap {
+  position: relative;
+  bottom: 10%;
+}
+.slide_show {
+  width: 900px;
+  height: 200px;
+  overflow: hidden; /* 넘친 컨텐츠는 잘려지고 보여지지 않음 */
+  position: relative;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.slide_show .slide_list {
+  position: relative;
+  overflow: hidden;
+  width: 3300px;
+  height: 360px;
+}
+.slide_show .slide_list > div {
+  float: left;
+  width: 290px;
+  padding: 5px;
+  height: 174px;
+  box-sizing: content-box;
+  position: relative;
+}
+.slide_show .slide_list > div:before {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: #fff;
+  /* font-family: ''; */
+}
+.slide_list > div:nth-child(3n + 1)::before {
+  content: '01';
+}
+.slide_list > div:nth-child(3n + 2)::before {
+  content: '02';
+}
+.slide_list > div:nth-child(3n + 3)::before {
+  content: '03';
+}
+
+.slide_show .slide_list > div img {
+  width: 100%;
+}
+
+/* 버튼 */
+.slide_btn {
+  position: absolute;
+  left: 50%;
+  /* top: 100%; */
+  transform: translatex(-50%); /* 대상을 x축으로 이동 */
+}
+.slide_btn button {
+  background-color: rgb(135, 135, 135);
+  border: 1px solid rgb(135, 135, 135);
+  color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer; /* 마우스 커서의 모양 */
+}
+.slide_btn button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.slide_btn .prev {
+}
+.slide_btn .next {
+}
