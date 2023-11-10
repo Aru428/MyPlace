@@ -1,35 +1,19 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const PORT = 8000;
 
-app.set('view engine', 'ejs');
-app.use('/static', express.static(__dirname + '/static'));
+app.set("view engine", "ejs");
+app.use("/static", express.static(__dirname + "/static"));
 
-app.get('/', function (req, res) {
-  res.send('Hello project');
-});
+const { mainRouter, userRouter, galleryRouter } = require("./routes");
+// 메인페이지 경로
+app.use("/main", mainRouter);
 
-app.get('/main', function (req, res) {
-  res.render('main');
-});
+// 회원 관련 경로
+app.use("/user", userRouter);
 
-app.get('/signin', function (req, res) {
-  res.render('signin');
-});
-
-app.get('/signup', function (req, res) {
-  res.render('signup');
-});
-
-app.get('/editProfile', function (req, res) {
-  res.render('editProfile');
-});
-
-app.get('/list', function (req, res) {
-  res.render('list');
-});
-
-
+// 갤러리 관련 경로
+app.use("/gallery", galleryRouter);
 
 app.listen(PORT, function () {
   console.log(`Sever Open: ${PORT}`);
