@@ -29,6 +29,7 @@ body {
   border-radius: 6px;
   background-color: #f8f8f8;
 }
+
 #form-editProfile > input::placeholder {
   color: #d2d2d2;
 }
