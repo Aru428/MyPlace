@@ -37,7 +37,7 @@
             <label for="name" class="visually">이름</label>
             <input type="text" name="name" placeholder="Name">
 
-            <button type="button" onclick="register();">회원가입</button>
+            <button type="button" onclick="register()">회원가입</button>
 
         </form>
     </div>
@@ -45,7 +45,7 @@
     
     <script>
         function register() {
-            const form = document.form["form_register"];
+            const form = document.forms["form_register"];
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return false;

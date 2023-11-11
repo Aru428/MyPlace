@@ -43,3 +43,5 @@ db.Heart.belongsTo(db.User, {
     ondelete: "cascade",
     foreignKey: "u_id",
 })
+
+module.exports = db;
