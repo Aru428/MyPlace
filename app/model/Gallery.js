@@ -1,6 +1,6 @@
 function Gallery(Sequelize, DataTypes) {
     return Sequelize.define(
-        "Gallery",
+        "gallery",
         {
             // g_id, g_name, address,deadline, website, category
             g_id: {
@@ -31,7 +31,7 @@ function Gallery(Sequelize, DataTypes) {
             },
         },
         {
-            tableName: "Gallery",
+            tableName: "gallery",
 
         }
     );

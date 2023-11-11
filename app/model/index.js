@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.Comment = require("./comment")(sequelize, Sequelize);
+db.Comment = require("./Comment")(sequelize, Sequelize);
 db.Gallery = require("./Gallery")(sequelize, Sequelize);
 db.Heart = require("./Heart")(sequelize, Sequelize);
 db.User = require("./User")(sequelize, Sequelize);
@@ -22,7 +22,7 @@ db.Gallery.hasMany(db.Comment, {
     foreignKey:"g_id",
 })
 
-db.Comment.belongTo(db.Gallery, {
+db.Comment.belongsTo(db.Gallery, {
     onDelete: "cascade",
     foreignKey: "g_id",
 }) // -----------------------
@@ -32,14 +32,14 @@ db.Comment.belongTo(db.Gallery, {
 db.Gallery.hasMany(db.Heart, {
     foreignKey: "g_id",
 })
-db.Heart.belongTo(db.Gallery,  {
+db.Heart.belongsTo(db.Gallery,  {
     //  onDelete: "cascade",
         foreignKey: "g_id",
 })
 db.User.hasMany(db.Heart, {
     foreignKey: "u_id",
 })
-db.Heart.belongTo(db.User, {
+db.Heart.belongsTo(db.User, {
     ondelete: "cascade",
     foreignKey: "u_id",
 })
