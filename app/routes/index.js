@@ -7,7 +7,7 @@ const galleryRouter = express.Router();
 const main = require("../controller/Cmain");
 mainRouter.get("/", main.mainPage);
 
-// 로그인 관련
+// 로그인 관련dd
 const signin = require("../controller/Csignin");
 userRouter.get("/signin", signin.loginPage);
 userRouter.post("/signin", signin.postLogin);
@@ -15,7 +15,9 @@ userRouter.post("/signin", signin.postLogin);
 // 회원가입 관련
 const signup = require("../controller/Csignup");
 userRouter.get("/signup", signup.signUpPage);
+userRouter.post("/signupcheck", signup.postSignUpCheck);
 userRouter.post("/signup", signup.postSignUp);
+
 
 // 마이페이지(회원정보 수정) 관련
 const profile = require("../controller/Cprofile");
