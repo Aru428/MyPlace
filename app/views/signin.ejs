@@ -18,7 +18,7 @@
 <body>
     <div class="signin-wrapper">
         <h2>로그인</h2>
-        <form id="form-signin" name="form-signin">
+        <form id="form-signin" name="form_signin">
             <label for="u_id" class="visually">아이디</label>
             <input type="text" name="u_id" placeholder="Email">
 
@@ -31,7 +31,7 @@
 
     <script>
         function signin() {
-          const form = document.forms["form-signin"];
+          const form = document.forms["form_signin"];
           if (!form.checkValidity()) {
             form.reportValidity();
             return false;
@@ -44,7 +44,7 @@
           
           axios({
             method: 'post',
-            url: '/main',
+            url: '/user/signin',
             data: user
           }).then((res) => {
             if (res.data.result == true) {
