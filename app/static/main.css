@@ -14,6 +14,7 @@ h1 {
   font-family: 'ABeeZee', sans-serif;
 }
 
+/** nav바 **/
 nav {
   font-size: 12pt;
   font-family: 'PT Sans', Arial, Sans-serif;
@@ -199,18 +200,41 @@ a {
   transform: translatex(-50%); /* 대상을 x축으로 이동 */
 }
 .slide_btn button {
-  background-color: rgb(135, 135, 135);
+  /* background-color: rgb(135, 135, 135);
   border: 1px solid rgb(135, 135, 135);
-  color: #fff;
-  border-radius: 50%;
+  color: #fff; */
+  border-radius: 5%;
   width: 50px;
   height: 50px;
+
+  /* border-top: 5px solid #000; 선 두께 */
+  /* border-right: 5px solid #000; 선 두께 */
+  /* transform: rotate(225deg); 각도 */
+
   cursor: pointer; /* 마우스 커서의 모양 */
 }
 .slide_btn button:hover {
-  background: rgba(0, 0, 0, 0.8);
+  /* background: rgba(0, 0, 0, 0.8); */
 }
 .slide_btn .prev {
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+
+  border-top: 4px solid #000; /* 선 두께 */
+  border-right: 4px solid #000; /* 선 두께 */
+  border-bottom: 0px;
+  border-left: 0px;
+  transform: rotate(225deg); /* 각도 */
 }
 .slide_btn .next {
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+
+  border-top: 4px solid #000; /* 선 두께 */
+  border-right: 4px solid #000; /* 선 두께 */
+  border-bottom: 0px;
+  border-left: 0px;
+  transform: rotate(45deg); /* 각도 */
 }

@@ -87,8 +87,9 @@
 
     <!-- 버튼 -->
     <div class="slide_btn">
-      <button class="prev">뒤로</button>
-      <button class="next">앞으로</button>
+      <button class="prev"></button>
+
+      <button class="next"></button>
     </div>
   </div>
 
@@ -117,7 +118,9 @@
         slideList.css("left", -num * slideWidth + "px");
       }
       num--;
-      slideList.stop().animate({ left: -slideWidth * num + "px" }, 400);
+      slideList.stop().animate({
+        left: -slideWidth * num + "px"
+      }, 400);
     }
     //이미지 오른쪽으로 움직이기
     function nextShow() {
@@ -127,7 +130,9 @@
         slideList.css("left", num);
       }
       num++;
-      slideList.stop().animate({ left: -slideWidth * num + "px" }, 400);
+      slideList.stop().animate({
+        left: -slideWidth * num + "px"
+      }, 400);
     }
 
     //왼쪽, 오른쪽 버튼 설정
