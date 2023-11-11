@@ -14,5 +14,16 @@ exports.postSignUp = (req, res) => {
   })
 }
 
+
+exports.postSignUpCheck = (req, res) => {
+  User.findOne({
+    where: { u_id: req.body.u_id },
+  }).then((result) => {
+    console.log('User findOne:', result)
+    if (result) res.send({ result: true, id: result.id })
+    else res.send({ result: false })
+  })
+}
+
 // userRouter.get("/signup", signup.signUpPage);
 // userRouter.post("/signup", signup.postSignUp);
