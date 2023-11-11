@@ -4,6 +4,8 @@ const PORT = 8000;
 
 app.set("view engine", "ejs");
 app.use("/static", express.static(__dirname + "/static"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 const { mainRouter, userRouter, galleryRouter } = require("./routes");
 // 메인페이지 경로
