@@ -1,146 +1,142 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>main page</title>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  <!-- Bootstrap CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main page</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
-  <!-- jQuery CDN -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="../static/main.css" </head>
+    <link rel="stylesheet" href="../static/main.css" </head>
 
-<body>
-  <h1>My Place</h1>
+  <body>
+    <h1>My Place</h1>
 
-  <header class="info">
-    <div class="menu">
-      <nav class="clearfix">
-        <ul class="clearfix">
-          <!-- menu_a는 왼쪽으로, menu_b는 오른쪽으로 이동할 것 -->
-          <li class="menu_a">내 주변 장소</li>
-          <li class="menu_b">홈</li>
-          <li class="menu_b">카테고리</li>
-          <li class="menu_b">찜</li>
-          <li class="menu_b">로그인</li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <header class="info">
+      <div class="menu">
+        <nav class="clearfix">
+          <ul class="clearfix">
+            <!-- menu_a는 왼쪽으로, menu_b는 오른쪽으로 이동할 것 -->
+            <li class="menu_a">내 주변 장소</li>
+            <li class="menu_b">홈</li>
+            <li class="menu_b">카테고리</li>
+            <li class="menu_b">찜</li>
+            <li class="menu_b">로그인</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-  <!-- main 이미지. 이미지 넘기고 싶으면 Bootstrap 캐러셀 이용하기 -->
-  <div class="main-container">
-    <div class="main-image">
-      <img
-        src="https://images.unsplash.com/photo-1580687581486-9d5aa7b902b3?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="전시회 이미지">
-    </div>
-    <div class="main-text">
-      <h2>올해 최고의 순간을 MyPlace와 함께</h2><br />
-      <h4>내 주변 전시회를 찾아보세요</h4><br /><br />
-      <a href="">주변 장소 보러 가기</a>
-    </div>
+    <!-- main 이미지. 이미지 넘기고 싶으면 Bootstrap 캐러셀 이용하기 -->
+    <div class="main-container">
+      <div class="main-image">
+        <img src="https://images.unsplash.com/photo-1580687581486-9d5aa7b902b3?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="전시회 이미지">
+      </div>
+      <div class="main-text">
+        <h2>올해 최고의 순간을 MyPlace와 함께</h2><br />
+        <h4>내 주변 전시회를 찾아보세요</h4><br /><br />
+        <a href="">주변 장소 보러 가기</a>
+      </div>
 
-    <div class="main-select">
-      <div class="row">
-        <div class="col-4">
-          <img src="image1.jpg" alt="이미지 1">
-          <p>텍스트 1</p>
-        </div>
-        <div class="col-4">
-          <img src="image2.jpg" alt="이미지 2">
-          <p>텍스트 2</p>
-        </div>
-        <div class="col-4">
-          <img src="image3.jpg" alt="이미지 3">
-          <p>텍스트 3</p>
-        </div>
-        <div class="col-4">
-          <img src="image4.jpg" alt="이미지 4">
-          <p>텍스트 4</p>
+      <div class="main-select">
+        <div class="row">
+          <div class="col-4">
+            <img src="image1.jpg" alt="이미지 1">
+            <p>텍스트 1</p>
+          </div>
+          <div class="col-4">
+            <img src="image2.jpg" alt="이미지 2">
+            <p>텍스트 2</p>
+          </div>
+          <div class="col-4">
+            <img src="image3.jpg" alt="이미지 3">
+            <p>텍스트 3</p>
+          </div>
+          <div class="col-4">
+            <img src="image4.jpg" alt="이미지 4">
+            <p>텍스트 4</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- 멀티 슬라이드 -->
-  <div class="slide_wrap">
-    <div class="slide_show">
-      <div class="slide_list">
-        <div class="slide"><img src="https://tistory1.daumcdn.net/tistory/3344040/skin/images/slideshow_5.jpg"
-            alt="이미지"></div>
-        <div class="slide"><img src="https://tistory4.daumcdn.net/tistory/3344040/skin/images/slideshow_1.jpg"
-            alt="이미지"></div>
-        <div class="slide"><img src="https://tistory1.daumcdn.net/tistory/3344040/skin/images/slideshow_4.jpg"
-            alt="이미지"></div>
+    <!-- 멀티 슬라이드 -->
+    <div class="slide_wrap">
+      <div class="slide_show">
+        <div class="slide_list">
+          <div class="slide"><img src="https://tistory1.daumcdn.net/tistory/3344040/skin/images/slideshow_5.jpg" alt="이미지"></div>
+          <div class="slide"><img src="https://tistory4.daumcdn.net/tistory/3344040/skin/images/slideshow_1.jpg" alt="이미지"></div>
+          <div class="slide"><img src="https://tistory1.daumcdn.net/tistory/3344040/skin/images/slideshow_4.jpg" alt="이미지"></div>
+        </div>
+      </div>
+
+      <!-- 버튼 -->
+      <div class="slide_btn">
+        <button class="prev">뒤로</button>
+        <button class="next">앞으로</button>
       </div>
     </div>
 
-    <!-- 버튼 -->
-    <div class="slide_btn">
-      <button class="prev">뒤로</button>
-      <button class="next">앞으로</button>
-    </div>
-  </div>
+    <script>
+      // 멀티 슬라이드
+      let slideWrap = $(".slide_wrap"),
+        slideShow = slideWrap.find(".slide_show"),
+        slideList = slideShow.find(".slide_list"),
+        slides = slideList.find(".slide"),
+        slideBtn = slideWrap.find(".slide_btn");
 
-  <script>
-    // 멀티 슬라이드
-    let slideWrap = $(".slide_wrap"),
-      slideShow = slideWrap.find(".slide_show"),
-      slideList = slideShow.find(".slide_list"),
-      slides = slideList.find(".slide"),
-      slideBtn = slideWrap.find(".slide_btn");
+      let slideCount = slides.length,
+        slideWidth = slides.innerWidth(),
+        showNum = 3,
+        num = 0,
+        currentIndex = 0,
 
-    let slideCount = slides.length,
-      slideWidth = slides.innerWidth(),
-      showNum = 3,
-      num = 0,
-      currentIndex = 0,
+        slideCopy = $(".slide:lt(" + showNum + ")").clone();
+      slideList.append(slideCopy);
 
-      slideCopy = $(".slide:lt(" + showNum + ")").clone();
-    slideList.append(slideCopy);
-
-    //이미지 왼쪽으로 움직이기
-    function backShow() {
-      if (num == 0) {
-        //시작
-        num = slideCount;
-        slideList.css("left", -num * slideWidth + "px");
+      //이미지 왼쪽으로 움직이기
+      function backShow() {
+        if (num == 0) {
+          //시작
+          num = slideCount;
+          slideList.css("left", -num * slideWidth + "px");
+        }
+        num--;
+        slideList.stop().animate({
+          left: -slideWidth * num + "px"
+        }, 400);
       }
-      num--;
-      slideList.stop().animate({ left: -slideWidth * num + "px" }, 400);
-    }
-    //이미지 오른쪽으로 움직이기
-    function nextShow() {
-      if (num == slideCount) {
-        //마지막
-        num = 0;
-        slideList.css("left", num);
+      //이미지 오른쪽으로 움직이기
+      function nextShow() {
+        if (num == slideCount) {
+          //마지막
+          num = 0;
+          slideList.css("left", num);
+        }
+        num++;
+        slideList.stop().animate({
+          left: -slideWidth * num + "px"
+        }, 400);
       }
-      num++;
-      slideList.stop().animate({ left: -slideWidth * num + "px" }, 400);
-    }
 
-    //왼쪽, 오른쪽 버튼 설정
-    slideBtn.on("click", "button", function () {
-      if ($(this).hasClass("prev")) {
-        //왼쪽 버튼을 클릭
-        backShow();
-      } else {
-        //오른쪽 버튼을 클릭
-        nextShow();
-      }
-    });
-  </script>
-</body>
+      //왼쪽, 오른쪽 버튼 설정
+      slideBtn.on("click", "button", function() {
+        if ($(this).hasClass("prev")) {
+          //왼쪽 버튼을 클릭
+          backShow();
+        } else {
+          //오른쪽 버튼을 클릭
+          nextShow();
+        }
+      });
+    </script>
+  </body>
 
 </html>
