@@ -21,7 +21,12 @@
         <form id="form-register" name="form_register">
 
             <label for="u_id" class="visually">아이디</label>
-            <input type="text" name="u_id" placeholder="ID">
+            <div id="id_double">
+                <input type="text" name="u_id" placeholder="ID">
+                <button type="button" onclick="">중복확인</button>
+            </div>
+
+            <p>사용 가능한 아이디입니다./ 중복된 아이디입니다.</p>
 
             <label for="email" class="visually">이메일</label>
             <input type="text" name="email" placeholder="Email">
