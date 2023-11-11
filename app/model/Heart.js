@@ -1,11 +1,12 @@
 function Heart(Sequelize, DataTypes) {
     return Sequelize.define(
-        "Heart",
+        "heart",
         {
             // h_id, u_id, g_id
             h_id: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
+                primaryKey: true,
                 autoIncrement: true,               
             },
             u_id: {
@@ -19,7 +20,7 @@ function Heart(Sequelize, DataTypes) {
             },
         },
         {
-            tableName: "Heart",
+            tableName: "heart",
         }
     )
 }

@@ -1,6 +1,6 @@
 function Comment(Sequelize, DataTypes){
     return Sequelize.define(
-        "Comment",
+        "comment",
         {
             // c_id(pk), g_id(fk), star, review
             c_id: {
@@ -24,7 +24,7 @@ function Comment(Sequelize, DataTypes){
             },
         },
         {
-            tableName: "Comment",
+            tableName: "comment",
         }
     )
 }

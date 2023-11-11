@@ -1,13 +1,12 @@
 function User(Sequelize, DataTypes){
     return Sequelize.define(
-        "User",
+        "user",
         {
             // u_id, email, password, name
             u_id: {
                 type: DataTypes.STRING(8),
                 allowNull: false,
-                primaryKey: true,
-                autoIncrement: false,
+                primaryKey: true
             }, 
             email: {
                 type: DataTypes.STRING(30),
@@ -23,7 +22,7 @@ function User(Sequelize, DataTypes){
             },
         },
         {
-            tableName: "User",
+            tableName: "user",
             freezeTableName: true,
             timestamps: false,
         }
