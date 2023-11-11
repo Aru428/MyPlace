@@ -32,33 +32,20 @@
   #form-delete > input::placeholder {
     color: #d2d2d2;
   }
-  #form-delete > input[type="submit"] {
+  #form-delete > button[type="button"] {
     color: #fff;
     font-size: 16px;
     background-color: #6a24fe;
     margin-top: 20px;
   }
   
-  .delete-wrapper {
-    width: 400px;
-    height: 350px;
-    padding: 40px;
-    box-sizing: border-box;
-  }
-  
-  .delete-wrapper > h2 {
-    font-size: 24px;
-    color: #6a24fe;
-    margin-bottom: 20px;
-  }
-
   .delete-wrapper > p {
     font-size: 15px;
     color: #000000;
     margin: 20px 0px 40px 0px;
   }
 
-  #form-delete > input {
+  #form-delete > button {
     width: 100%;
     height: 48px;
     padding: 0 10px;
@@ -67,10 +54,13 @@
     border-radius: 6px;
     background-color: #f8f8f8;
   }
-  #form-delete > input::placeholder {
+  
+
+  #form-delete > button::placeholder {
     color: #d2d2d2;
   }
-  #form-delete > input[type="button"] {
+
+  #form-delete > button[type="button"] {
     color: #fff;
     font-size: 16px;
     background-color: #6a24fe;
