@@ -19,17 +19,36 @@
     <div class="delete-wrapper">
         <h2>탈퇴하기</h2>
         <p>탈퇴를 위해 비밀번호를 확인합니다.</p>
-        <form id="form-delete" name="form-delete">
+        <form id="form-delete" name="form_delete">
             <label for="password" class="visually">비밀번호</label>
             <input type="password" name="password" placeholder="Password">
 
-            <input type="button" value="탈퇴" onclick="">
-            <input type="button" value="취소" onclick="">
+            <button type="button" name="" onclick="">탈퇴</button>
+            <button type="button" name="" onclick="">취소</button>
         </form>
     </div>
 
     <script>
- 
+       function userDelete() {
+        var form = document.getElementById("form_delete");
+        if (!form.checkValidity()) {
+          form.reportValidity();
+
+          return false;
+        }
+
+        axios({
+          method: 'delete',
+          url: `/user/profile/delete/:u_id`,
+        }).then((res) => {
+          if (res.data.result) {
+            alert("회원 탈퇴 성공");
+            document.location.href = "/main";
+          } else {
+            alert("탈퇴 실패") ;
+          }
+        });
+      }
     </script>
 </body>
 </html>

@@ -16,7 +16,7 @@
 <body>
     <div class="editProfile-wrapper">
         <h2>회원정보 수정</h2>
-        <form id="form-editProfile" name="form-editProfile">
+        <form id="form-editProfile" name="form_editProfile">
             <label for="u_id" class="visually">아이디</label>
             <input type="text" name="u_id" placeholder="ID">
 
@@ -34,14 +34,14 @@
             <label for="password" class="visually">새 비밀번호 확인</label>
             <input type="password" name="password" placeholder="Password">
 
-            <input type="button" name="edit" value="수정" onclick="profileEdit();">
+            <button type="button" name="edit" onclick="profileEdit();">수정</button>
         </form>
     </div>
 
 
     <script>
       function profileEdit() {
-        const form = document.getElementById("form-editProfile");
+        const form = document.getElementById("form_editProfile");
         if (!form.checkValidity()) {
           form.reportValidity();
 
@@ -76,26 +76,6 @@
 
 
 
-    //   function profileDelete() {
-    //     var form = document.getElementById("form-editProfile");
-    //     if (!form.checkValidity()) {
-    //       form.reportValidity();
-
-    //       return false;
-    //     }
-
-    //     axios({
-    //       method: 'delete',
-    //       url: `/user/profile/delete/:u_id`,
-    //     }).then((res) => {
-    //       if (res.data.result) {
-    //         alert("회원 탈퇴 성공");
-    //         document.location.href = "/main";
-    //       } else {
-    //         alert("탈퇴 실패");
-    //       }
-    //     });
-    //   }
 
     </script>
     
