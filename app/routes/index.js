@@ -19,37 +19,19 @@ userRouter.post("/signup", signup.postSignUp);
 
 // 마이페이지(회원정보 수정) 관련
 const profile = require("../controller/Cprofile");
-userRouter.get("/profile", profile.profilePage);
+userRouter.get("/profile", profile.selectProfilePage);
+userRouter.get("/profile/editcheck", profile.editCheckPage);
+userRouter.get("/profile/edit", profile.profilePage);
 userRouter.patch("/profile/edit/:u_id", profile.profileEdit);
+userRouter.get("/profile/delete", profile.deleteCheckPage);
 userRouter.delete("/profile/delete/:u_id", profile.profileDelete);
 
 // 카테고리 관련
 const category = require("../controller/Clist");
 galleryRouter.get("/category", category.categoryPage);
 
-
-
-
-// 테스트용
-const router = express.Router();
-
-router.get("/editProfile_select", function (req, res) {
-  res.render("editProfile_select");
-});
-
-router.get("/editProfile_editCheck", function (req, res) {
-  res.render("editProfile_editCheck");
-});
-
-router.get("/editProfile_delete", function (req, res) {
-  res.render("editProfile_delete");
-});
-
-
-
 module.exports = {
   mainRouter,
   userRouter,
   galleryRouter,
-  router,
 };
