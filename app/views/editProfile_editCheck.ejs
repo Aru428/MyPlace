@@ -23,13 +23,45 @@
             <label for="password" class="visually">비밀번호</label>
             <input type="password" name="password" placeholder="Password">
 
-            <button type="button" name="" onclick="">확인</button>
-            <button type="button" name="" onclick="">취소</button>
+            <button type="button" name="" onclick="pwCheck();">확인</button>
+            <button type="button" name="" onclick="location.href='/user/profile'">취소</button>
         </form>
     </div>
 
     <script>
- 
+      function pwCheck() {
+        const form = document.getElementById("form_editCheck");
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return false;
+        }
+        let user = {            
+            password: form.password.value,
+            };
+        
+        axios({
+          method: 'get',
+          url: `/user/profile/edit/`,
+          data: user
+        }).then((res) => {
+          if (res.data.result) {
+            document.location.href = "/user/profile/edit/";
+          } else {
+            alert("비밀번호가 일치하지 않습니다.");
+          }
+        }).catch((err) => {
+          alert("비밀번호 확인 실패");
+        });
+      }
+
+      if(form.password.value.length == 0){
+        alert("비밀번호를 입력해주세요.");
+        password.focus();
+        return false;
+      }
+
+
+
     </script>
 </body>
 </html>

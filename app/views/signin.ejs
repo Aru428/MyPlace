@@ -49,6 +49,7 @@
           }).then((res) => {
             if (res.data.result == true) {
               alert("로그인 성공");
+              document.location.href = "/main";
             } else {
               alert("로그인 실패");
             }
