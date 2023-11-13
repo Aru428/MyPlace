@@ -13,8 +13,15 @@ exports.postLogin = async(req, res) => {
   }).then((result) => {
     console.log("findOne: ", result);
     // session 적용전
+    // if(result) {
+    //   res.send({result: true}); 
+    // } else {
+    //   res.send({result: false});
+    // }
+
     if(result) {
-      res.send({result: true}); 
+      req.session.user = result.u_id
+      res.send({result: true, id: result.u_id});
     } else {
       res.send({result: false});
     }
