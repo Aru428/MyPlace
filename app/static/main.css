@@ -9,153 +9,104 @@
 /* ABeeZee font import */
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+a {
+  text-decoration: none;
+}
+
 h1 {
   text-align: center;
   font-family: 'ABeeZee', sans-serif;
+  font-size: 50px;
 }
 
-/** nav바 **/
-nav {
-  font-size: 12pt;
-  font-family: 'PT Sans', Arial, Sans-serif;
-  position: relative;
-  line-height: 50px;
-  height: 50px;
-}
-nav ul {
-  padding: 0;
-  margin: 0 auto;
-  width: auto;
-}
-nav li {
-  box-sizing: border-box;
-  /* -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box; */
-}
-nav li:last-child {
-  border-right: 0;
-}
-
-ul {
-  /*list-style-type: none;*/
-  margin: 0;
-  padding: 0;
-  background-color: #333;
-  text-align: center;
-}
-li {
-  /*position: relative;*/
-  display: inline-block;
-  color: #ffffff;
-  text-align: center;
-  padding: 14.5px 16px;
-  text-decoration: none;
-}
-li:hover {
-  /*color: #597812;*/
-  color: #ffd400;
-  font-weight: normal;
-}
-
-/* menu_a는 왼쪽으로, menu_b는 오른쪽으로 이동할 것 */
-li menu_a {
-  text-align: left;
-}
-.menu {
-  width: 5000px;
-  height: 50px;
-  text-align: center;
-  max-width: 100%;
-  background-position: center;
-  background-size: cover;
-  background-color: #333333;
-  color: white;
-  position: absolute;
-  z-index: 1;
-}
-
+/* main 이미지 */
 .main-container {
-  display: block; /* display: none 의 속성을 제거하여 텍스트를 표시 */
-  position: absolute;
+  position: relative;
   text-align: center;
-  top: 200px;
+  top: 40px;
+
+  width: 1200px;
   margin: 0 auto;
+  display: flex;
+
   justify-content: center;
   align-items: center;
-  background-color: #8d8d8d;
-  display: flex;
-  justify-content: center;
 }
 
-.main-image {
-  width: 1000px;
-}
+.main-container img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
 
-.main-image img {
-  position: relative;
-  width: 100%;
-  height: auto;
   /* 반응형. 이미지가 400px 보다 작아지지 않도록 함 */
   /* min-width: 400px; */
 }
 
 .main-text {
   position: absolute;
-  bottom: 2%;
-  left: 2%;
-}
-
-.main-text h2,
-h4,
-a {
-  margin: 0;
+  bottom: 10px;
+  left: 30px;
+  margin: 0px;
+  display: block;
   text-align: left;
   color: white;
 }
 
+/* 이미지 4개 */
 .main-select {
   width: 100%;
-  top: 700px;
-  display: flex;
+  top: 210px;
   position: absolute;
-  /* flex-wrap: wrap; */
-  align-items: flex-start;
-  justify-content: space-evenly;
-  text-align: center;
+  color: black;
+  margin-left: 40%;
+}
+
+.main-select img {
+  border-radius: 5%;
 }
 
 .row {
-  /* 가로 - 여러 줄로 묶음 */
-  flex-wrap: wrap;
+  /* 가로 - 줄바꿈 없음 */
+  flex-wrap: nowrap;
+
+  position: absolute;
+  justify-content: flex-end;
 }
 
 .col-4 {
-  width: 100px;
-}
-
-.banner {
-  width: 500px;
-  height: 20px;
-  border: 1px solid #ddd;
-  overflow: hidden;
+  width: 200px;
+  text-align: center;
+  margin-right: 20px;
 }
 
 /* 멀티 슬라이드 */
-.slide_wrap {
-  position: relative;
-  bottom: 10%;
-  margin-top: 1100px;
+.recommend {
+  position: absolute;
+  margin: 360px 0 0 70px;
+  color: #000;
 }
+
+.slide_wrap {
+  position: absolute;
+  bottom: 10%;
+  top: 70px;
+}
+
+.slide_wrap h3 {
+  /* text-align: center; */
+  bottom: 50px;
+}
+
 .slide_show {
   width: 900px;
   height: 200px;
   overflow: hidden; /* 넘친 컨텐츠는 잘려지고 보여지지 않음 */
-  position: relative;
+  position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  margin: auto;
+  /* margin: auto; */
 }
 .slide_show .slide_list {
   position: relative;
@@ -187,7 +138,6 @@ a {
 .slide_list > div:nth-child(3n + 3)::before {
   content: '03';
 }
-
 .slide_show .slide_list > div img {
   width: 100%;
 }
@@ -195,9 +145,8 @@ a {
 /* 버튼 */
 .slide_btn {
   position: absolute;
-  left: 50%;
-  /* top: 100%; */
-  transform: translatex(-50%); /* 대상을 x축으로 이동 */
+  margin-top: 200px;
+  margin-left: 470px;
 }
 .slide_btn button {
   /* background-color: rgb(135, 135, 135);
