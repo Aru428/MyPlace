@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-decoration: none;
+    color: inherit;
+  }
+  body {
+    font-family: "Roboto", sans-serif;
+  }
+  
+#list-container {
+    border: 1px solid black;
+}
+
+#list-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border: 1px solid red;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+#card {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 310px;
+    width: 250px;
+    padding: 5px;
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+  }
+
+#card #img img {
+    height: 150px;
+    width: 240px;
+}
+
+#text #address {
+    font-size: 13px;
+    margin: 5px 0px 15px 0px;
+}
+
+#text #g_name {
+    font-size: 20px;
+    margin: 20px 0px 15px 0px;
+}
+
+#text #deadline {
+    font-size: 16px;
+    margin: 15px 0px 15px 0px;
+}
+
+#card #text button {
+    color: #fff;
+    font-size: 16px;
+    padding: 3px 8px;
+    background-color: #6a24fe;
+    border-radius: 6px;
+    margin-top: 10px;
+    padding: 5 10px;
+    transition: .5s ease;
+    border: 1px solid #6a24fe;
+}
+
+#card #text button:hover {
+    transition: .5s ease;
+    background-color: transparent;
+    color: #6a24fe;
+    border: 1px solid #6a24fe;
+}
