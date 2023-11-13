@@ -23,8 +23,8 @@
             <label for="password" class="visually">비밀번호</label>
             <input type="password" name="password" placeholder="Password">
 
-            <button type="button" name="" onclick="">탈퇴</button>
-            <button type="button" name="" onclick="">취소</button>
+            <button type="button" name="" onclick="userDelete();">탈퇴</button>
+            <button type="button" name="" onclick="location.href='/user/profile'">취소</button>
         </form>
     </div>
 
@@ -33,7 +33,6 @@
         var form = document.getElementById("form_delete");
         if (!form.checkValidity()) {
           form.reportValidity();
-
           return false;
         }
 

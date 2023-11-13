@@ -31,10 +31,10 @@
             <label for="password" class="visually">새 비밀번호</label>
             <input type="password" name="password" placeholder="Password">
 
-            <label for="password" class="visually">새 비밀번호 확인</label>
-            <input type="password" name="password" placeholder="Password">
+            <label for="password-check" class="visually">새 비밀번호 확인</label>
+            <input type="password" name="password-check" placeholder="Password">
 
-            <button type="button" name="edit" onclick="profileEdit();">수정</button>
+            <button type="button" name="edit" onclick="profileEdit(); pwEdit();">수정</button>
         </form>
     </div>
 
@@ -68,14 +68,27 @@
         });
       }
 
-    
-      // 비밀번호 변경 구현
 
-
-
-
-
-
+      function pwEdit() {
+        const form = document.getElementById("form_editProfile");
+        let user = {            
+                pw: form.password.value
+            };
+        
+        axios({
+          method: 'patch',
+          url: `/user/profile/edit/:u_id`,
+          data: user
+        }).then((res) => {
+          if (res.data.result) {
+            alert("비밀번호 변경 성공");
+          } else {
+            alert("비밀번호 변경 실패");
+          }
+        }).catch((err) => {
+          alert("변경 실패");
+        });
+      }
 
     </script>
     
