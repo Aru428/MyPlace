@@ -30,7 +30,19 @@ exports.editCheckPw = (req, res) => {
 
 exports.profilePage = (req, res) => {
   // 회원 수정 페이지 렌더
-  res.render("editProfile");
+  User.findOne({
+    where: {
+      u_id: req.session.user,
+    },
+  }).then((row) => {
+    const data = {
+      id: row.u_id,
+      pw: row.password,
+      name: row.name,
+      email: row.email,
+    };
+    res.render("editProfile", { data: data });
+  });
 };
 
 exports.profileEdit = (req, res) => {

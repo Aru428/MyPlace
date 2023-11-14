@@ -1,43 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>signin</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap'>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap"
+    />
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <link rel="stylesheet" href="/static/editProfile.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/static/editProfile.css" />
+  </head>
+  <body>
     <div class="editProfile-wrapper">
-        <h2>회원정보 수정</h2>
-        <form id="form-editProfile" name="form_editProfile">
-            <label for="u_id" class="visually">아이디</label>
-            <input type="text" name="u_id" placeholder="ID">
+      <h2>회원정보 수정</h2>
+      <form id="form-editProfile" name="form_editProfile">
+        <label for="u_id" class="visually">아이디</label>
+        <input
+          type="text"
+          name="u_id"
+          placeholder="ID"
+          value="<%=data.id %>"
+          readonly
+        />
 
-            <label for="u_id" class="visually">이메일</label>
-            <input type="text" name="u_id" placeholder="Email">
+        <label for="u_id" class="visually">이메일</label>
+        <input
+          type="text"
+          name="u_id"
+          placeholder="Email"
+          value="<%=data.email %>"
+          readonly
+        />
 
-            <label for="name" class="visually">이름</label>
-            <input type="text" name="name" placeholder="Name">
+        <label for="name" class="visually">이름</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value="<%=data.name %>"
+        />
 
-            <p>비밀번호 변경 시에만 입력</p>
+        <p>비밀번호 변경 시에만 입력</p>
 
-            <label for="password" class="visually">새 비밀번호</label>
-            <input type="password" name="password" placeholder="Password">
+        <label for="password" class="visually">새 비밀번호</label>
+        <input type="password" name="password" placeholder="Password" />
 
-            <label for="password-check" class="visually">새 비밀번호 확인</label>
-            <input type="password" name="password-check" placeholder="Password">
+        <label for="password-check" class="visually">새 비밀번호 확인</label>
+        <input type="password" name="password-check" placeholder="Password" />
 
-            <button type="button" name="edit" onclick="profileEdit(); pwEdit();">수정</button>
-        </form>
+        <button type="button" name="edit" onclick="profileEdit(); pwEdit();">
+          수정
+        </button>
+      </form>
     </div>
-
 
     <script>
       function profileEdit() {
@@ -47,50 +75,51 @@
 
           return false;
         }
-        let user = {            
-                u_id: form.u_id.value,
-                email: form.email.value,
-                name: form.name.value,
-            };
-        
-        axios({
-          method: 'patch',
-          url: `/user/profile/edit/:u_id`,
-          data: user
-        }).then((res) => {
-          if (res.data.result) {
-            alert("회원정보 수정 성공");
-          } else {
-            alert("수정 실패");
-          }
-        }).catch((err) => {
-          alert("수정 실패");
-        });
-      }
+        let user = {
+          u_id: form.u_id.value,
+          email: form.email.value,
+          name: form.name.value,
+        };
 
+        axios({
+          method: "patch",
+          url: `/user/profile/edit/:u_id`,
+          data: user,
+        })
+          .then((res) => {
+            if (res.data.result) {
+              alert("회원정보 수정 성공");
+            } else {
+              alert("수정 실패");
+            }
+          })
+          .catch((err) => {
+            alert("수정 실패");
+          });
+      }
 
       function pwEdit() {
         const form = document.getElementById("form_editProfile");
-        let user = {            
-                pw: form.password.value
-            };
-        
-        axios({
-          method: 'patch',
-          url: `/user/profile/edit/:u_id`,
-          data: user
-        }).then((res) => {
-          if (res.data.result) {
-            alert("비밀번호 변경 성공");
-          } else {
-            alert("비밀번호 변경 실패");
-          }
-        }).catch((err) => {
-          alert("변경 실패");
-        });
-      }
+        let user = {
+          pw: form.password.value,
+        };
 
+        axios({
+          method: "patch",
+          url: `/user/profile/edit/:u_id`,
+          data: user,
+        })
+          .then((res) => {
+            if (res.data.result) {
+              alert("비밀번호 변경 성공");
+            } else {
+              alert("비밀번호 변경 실패");
+            }
+          })
+          .catch((err) => {
+            alert("변경 실패");
+          });
+      }
     </script>
-    
-</body>
+  </body>
 </html>
