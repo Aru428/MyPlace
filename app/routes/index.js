@@ -18,11 +18,11 @@ userRouter.get("/signup", signup.signUpPage);
 userRouter.post("/signupcheck", signup.postSignUpCheck);
 userRouter.post("/signup", signup.postSignUp);
 
-
 // 마이페이지(회원정보 수정) 관련
 const profile = require("../controller/Cprofile");
 userRouter.get("/profile", profile.selectProfilePage);
 userRouter.get("/profile/editcheck", profile.editCheckPage);
+userRouter.post("/profile/editcheck", profile.editCheckPw);
 userRouter.get("/profile/edit", profile.profilePage);
 userRouter.patch("/profile/edit/:u_id", profile.profileEdit);
 userRouter.get("/profile/delete", profile.deleteCheckPage);
