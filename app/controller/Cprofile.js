@@ -46,7 +46,41 @@ exports.profilePage = (req, res) => {
 };
 
 exports.profileEdit = (req, res) => {
-  // 수정 실행
+  // name 수정 실행
+  const data = {
+    name: req.body.name,
+  };
+  User.update(data, {
+    where: {
+      u_id: req.session.user,
+    },
+  }).then((row) => {
+    if (row) {
+      res.send({ result: true });
+    } else {
+      res.send({ result: false });
+    }
+  });
+};
+
+exports.profileAllEdit = (req, res) => {
+  // name,password 수정 실행
+  // 아직 작동안함
+  const data = {
+    password: req.body.pw,
+    name: req.body.name,
+  };
+  User.update(data, {
+    where: {
+      u_id: req.session.user,
+    },
+  }).then((row) => {
+    if (row) {
+      res.send({ result: true });
+    } else {
+      res.send({ result: false });
+    }
+  });
 };
 
 // 회원 탈퇴 시 비밀번호 확인 페이지 관련

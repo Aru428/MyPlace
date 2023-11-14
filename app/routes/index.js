@@ -7,7 +7,7 @@ const galleryRouter = express.Router();
 const main = require("../controller/Cmain");
 mainRouter.get("/", main.mainPage);
 
-// 로그인 관련dd
+// 로그인 관련
 const signin = require("../controller/Csignin");
 userRouter.get("/signin", signin.loginPage);
 userRouter.post("/signin", signin.postLogin);
@@ -25,6 +25,7 @@ userRouter.get("/profile/editcheck", profile.editCheckPage);
 userRouter.post("/profile/editcheck", profile.editCheckPw);
 userRouter.get("/profile/edit", profile.profilePage);
 userRouter.patch("/profile/edit/:u_id", profile.profileEdit);
+userRouter.patch("/profile/editall/:u_id", profile.profileAllEdit);
 userRouter.get("/profile/delete", profile.deleteCheckPage);
 userRouter.delete("/profile/delete/:u_id", profile.profileDelete);
 
