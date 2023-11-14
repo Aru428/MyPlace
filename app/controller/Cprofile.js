@@ -5,14 +5,15 @@ exports.selectProfilePage = (req, res) => {
   res.render("editProfile_select");
 };
 
-// 회원 수정 시 비밀번호 확인 페이지 관련
+// 회원 수정 페이지 관련
+
 exports.editCheckPage = (req, res) => {
-  // 페이지 렌더
+  // 수정 시 비밀번호 확인 페이지 렌더
   res.render("editProfile_editCheck");
 };
 
 exports.editCheckPw = (req, res) => {
-  // 수정페이지 전 비밀번호 확인
+  // 수정 전 비밀번호 확인
   User.findOne({
     where: {
       u_id: req.session.user,
@@ -27,12 +28,60 @@ exports.editCheckPw = (req, res) => {
   });
 };
 
-// 회원 수정 페이지 관련
 exports.profilePage = (req, res) => {
-  res.render("editProfile");
+  // 회원 수정 페이지 렌더
+  User.findOne({
+    where: {
+      u_id: req.session.user,
+    },
+  }).then((row) => {
+    const data = {
+      id: row.u_id,
+      pw: row.password,
+      name: row.name,
+      email: row.email,
+    };
+    res.render("editProfile", { data: data });
+  });
 };
 
-exports.profileEdit = (req, res) => {};
+exports.profileEdit = (req, res) => {
+  // name 수정 실행
+  const data = {
+    name: req.body.name,
+  };
+  User.update(data, {
+    where: {
+      u_id: req.session.user,
+    },
+  }).then((row) => {
+    if (row) {
+      res.send({ result: true });
+    } else {
+      res.send({ result: false });
+    }
+  });
+};
+
+exports.profileAllEdit = (req, res) => {
+  // name,password 수정 실행
+  // 아직 작동안함
+  const data = {
+    password: req.body.pw,
+    name: req.body.name,
+  };
+  User.update(data, {
+    where: {
+      u_id: req.session.user,
+    },
+  }).then((row) => {
+    if (row) {
+      res.send({ result: true });
+    } else {
+      res.send({ result: false });
+    }
+  });
+};
 
 // 회원 탈퇴 시 비밀번호 확인 페이지 관련
 exports.deleteCheckPage = (req, res) => {

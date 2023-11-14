@@ -32,7 +32,7 @@
         <label for="password" class="visually">비밀번호</label>
         <input type="password" id="pw" name="password" placeholder="Password" />
 
-        <button type="button" name="" onclick="pwCheck();">확인</button>
+        <button type="button" name="" onclick="pwCheck()">확인</button>
         <button type="button" name="" onclick="location.href='/user/profile'">
           취소
         </button>
@@ -49,7 +49,7 @@
 
         if (form.password.value.length == 0) {
           alert("비밀번호를 입력해주세요.");
-          password.focus();
+          form.password.focus();
           return false;
         }
 
