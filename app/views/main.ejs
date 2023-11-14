@@ -52,12 +52,34 @@
             <a class="nav-link" href="#">찜</a>
           </li>
           <li class="nav-item">
+
+            <!-- 로그 아웃으로 로고 바꾸고, 로그아웃을 누를시 세션 종료+ 로그아웃 버튼이 로그안으로 돌아오도록 -->
+            <% if(user) { %>
+            <button class="nav-link" type="button" onclick="logout()" >로그아웃</button>
+            <% } else { %>
             <a class="nav-link" href="./user/signin">로그인</a>
+            <% }%>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <script>
+    function logout(){
+      axios({
+        method: 'post',
+        url: '/main/logout',
+      }).then((res) => {
+        if(res.data.result){
+          alert("로그아웃 성공!!");
+          document.location.href="/main";
+        } else {
+          alert("로그아웃을 실패 하였습니다..");
+        }
+      })
+    }
+  </script>
 
   <!-- main 이미지 -->
   <div class="main-container">
