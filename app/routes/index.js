@@ -7,10 +7,14 @@ const galleryRouter = express.Router();
 const main = require("../controller/Cmain");
 mainRouter.get("/", main.mainPage);
 
-// 로그인 관련dd
+// 로그인 관련
 const signin = require("../controller/Csignin");
 userRouter.get("/signin", signin.loginPage);
 userRouter.post("/signin", signin.postLogin);
+
+// 로그아웃 관련
+const logout = require("../controller/Cmain");
+mainRouter.post("/logout", main.logOut);
 
 // 회원가입 관련
 const signup = require("../controller/Csignup");
@@ -18,15 +22,18 @@ userRouter.get("/signup", signup.signUpPage);
 userRouter.post("/signupcheck", signup.postSignUpCheck);
 userRouter.post("/signup", signup.postSignUp);
 
-
 // 마이페이지(회원정보 수정) 관련
 const profile = require("../controller/Cprofile");
 userRouter.get("/profile", profile.selectProfilePage);
 userRouter.get("/profile/editcheck", profile.editCheckPage);
+userRouter.post("/profile/editcheck", profile.editCheckPw);
 userRouter.get("/profile/edit", profile.profilePage);
 userRouter.patch("/profile/edit/:u_id", profile.profileEdit);
+userRouter.patch("/profile/editall/:u_id", profile.profileAllEdit);
 userRouter.get("/profile/delete", profile.deleteCheckPage);
 userRouter.delete("/profile/delete/:u_id", profile.profileDelete);
+
+
 
 // 카테고리 관련
 const category = require("../controller/Clist");

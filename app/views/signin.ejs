@@ -1,60 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>signin</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap'>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap"
+    />
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <link rel="stylesheet" href="/static/signin.css">
-     
-</head>
-<body>
+    <link rel="stylesheet" href="/static/signin.css" />
+  </head>
+  <body>
     <div class="signin-wrapper">
-        <h2>로그인</h2>
-        <form id="form-signin" name="form_signin">
-            <label for="u_id" class="visually">아이디</label>
-            <input type="text" name="u_id" placeholder="Email">
+      <h2>로그인</h2>
+      <form id="form-signin" name="form_signin">
+        <label for="u_id" class="visually">아이디</label>
+        <input type="text" name="u_id" placeholder="ID" />
 
-            <label for="password" class="visually">비밀번호</label>
-            <input type="password" name="password" placeholder="Password">
+        <label for="password" class="visually">비밀번호</label>
+        <input type="password" name="password" placeholder="Password" />
 
-            <button type="button" onclick="signin();">로그인</button>
-        </form>
+        <button type="button" onclick="signin();">로그인</button>
+      </form>
     </div>
 
     <script>
-        function signin() {
-          const form = document.forms["form_signin"];
-          if (!form.checkValidity()) {
-            form.reportValidity();
-            return false;
-          }
-
-          let user = {
-            u_id: form.u_id.value,
-            password: form.password.value,
-          };
-          
-          axios({
-            method: 'post',
-            url: '/user/signin',
-            data: user
-          }).then((res) => {
-            if (res.data.result == true) {
-              alert("로그인 성공");
-              document.location.href = "/main";
-            } else {
-              alert("로그인 실패");
-            }
-          });
+      function signin() {
+        const form = document.forms["form_signin"];
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return false;
         }
-      </script>
-</body>
+
+        let user = {
+          u_id: form.u_id.value,
+          password: form.password.value,
+        };
+
+        axios({
+          method: "post",
+          url: "/user/signin",
+          data: user,
+        }).then((res) => {
+          if (res.data.result == true) {
+            alert("로그인 성공");
+            document.location.href = "/main";
+          } else {
+            alert("로그인 실패");
+          }
+        });
+      }
+    </script>
+  </body>
 </html>

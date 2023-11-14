@@ -10,7 +10,7 @@ function Gallery(Sequelize, DataTypes) {
                 autoIncrement: true,
             },
             g_name: {
-                type: DataTypes.STRING(20),
+                type: DataTypes.STRING(40),
                 allowNull: false,
             },
             address: {
@@ -18,17 +18,21 @@ function Gallery(Sequelize, DataTypes) {
                 allowNull: false,
             },
             deadline: {
-                type: DataTypes.DATE,
+                type: DataTypes.STRING(40),
                 allowNull: false,
             },
             website: {
-                type: DataTypes.STRING(30),
+                type: DataTypes.STRING(100),
                 allowNull: false,
             },
             category: {
                 type: DataTypes.STRING(10),
                 allowNull: false,
             },
+            detailaddr: {
+                type: DataTypes.STRING(50),
+            },
+
         },
         {
             tableName: "gallery",
