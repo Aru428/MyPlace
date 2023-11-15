@@ -102,7 +102,11 @@ exports.userDelete = (req, res) => {
           u_id: row.u_id,
         },
       }).then((result) => {
-        res.send({ result: true });
+        req.session.destroy((err) => {
+          if (err) throw err;
+
+          res.send({ result: true });
+        });
       });
     } else {
       res.send({ result: false });
