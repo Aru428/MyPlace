@@ -1,0 +1,71 @@
+body {
+  margin: 30px 0 0 0;
+  font-family: Arial, sans-serif;
+  background-color: #bae0fb;
+  overflow: hidden;
+  display: flex;
+}
+
+.container {
+  display: flex;
+  /* height: 100vh; */
+  height: 1200px;
+  overflow: hidden;
+  margin: 0 0 0 0;
+  padding: 0;
+}
+
+.sidebar {
+  width: 60px;
+  background-color: #ffffff;
+  color: #000000;
+  transition: width 0.3s;
+  border-right: 1px solid #cacaca;
+}
+
+/* 사이드바 버튼 */
+.toggle-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  z-index: 2;
+  color: rgb(0, 0, 0) 000;
+}
+.btn-a {
+  margin: 40px 0 0 5px;
+}
+.btn-b {
+  margin: 100px 0 0 5px;
+}
+.bi {
+  font-size: 25px;
+  /* line-height: 30px; */
+  color: black;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: -1;
+  flex: 1;
+  padding: 20px;
+  background-color: beige;
+  border-radius: 0 15px 15px 0;
+  /* 세로 스크롤 */
+  overflow-y: scroll;
+  transition: transform 0.5s ease;
+  animation: slideIn 0.5s ease;
+}
+
+.content img {
+  width: 200px;
+}
