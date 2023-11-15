@@ -7,7 +7,7 @@ const galleryRouter = express.Router();
 const main = require("../controller/Cmain");
 mainRouter.get("/", main.mainPage);
 
-// 로그인 관련dd
+// 로그인 관련
 const signin = require("../controller/Csignin");
 userRouter.get("/signin", signin.loginPage);
 userRouter.post("/signin", signin.postLogin);

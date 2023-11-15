@@ -37,3 +37,16 @@ create table heart(
     foreign key (u_id) references user(u_id),
     foreign key (g_id) references gallery(g_id)
 );
+
+-- 갤러리 테이블 컬럼추가
+ALTER TABLE gallery ADD detailaddr varchar(50);
+
+-- 갤러리 기간 타입변경
+ALTER TABLE gallery modify deadline varchar(40) not null;
+
+-- 갤러리 테이블 칼럼 g_name varchar크기 변경
+ALTER TABLE gallery modify g_name varchar(40) not null;
+
+
+-- 갤러리 테이블 칼럽 website varchar 크기 변경
+ALTER TABLE gallery modify website varchar(100) not null;
