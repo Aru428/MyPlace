@@ -65,7 +65,6 @@ exports.profileEdit = (req, res) => {
 
 exports.profileAllEdit = (req, res) => {
   // name,password 수정 실행
-  // 아직 작동안함
   const data = {
     password: req.body.pw,
     name: req.body.name,
@@ -88,4 +87,25 @@ exports.deleteCheckPage = (req, res) => {
   res.render("editProfile_delete");
 };
 
-exports.profileDelete = (req, res) => {};
+// 회원 탈퇴
+exports.userDelete = (req, res) => {
+  User.findOne({
+    where: {
+      u_id: req.session.user,
+      password: req.body.password,
+    },
+  }).then((row) => {
+    console.log("결과", row);
+    if (row) {
+      User.destroy({
+        where: {
+          u_id: row.u_id,
+        },
+      }).then((result) => {
+        res.send({ result: true });
+      });
+    } else {
+      res.send({ result: false });
+    }
+  });
+};

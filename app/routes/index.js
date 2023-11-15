@@ -22,7 +22,7 @@ userRouter.get("/signup", signup.signUpPage);
 userRouter.post("/signupcheck", signup.postSignUpCheck);
 userRouter.post("/signup", signup.postSignUp);
 
-// 마이페이지(회원정보 수정) 관련
+// 마이페이지(회원정보 수정/탈퇴) 관련
 const profile = require("../controller/Cprofile");
 userRouter.get("/profile", profile.selectProfilePage);
 userRouter.get("/profile/editcheck", profile.editCheckPage);
@@ -31,9 +31,7 @@ userRouter.get("/profile/edit", profile.profilePage);
 userRouter.patch("/profile/edit/:u_id", profile.profileEdit);
 userRouter.patch("/profile/editall/:u_id", profile.profileAllEdit);
 userRouter.get("/profile/delete", profile.deleteCheckPage);
-userRouter.delete("/profile/delete/:u_id", profile.profileDelete);
-
-
+userRouter.post("/profile/delete", profile.userDelete);
 
 // 카테고리 관련
 const category = require("../controller/Clist");
