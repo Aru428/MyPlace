@@ -51,21 +51,24 @@
           <li class="nav-item">
             <a class="nav-link" href="#">찜</a>
           </li>
-          <li class="nav-item">
-
-            <a class="nav-link" href="#">마이페이지</a>
-          </li>
-          <li class="nav-item">
-
 
             <!-- 로그 아웃으로 로고 바꾸고, 로그아웃을 누를시 세션 종료+ 로그아웃 버튼이 로그안으로 돌아오도록 -->
             <% if(user) { %>
-            <button class="nav-link" type="button" onclick="logout()" >로그아웃</button>
+            <li class="nav-item">
+              <a class="nav-link" href="./user/profile">마이페이지</a>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" type="button" onclick="logout()" >로그아웃</button>
+            </li>  
             <% } else { %>
-
-            <a class="nav-link" href="./user/signin">로그인</a>
+            <li class="nav-item" >
+              <a class="nav-link" href="./user/signup">회원가입</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./user/signin">로그인</a>
+            </li>
             <% }%>
-          </li>
+          
         </ul>
       </div>
     </div>
