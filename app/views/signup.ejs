@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>signin</title>
+    <title>signup</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -28,7 +28,7 @@
     <div class="flex-container">
 
       <div class="signup-wrapper">
-        <h2>회원가입</h2>
+        <h2>MyPlace</h2>
         <form id="form-register" name="form_register">
 
         <div class="input_box">
@@ -74,8 +74,8 @@
       </div>
   
       <div class="linkToSignin">
-        <span>이미 회원이신가요?</span>
-        <span>로그인하기</span>
+        이미 회원이신가요?
+        <span onclick="location.href='/user/signin'">로그인하기</span>
       </div>
 
     </div>
@@ -125,7 +125,7 @@
             document.getElementById("pwResult").style.color =
               "rgb(255, 89, 89)";
           }
-        }
+        } 
       }
 
       function register() {

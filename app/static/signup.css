@@ -37,7 +37,7 @@ body {
 }
 
 .input_box {
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }
 
 .input_box > input {
@@ -49,7 +49,6 @@ body {
   border-radius: 6px;
   background-color: #f8f8f8;
 }
-
 
 #id_double {
   position: relative;
@@ -67,6 +66,7 @@ body {
   border-radius: 3px;
   background-color: white;
   border: 1px solid #d9d9d9;
+  cursor:pointer;
 }
 
 .input_box > #id_double > input {
@@ -78,11 +78,11 @@ body {
   border-radius: 6px;
   background-color: #f8f8f8;
 }
-/* 
+
 #pwResult {
-  border: 1px solid red;
-  height: 10px;
-} */
+  /* border: 1px solid red; */
+  /* height: 10px; */
+}
 
 .input_box > #id_double > input::placeholder {
   color: #d2d2d2;
@@ -111,6 +111,7 @@ body {
   margin-bottom: 16px;
   border-radius: 6px;
   background-color: #f8f8f8;
+  cursor:pointer;
 }
 
 #form-register > button::placeholder {
@@ -121,4 +122,15 @@ body {
   font-size: 16px;
   background-color: #242bfe;
   margin-top: 20px;
+}
+
+
+.linkToSignin {
+  font-size: 16px;
+}
+
+.linkToSignin > span {
+  color: #242bfe;
+  font-weight: 800;
+  cursor:pointer;
 }
