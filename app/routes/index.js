@@ -2,10 +2,18 @@ const express = require("express");
 const mainRouter = express.Router();
 const userRouter = express.Router();
 const galleryRouter = express.Router();
+const mapRouter = express.Router();
+
 
 // 메인페이지 관련
 const main = require("../controller/Cmain");
 mainRouter.get("/", main.mainPage);
+
+// 지도관련
+const map = require("../controller/Cmap");
+mapRouter.get("/maptest", map.mapPage);
+mapRouter.get("/mapexhibition", map.getMap);
+
 
 // 로그인 관련
 const signin = require("../controller/Csignin");
@@ -41,4 +49,5 @@ module.exports = {
   mainRouter,
   userRouter,
   galleryRouter,
+  mapRouter
 };
