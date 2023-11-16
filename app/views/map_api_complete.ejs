@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>다음 지도 API</title>
-  </head>
-  <body>
-    <div id="map" style="width: 960px; height: 540px"></div>
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <meta charset="utf-8" /> 
+    <title>다음 지도 API</title> 
+  </head> 
+  <body> 
+    <div id="map" style="width: 960px; height: 540px"></div> 
     <button type="button" onclick="panTo()">내 위치</button>
     <div id="result"></div>
 
+
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac0bc7a26540e561b08d22a29e4ac4d6&libraries=services"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    
     <script>
       var mapContainer = document.getElementById("map");
       var mapOption = {
@@ -39,6 +40,7 @@
           map: map,
           position: locPosition,
         });
+
         var infowindow = new kakao.maps.InfoWindow({
           content: message,
           removable: true,
@@ -50,69 +52,129 @@
         var moveLatLon = new kakao.maps.LatLng(lat, lon);
         map.panTo(moveLatLon);
       }
-      function getMap() {
+      function getMap () {
         axios({
-          method: "GET",
-          url: "/gallery/mapexhibition",
-          // data: data
-        }).then((res) => {
-          markExhibition(res.data);
-        });
+          method: 'GET',
+            url: '/gallery/mapexhibition',
+        }).then((res)=> {
+          markExhibition(res.data)
+        })
       }
       getMap();
-      function markExhibition(positions) {
-        console.log(positions);
+      
+      async function markExhibition (positions) {
+        // console.log(positions)
         for (var i = 0; i < positions.length; i++) {
-          geocodeAddress(
-            positions[i].g_name,
-            positions[i].deadline,
-            positions[i].website,
-            positions[i].detailaddr
-          );
+          await geocodeAddress(
+            positions[i].g_name, 
+            positions[i].deadline, 
+            positions[i].website, 
+            positions[i].detailaddr, 
+            i)
         }
       }
-      function geocodeAddress(g_name, deadline, website, detailaddr) {
-        var imageSrc =
+
+      // marker에 배열을 안했더니 marker가 for문의 마지막 값만 찾아서 각각 찾게끔 배열로 걸어줌
+      let markerArr = [];
+
+      // geocodeAddress 주소찾는 함수가 시간이 걸려 비동기처리를 걸음
+      async function geocodeAddress(g_name, deadline, website, detailaddr, i) {
+        return new Promise((resolve, reject)=> {
+          var imageSrc =
           "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-        var geocoder = new kakao.maps.services.Geocoder();
-        geocoder.addressSearch(detailaddr, function (result, status) {
-          if (status === kakao.maps.services.Status.OK) {
-            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-            // 마커 이미지의 이미지 크기 입니다
-            var imageSize = new kakao.maps.Size(24, 35);
-            // 마커 이미지를 생성합니다
-            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-            var marker = new kakao.maps.Marker({
-              map: map,
-              position: coords,
-              image: markerImage, // 마커 이미지
-              clickable: true,
-            });
-            var infowindow = new kakao.maps.InfoWindow({
-              // <a href="https://map.kakao.com/" style="color:blue" target="_blank">길찾기</a></div>`,
-              content: `<div style="font-weight:bold;">${g_name}<br/><button type="button" onclick="info('${g_name}<br />${deadline}<br />${detailaddr}')">더보기</button>`,
-              removable: true,
-            });
-            kakao.maps.event.addListener(
-              marker,
-              "click",
-              makeClickListener(map, marker, infowindow)
-            );
-          }
-          // 마커에 클릭이벤트를 등록합니다
-          function makeClickListener(map, marker, infowindow) {
-            return function () {
+
+          // let clickImageSrc = "https://youip.net/images/marker_kakao.png";
+
+          var geocoder = new kakao.maps.services.Geocoder();
+          geocoder.addressSearch(detailaddr, function (result, status) {
+            // console.log(i, status, kakao.maps.services.Status.OK) //배열에 뭐가 담기는지 확인을 위해 console 찍음
+            if (status === kakao.maps.services.Status.OK) {
+              var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                      // 마커 이미지의 이미지 크기 입니다
+              var imageSize = new kakao.maps.Size(24, 35);
+              // 마커 이미지를 생성합니다
+              var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+            
+
+              // marker 변수에 할당
+              var marker = new kakao.maps.Marker({
+                map: map,
+                position: coords,
+                image: markerImage, // 마커 이미지
+                clickable: true,
+              });
+
+              // 마커배열마다 마커를 넣어주기 위해 push
+              markerArr.push(marker)
+              
+              var infowindow = new kakao.maps.InfoWindow({
+                // changeHeartMarker함수에 checkbox를 담아야되기때문에 this를 넣고, 각배열의 index를 찾아가야되기때문에 i를 걸어줌
+                  content: `<label for="myCheckbox">찜하기</label>
+                            <input type="checkbox" id="myCheckbox" onchange="changeHeartMarker(this, ${i})"> 
+                            <div style="font-weight:bold;">${g_name}<br/>
+                            <button type="button" onclick="info('${g_name}<br />${deadline}<br />${detailaddr}')">더보기</button>
+                            <a href="https://map.kakao.com/" style="color:blue" target="_blank"><div style="width:400px;text-align:right;padding:10px 0;">길찾기</a></div>`,
+                  removable: true,
+              });
+              kakao.maps.event.addListener(
+                  marker,
+                  "click",
+                  makeClickListener(map, marker, infowindow, coords, markerImage)
+              );
+
+              resolve(); // 여기서 promise 걸려있는 함수 실행
+            } else {
+              markerArr.push({}) // 어디선가 오류가 나도 빈값으로라도 띄울 수 있게끔 하기위해서 else에도 resolve를 넣어줌
+              resolve();
+            }
+          })
+        })
+      }
+
+      // 마커에 클릭이벤트를 등록합니다
+      function makeClickListener(map, marker, infowindow, coords, markerImage) {
+          return function () {
               // 마커 위에 인포윈도우를 표시합니다
               infowindow.open(map, marker);
               map.setCenter(coords);
-            };
+
+                }
+          };
+      
+
+      // onchage에 걸려있는 changeHeartMarker의 index를 써야되기때문에 변수로 index 넣어줌
+      function changeHeartMarker(objInput, index) {
+        // console.log(markerArr, index)
+        let clickimageSrc = 'https://youip.net/images/marker_kakao.png', // 마커이미지의 주소입니다    
+            clickimageSize = new kakao.maps.Size(50, 65), // 마커이미지의 크기입니다
+            clickimageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+        let clickmarkerImage = new kakao.maps.MarkerImage(clickimageSrc, clickimageSize, clickimageOption);
+
+        // console.log(objInput.checked)
+
+        let imageSrc =
+            "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+        let imageSize = new kakao.maps.Size(24, 35);
+            // 마커 이미지를 생성합니다
+        let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+
+        if (objInput.checked) { // marker 변수가 존재하고 체크된 경우에만 실행
+            clickmarkerImage.src = clickimageSrc;
+            markerArr[index].setImage(clickmarkerImage); // 외부에서 선언한 marker 변수 사용
+          } else {
+            imageSrc.src = markerImage;
+            markerArr[index].setImage(markerImage);
           }
-        });
       }
+
+      
       function info(g_name, deadline, detailaddr) {
-        const result = document.getElementById("result");
-        (result.innerHTML = g_name), deadline, detailaddr;
+        const result = document.getElementById("result")
+        result.innerHTML = g_name, deadline, detailaddr
       }
+
     </script>
-  </body>
-</html>
+    </body>
+    </html>
