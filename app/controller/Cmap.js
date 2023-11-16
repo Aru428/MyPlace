@@ -1,7 +1,7 @@
 const { Gallery } = require('../model')
 
 exports.mapPage = (req, res) => {
-  res.render("map완료_if_heart_true수정중2");
+  res.render("map_api_complete");
 };
 
 exports.getMap = (req, res) => {
