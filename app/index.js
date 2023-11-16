@@ -21,6 +21,7 @@ app.use(
 );
 
 const { mainRouter, userRouter, galleryRouter } = require("./routes");
+
 // 메인페이지 경로
 app.use("/main", mainRouter);
 
@@ -29,11 +30,6 @@ app.use("/user", userRouter);
 
 // 갤러리 관련 경로
 app.use("/gallery", galleryRouter);
-
-// 지도 경로(임시)
-app.get("/map", (req, res) => {
-  res.render("map");
-});
 
 app.listen(PORT, function () {
   console.log(`Sever Open: ${PORT}`);

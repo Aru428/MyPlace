@@ -2,18 +2,10 @@ const express = require("express");
 const mainRouter = express.Router();
 const userRouter = express.Router();
 const galleryRouter = express.Router();
-const mapRouter = express.Router();
-
 
 // 메인페이지 관련
 const main = require("../controller/Cmain");
 mainRouter.get("/", main.mainPage);
-
-// 지도관련
-const map = require("../controller/Cmap");
-mapRouter.get("/maptest", map.mapPage);
-mapRouter.get("/mapexhibition", map.getMap);
-
 
 // 로그인 관련
 const signin = require("../controller/Csignin");
@@ -41,6 +33,12 @@ userRouter.patch("/profile/editall/:u_id", profile.profileAllEdit);
 userRouter.get("/profile/delete", profile.deleteCheckPage);
 userRouter.post("/profile/delete", profile.userDelete);
 
+// 지도관련
+const map = require("../controller/Cmap");
+galleryRouter.get("/map", map.mapUiPage);
+galleryRouter.get("/maptest", map.mapPage);
+galleryRouter.get("/mapexhibition", map.getMap);
+
 // 카테고리 관련
 const category = require("../controller/Clist");
 galleryRouter.get("/category", category.categoryPage);
@@ -49,5 +47,4 @@ module.exports = {
   mainRouter,
   userRouter,
   galleryRouter,
-  mapRouter
 };
