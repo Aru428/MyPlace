@@ -17,6 +17,10 @@ function Gallery(Sequelize, DataTypes) {
         type: DataTypes.STRING(50),
         allowNull: false,
       },
+      imgurl: {
+          type: DataTypes.STRING(255),
+          allowNull: false,
+      },
       deadline: {
         type: DataTypes.STRING(40),
         allowNull: false,

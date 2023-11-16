@@ -62,7 +62,7 @@
           <% for(let i = 0; i < data.length; i++){ %>
           <div id="card">
             <div id="img">
-              <img src="../static/img/2016080902202_0.jpg" alt="박물관사진" />
+              <img src="<%= data[i].imgurl %>" alt="박물관사진" />
             </div>
             <div id="text">
               <p id="address"><%=data[i].address %></p>
