@@ -45,24 +45,14 @@
     <div id="list-container">
       <form method="" action="" id="list_form">
         <div id="list-gallery">
-          <div id="card">
-            <div id="img">
-              <img src="../static/img/2016080902202_0.jpg" alt="박물관사진" />
-            </div>
-            <div id="text">
-              <p id="address" name="address">용산동6가 168-6 국립중앙박물관</p>
-              <p id="g_name" name="g_name">생의 찬미</p>
-              <p id="deadline" name="deadline">2023/10/28~2024/03/03</p>
-              <button id="website" name="website">공식사이트</button>
-              <!-- <button id="website" name="website">무료입장</button> -->
-            </div>
-          </div>
-
           <!-- for문으로 div 추가 -->
-          <% for(let i = 0; i < data.length; i++){ %>
+          <% for(var i = 0; i < data.length; i++){ %>
           <div id="card">
             <div id="img">
-              <img src="../static/img/2016080902202_0.jpg" alt="박물관사진" />
+              <img
+                src="https://www.nintendo.co.kr/event/popup2023/images/header.png"
+                alt="박물관사진"
+              />
             </div>
             <div id="text">
               <p id="address"><%=data[i].address %></p>

@@ -41,7 +41,8 @@ galleryRouter.get("/mapexhibition", map.getMap);
 
 // 카테고리 관련
 const category = require("../controller/Clist");
-galleryRouter.get("/category", category.categoryPage);
+galleryRouter.get("/category", category.categoryAllPage);
+galleryRouter.get("/category/exhibition", category.categoryExhibition);
 
 module.exports = {
   mainRouter,
