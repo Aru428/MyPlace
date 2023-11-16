@@ -43,6 +43,10 @@ galleryRouter.get("/mapexhibition", map.getMap);
 const category = require("../controller/Clist");
 galleryRouter.get("/category", category.categoryAllPage);
 galleryRouter.get("/category/exhibition", category.categoryExhibition);
+galleryRouter.get("/category/artgallery", category.categoryArtgallery);
+galleryRouter.get("/category/museum", category.categoryMuseum);
+galleryRouter.get("/category/popupstore", category.categoryPopup);
+
 
 module.exports = {
   mainRouter,

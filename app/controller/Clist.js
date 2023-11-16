@@ -17,3 +17,34 @@ exports.categoryExhibition = (req, res) => {
     res.render("listExhibition", { data: result });
   });
 };
+
+exports.categoryArtgallery = (req, res) =>{
+  Gallery.findAll({
+    where: {
+      category: "artgallery",
+    },
+  }).then((result) => {
+    res.render("listArtgallery", {data: result});
+  });
+};
+
+exports.categoryMuseum = (req, res) => {
+  Gallery.findAll({
+    where: {
+      category: "museum",
+    },
+  }).then((result) => {
+    res.render("listMuseum", {data: result});
+  });
+};
+
+exports.categoryPopup = (req, res) => {
+  Gallery.findAll({
+    where: {
+      category: "popupstore",
+    },
+  }).then((result) => {
+    res.render("listPopup", {data: result});
+    
+  });
+};

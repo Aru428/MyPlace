@@ -37,9 +37,9 @@
       >
         전시회
       </button>
-      <button type="button" onclick="">팝업스토어</button>
-      <button type="button" onclick="">미술관</button>
-      <button type="button" onclick="">박물관</button>
+      <button type="button" onclick="location.href='/gallery/category/artgallery' ">미술관</button>
+      <button type="button" onclick="location.href='/gallery/category/popupstore' ">팝업스토어</button>
+      <button type="button" onclick="location.href='/gallery/category/museum' ">박물관</button>
     </div>
 
     <div id="list-container">
@@ -49,10 +49,7 @@
           <% for(var i = 0; i < data.length; i++){ %>
           <div id="card">
             <div id="img">
-              <img
-                src="https://www.nintendo.co.kr/event/popup2023/images/header.png"
-                alt="박물관사진"
-              />
+              <img src="<%= data[i].imgurl%>" alt="박물관 사진">
             </div>
             <div id="text">
               <p id="address"><%=data[i].address %></p>
