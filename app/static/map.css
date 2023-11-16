@@ -59,7 +59,7 @@ body {
 
 /* 리스트 콘텐츠 영역 */
 .content {
-  position: relative;
+  position: absolute;
   /* z-index: -1; */
   flex: 1;
   padding: 20px;
@@ -71,9 +71,14 @@ body {
   animation: slideIn 0.5s ease;
 
   width: 450px;
+  height: 1200px;
 }
 
-.content img {
+.content-a {
+  margin-left: 70px;
+}
+
+.content-a img {
   width: 200px;
 }
 
@@ -104,9 +109,27 @@ body {
 
 /* 정보창 */
 .info-container {
-  position: relative;
+  position: absolute;
   height: 1200px;
   width: 410px;
-  background-color: #bbbbbb;
+  border-radius: 15px 15px 15px 15px;
+  background-color: white;
+  margin: 0;
   display: none;
+  /* overflow-y: scroll; */
+}
+
+.info-container img {
+  border-radius: 15px 15px 0 0;
+  width: 410px;
+  height: 300px;
+}
+
+.info {
+  position: absolute;
+  top: 285px;
+  width: 410px;
+  height: 915px;
+  border-radius: 15px 15px 15px 15px;
+  background-color: white;
 }
