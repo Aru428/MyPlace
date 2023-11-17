@@ -25,20 +25,23 @@
     <link rel="stylesheet" href="/static/editProfile_editCheck.css" />
   </head>
   <body>
-    <div class="editCheck-wrapper">
-      <h2>나의 정보 수정</h2>
-      <p>정보를 수정하기 위해 비밀번호를 확인합니다.</p>
-      <form id="form-editCheck" name="form_editCheck">
-        <label for="password" class="visually">비밀번호</label>
-        <input type="password" id="pw" name="password" placeholder="Password" />
+    <div class="flex-container">
+      <div class="editCheck-wrapper">
+        <p>정보를 수정하기 위해 비밀번호를 확인합니다.</p>
+        <form id="form-editCheck" name="form_editCheck">
+          
+          <div class="input_box">
+            <label for="password" class="visually">비밀번호</label>
+            <input type="password" id="pw" name="password" placeholder="Password" />
+          </div>
 
-        <button type="button" name="" onclick="pwCheck()">확인</button>
-        <button type="button" name="" onclick="location.href='/user/profile'">
-          취소
-        </button>
-      </form>
-    </div>
-
+          <button type="button" name="" onclick="pwCheck()">확인</button>
+          <button type="button" name="" onclick="location.href='/user/profile'">
+            취소
+          </button>
+        </form>
+      </div>
+    <div class="flex-container">
     <script>
       function pwCheck() {
         const form = document.forms["form_editCheck"];
