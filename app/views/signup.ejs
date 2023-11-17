@@ -24,6 +24,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="/static/signup.css" />
   </head>
+
   <body>
     <div class="flex-container">
 
@@ -31,43 +32,43 @@
         <h2>MyPlace</h2>
         <form id="form-register" name="form_register">
 
-        <div class="input_box">
-          <label for="u_id" class="visually">아이디</label>
-          <div id="id_double">
-            <input type="text" name="u_id" placeholder="ID" />
-            <button type="button" onclick="doubleChegck();">중복확인</button>
+          <div class="input_box">
+            <label for="u_id" class="visually">아이디</label>
+            <div id="id_double">
+              <input type="text" name="u_id" placeholder="ID" />
+              <button type="button" onclick="doubleChegck();">중복확인</button>
+            </div>
+            <p id="id_result" style="display: none; color: red">
+              중복된 아이디입니다.
+            </p>
           </div>
-          <p id="id_result" style="display: none; color: red">
-            중복된 아이디입니다.
-          </p>
-        </div>
-  
-        <div class="input_box">
-          <label for="email" class="visually">이메일</label>
-          <input type="text" name="email" placeholder="Email" />
-        </div>
+        
+          <div class="input_box">
+            <label for="email" class="visually">이메일</label>
+            <input type="text" name="email" placeholder="Email" />
+          </div>
 
-        <div class="input_box">
-          <label for="password" class="visually">비밀번호</label>
-          <input type="password" id="pw" name="password" placeholder="Password" />
-        </div>
+          <div class="input_box">
+            <label for="password" class="visually">비밀번호</label>
+            <input type="password" id="pw" name="password" placeholder="Password" />
+          </div>
 
-        <div class="input_box">
-          <label for="password-check" class="visually">비밀번호 확인</label>
-          <input
-            type="password"
-            id="pwConfirm"
-            name="password-check"
-            placeholder="Password"
-            oninput="pwCheck()"
-          />
-          <div id="pwResult"></div>
-        </div>
+          <div class="input_box">
+            <label for="password-check" class="visually">비밀번호 확인</label>
+            <input
+              type="password"
+              id="pwConfirm"
+              name="password-check"
+              placeholder="Password"
+              oninput="pwCheck()"
+            />
+            <div id="pwResult"></div>
+          </div>
 
-        <div class="input_box">
-          <label for="name" class="visually">이름</label>
-          <input type="text" name="name" placeholder="Name" />
-        </div>
+          <div class="input_box">
+            <label for="name" class="visually">이름</label>
+            <input type="text" name="name" placeholder="Name" />
+          </div>
 
           <button type="button" onclick="register()">회원가입</button>
         </form>
