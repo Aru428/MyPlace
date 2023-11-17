@@ -7,64 +7,73 @@
     font-size: 14px;
     font-family: "Roboto", sans-serif;
   }
+
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
   
   .delete-wrapper {
     width: 400px;
-    height: 350px;
     padding: 40px;
+    height: 320px;
     box-sizing: border-box;
+    margin: 100px 100px 50px 100px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 10px 3px #d2d2d2;
   }
-  
-  .delete-wrapper > h2 {
-    font-size: 24px;
-    color: #6a24fe;
-    margin-bottom: 20px;
-  }
-  #form-delete > input {
-    width: 100%;
-    height: 48px;
-    padding: 0 10px;
-    box-sizing: border-box;
-    margin-bottom: 16px;
-    border-radius: 6px;
-    background-color: #f8f8f8;
-  }
-  #form-delete > input::placeholder {
-    color: #d2d2d2;
-  }
-  #form-delete > button[type="button"] {
-    color: #fff;
-    font-size: 16px;
-    background-color: #6a24fe;
-    margin-top: 20px;
-  }
-  
+
   .delete-wrapper > p {
     font-size: 15px;
     color: #000000;
-    margin: 20px 0px 40px 0px;
+    margin: 15px 0px 40px 0px;
+    text-align: center;
   }
 
-  #form-delete > button {
+  
+  #form-delete {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+
+  .input-box > input {
     width: 100%;
     height: 48px;
     padding: 0 10px;
     box-sizing: border-box;
-    margin-bottom: 16px;
+    margin: 8px 0px 30px 0px;
     border-radius: 6px;
     background-color: #f8f8f8;
   }
-  
 
-  #form-delete > button::placeholder {
+  .input-box > input::placeholder {
     color: #d2d2d2;
   }
 
-  #form-delete > button[type="button"] {
+
+  .button-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .button-box > button::placeholder {
+    color: #d2d2d2;
+  }
+
+  .button-box > button {
+    width: 50%;
+    height: 48px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 6px;
     color: #fff;
     font-size: 16px;
     background-color: #6a24fe;
-    margin-top: 20px;
-    width: 45%;
   }
   
+  .button-box > .b1 {
+    margin-right: 5px;
+  }

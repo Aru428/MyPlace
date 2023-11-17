@@ -64,3 +64,18 @@ body {
   background-color: #6a24fe;
   margin-top: 20px;
 }
+
+.button-box > button {
+  width: 50%;
+  height: 48px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #6a24fe;
+}
+
+.button-box > .b1 {
+  margin-right: 5px;
+}
