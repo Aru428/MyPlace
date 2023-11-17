@@ -8,30 +8,39 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .editProfile-wrapper {
-  width: 400px;
-  height: 350px;
+  width: 350px;
   padding: 40px;
+  margin: 100px 100px 50px 100px;
   box-sizing: border-box;
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px 3px #d2d2d2;
 }
 
 .editProfile-wrapper > h2 {
   font-size: 24px;
-  color: #6a24fe;
+  color: #157DFF;
   margin-bottom: 20px;
 }
 
 #form-editProfile > button[type='button'] {
   color: #fff;
   font-size: 16px;
-  background-color: #6a24fe;
+  background-color: #157DFF;
   margin-top: 20px;
 }
 
 #form-editProfile > button[type='button'] {
   color: #fff;
   font-size: 16px;
-  background-color: #6a24fe;
+  background-color: #157DFF;
   margin-top: 20px;
 }
 
@@ -52,6 +61,21 @@ body {
 #form-editProfile > button[type='button'] {
   color: #fff;
   font-size: 16px;
-  background-color: #6a24fe;
+  background-color: #157DFF;
   margin-top: 20px;
+}
+
+.button-box > button {
+  width: 50%;
+  height: 48px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #157DFF;
+}
+
+.button-box > .b1 {
+  margin-right: 5px;
 }

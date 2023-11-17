@@ -17,7 +17,7 @@ body {
 
 .editProfile-wrapper > h2 {
   font-size: 24px;
-  color: #6a24fe;
+  color: #157DFF;
   margin-bottom: 20px;
 }
 #form-editProfile > input {
@@ -36,7 +36,7 @@ body {
 #form-editProfile > input[type='submit'] {
   color: #fff;
   font-size: 16px;
-  background-color: #6a24fe;
+  background-color: #157DFF;
   margin-top: 20px;
 }
 
@@ -65,13 +65,13 @@ body {
 #form-editProfile > button[name="edit"]{
     color: #fff;
     font-size: 16px;
-    background-color: #6A24FE;
+    background-color: #157DFF;
     margin-top: 20px;
 }
 
 #form-editProfile > button[name="delete"]{
     color: #fff;
     font-size: 16px;
-    background-color: #6A24FE;
+    background-color: #157DFF;
     margin-top: 5px;
 }
