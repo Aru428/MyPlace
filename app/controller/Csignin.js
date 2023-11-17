@@ -22,10 +22,10 @@ exports.postLogin =  (req, res) => {
           .then((pwCorrect) => {
             if(pwCorrect) {
               // u_id 세션에 저장(로그인 했을때).
-              req.session.u_id = result.u_id;
+              req.session.user = result.u_id;
               console.log('postLogin: ', result);
               console.log('session', req.session);
-              res.send({result: true});
+              res.send({result: true, id: result.u_id});
             } else {
               res.send({result: false});
             }
