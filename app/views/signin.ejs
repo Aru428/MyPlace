@@ -41,10 +41,10 @@
     <script>
       function signin() {
         const form = document.forms["form_signin"];
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return false;
-        }
+        // if (!form.checkValidity()) {
+        //   form.reportValidity();
+        //   return false;
+        // }
 
         let user = {
           u_id: form.u_id.value,
