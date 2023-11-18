@@ -21,7 +21,6 @@
     </div> 
     
 
-
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac0bc7a26540e561b08d22a29e4ac4d6&libraries=services"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
@@ -124,9 +123,7 @@
                   content: `<label for="myCheckbox">찜하기</label>
                             <input type="checkbox" id="myCheckbox" onchange="changeHeartMarker(this, ${i})"> 
                             <div style="font-weight:bold;">${g_name}<br/>
-                              <button type="button" onclick="imgurlAdd('${imgurl}')">사진보기</button>
-
-                            <button type="button" onclick="info('${imgurl}<br />${g_name}<br/>${deadline}<br/>${detailaddr}<br/>${website}')">더보기</button>
+                            <button type="button" onclick="imgurlAdd('${imgurl}'); info('${g_name}', '${deadline}', '${detailaddr}', '${website}')">더보기</button>
                             <a href="https://map.kakao.com/" style="color:blue" target="_blank"><div style="width:400px;text-align:right;padding:10px 0;">길찾기</a></div>`,
                   removable: true,
               });
@@ -186,22 +183,19 @@
       function imgurlAdd(imgurl){
         const infoImage = document.getElementById("infoImage");
         console.log(imgurl)
+        infoImage.src = imgurl;
         toggleInfoContainer();
-
+        
       }
-
-
 
       function info(g_name, deadline, detailaddr, website) {
         const result = document.getElementById("result");
-        result.innerHTML = g_name, deadline, detailaddr, website;
-        // result.innerHTML = `<img src="${imgurl}" alt="">`;
-
-        // const infoImage = document.getElementById("infoImage");
-        // infoImage.src = imgurl;
-
-        // console.log(imgurl);
-        toggleInfoContainer();
+        result.innerHTML = `
+                          ${g_name} <br />
+                          ${deadline} <br />
+                          ${detailaddr} <br />
+                          ${website} <br />
+                          `
       }
 
     </script>
@@ -256,18 +250,14 @@
   </div>
 
   <!-- 정보창을 표시할 영역 -->
-  <div class="info-container">
-    <img src="" id="infoImage">
-    <div class="info">
-      <div id="result">
+    <div class="info-container">
+      <img src="" id="infoImage">
+      <div class="info">
+        <div id="result">
+        </div>
       </div>
     </div>
   </div>
-
-</div>
-
-
-<!-- <input type="button" value="아이콘" class="iconBtn" onclick="toggleInfoContainer()" /> -->
 
 <script>
   let infoContainer = document.querySelector('.info-container');
@@ -330,8 +320,6 @@
     }
   }
 
-</script>
-    
+      </script>
     </body>
-    
-    </html>
+  </html>
