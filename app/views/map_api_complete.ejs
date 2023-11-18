@@ -27,42 +27,33 @@
     <script>
       var mapContainer = document.getElementById("map");
       var mapOption = {
-        center: new kakao.maps.LatLng(37.57756, 126.91243),
+        center: new kakao.maps.LatLng(37.53369071500842, 126.96329157378412),
         level: 4,
         mapTypeId: kakao.maps.MapTypeId.ROADMAP,
       };
       var map = new kakao.maps.Map(mapContainer, mapOption);
-      var lat, lon;
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-          lat = position.coords.latitude;
-          lon = position.coords.longitude;
-          var locPosition = new kakao.maps.LatLng(lat, lon),
-            message = '<div style="padding:5px;">내 위치</div>';
-          displayMarker(locPosition, message);
-        });
-      } else {
-        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),
-          message = "geolocation을 사용할 수 없어요..";
-        displayMarker(locPosition, message);
-      }
-      function displayMarker(locPosition, message) {
-        var marker = new kakao.maps.Marker({
-          map: map,
-          position: locPosition,
-        });
+      
+      var markerPosition  = new kakao.maps.LatLng(37.53369071500842, 126.96329157378412); 
+      var marker = new kakao.maps.Marker({
+                  position: markerPosition,
+                  
+              });
+      marker.setMap(map);
 
-        var infowindow = new kakao.maps.InfoWindow({
-          content: message,
-          removable: true,
-        });
-        infowindow.open(map, marker);
-        map.setCenter(locPosition);
-      }
-      function panTo() {
-        var moveLatLon = new kakao.maps.LatLng(lat, lon);
-        map.panTo(moveLatLon);
-      }
+      var iwContent = '<div style="padding:5px;">내위치!</div>', 
+          iwPosition = new kakao.maps.LatLng(37.53369071500842, 126.96329157378412), 
+          iwRemoveable = true; 
+
+
+      var infowindow = new kakao.maps.InfoWindow({
+          map: map, // 인포윈도우가 표시될 지도
+          position : iwPosition, 
+          content : iwContent,
+          removable : iwRemoveable
+      });
+
+      infowindow.open(map, marker)
+
       function getMap () {
         axios({
           method: 'GET',
