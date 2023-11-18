@@ -31,6 +31,8 @@ app.use("/user", userRouter);
 // 갤러리 관련 경로
 app.use("/gallery", galleryRouter);
 
+
+
 app.listen(PORT, function () {
   console.log(`Sever Open: ${PORT}`);
 });
