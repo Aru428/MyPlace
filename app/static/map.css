@@ -138,7 +138,7 @@ body {
   background-color: white;
   margin: 0;
   display: none;
-  /* overflow-y: scroll; */
+  /* overflow-y: scroll;   */
 }
 
 .info-container img {
