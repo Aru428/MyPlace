@@ -38,6 +38,8 @@ const map = require("../controller/Cmap");
 galleryRouter.get("/map", map.mapUiPage);
 galleryRouter.get("/maptest", map.mapPage);
 galleryRouter.get("/mapexhibition", map.getMap);
+galleryRouter.post("/comment", map.createComment);
+galleryRouter.post("/commentfind", map.getComment);
 
 // 카테고리 관련
 const category = require("../controller/Clist");
@@ -46,7 +48,6 @@ galleryRouter.get("/category/exhibition", category.categoryExhibition);
 galleryRouter.get("/category/artgallery", category.categoryArtgallery);
 galleryRouter.get("/category/museum", category.categoryMuseum);
 galleryRouter.get("/category/popupstore", category.categoryPopup);
-
 
 module.exports = {
   mainRouter,
