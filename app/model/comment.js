@@ -9,6 +9,11 @@ function Comment(Sequelize, DataTypes) {
         primaryKey: true,
         autoIncrement: true,
       },
+      u_id: {
+        type: DataTypes.STRING(8),
+        allowNull: false,
+        // index.js 에서 조인설정해놈
+      },
       g_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
