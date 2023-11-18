@@ -13,7 +13,7 @@ function User(Sequelize, DataTypes){
                 allowNull: false,
             },
             password: {
-                type: DataTypes.STRING(100),
+                type: DataTypes.STRING(255),
                 allowNull: false,
             },
             salt: {
