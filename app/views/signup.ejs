@@ -35,9 +35,11 @@
               <input type="text" name="u_id" placeholder="ID" />
               <button type="button" onclick="doubleCheck();">중복확인</button>
             </div>
-            <p id="id_result" style="display: none; color: red">
+            <div id="id_result"> </div>
+
+            <!-- <p id="id_result" style="display: none; color: red">
               중복된 아이디입니다.
-            </p>
+            </p> -->
           </div>
 
           <div class="input_box">
@@ -89,6 +91,8 @@
           data: user,
         }).then((res) => {
           if (res.data.result == true) {
+            document.getElementById("id_result").textContent = "존재하는 아이디입니다.";
+            document.getElementById("id_result").style.color = "red";
             document.getElementById("id_result").style.display = "block";
           } else {
             document.getElementById("id_result").style.display = "none";
