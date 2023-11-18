@@ -37,9 +37,21 @@
       >
         전시회
       </button>
-      <button type="button" onclick="location.href='/gallery/category/artgallery' ">미술관</button>
-      <button type="button" onclick="location.href='/gallery/category/popupstore' ">팝업스토어</button>
-      <button type="button" onclick="location.href='/gallery/category/museum' ">박물관</button>
+      <button
+        type="button"
+        onclick="location.href='/gallery/category/artgallery' "
+      >
+        미술관
+      </button>
+      <button
+        type="button"
+        onclick="location.href='/gallery/category/popupstore' "
+      >
+        팝업스토어
+      </button>
+      <button type="button" onclick="location.href='/gallery/category/museum' ">
+        박물관
+      </button>
     </div>
 
     <div id="list-container">
@@ -53,6 +65,7 @@
               <p id="address" name="address">용산동6가 168-6 국립중앙박물관</p>
               <p id="g_name" name="g_name">생의 찬미</p>
               <p id="deadline" name="deadline">2023/10/28~2024/03/03</p>
+              <a href="https://www.naver.com/" target="_blank">네이버로 이동</a>
               <button id="website" name="website">공식사이트</button>
               <!-- <button id="website" name="website">무료입장</button> -->
             </div>
@@ -68,6 +81,7 @@
               <p id="address"><%=data[i].address %></p>
               <p id="g_name"><%=data[i].g_name %></p>
               <p id="deadline"><%=data[i].deadline %></p>
+              <a href="<%= data[i].website %>" target="_blank">웹사이트</a>
               <button id="website">예매하기</button>
               <button id="website">무료입장</button>
             </div>
