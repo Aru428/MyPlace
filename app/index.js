@@ -32,10 +32,6 @@ app.use("/user", userRouter);
 app.use("/gallery", galleryRouter);
 
 
-app.get("/editProfile", function (req, res) {
-  res.render("editProfile");
-});
-
 
 app.listen(PORT, function () {
   console.log(`Sever Open: ${PORT}`);
