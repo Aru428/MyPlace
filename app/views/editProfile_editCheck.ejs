@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>editProfile-editCheck</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>editProfile-editCheck</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <link rel="stylesheet" href="/static/editProfile_editCheck.css" />
-  </head>
-  <body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap" />
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <link rel="stylesheet" href="/static/editProfile_editCheck.css" />
+</head>
+
+<body>
+  <!-- nav바 불러오기 -->
+  <%-include("navbar.ejs")%>
+
     <div class="flex-container">
       <div class="editCheck-wrapper">
         <p>정보를 수정하기 위해 비밀번호를 확인합니다.</p>
         <form id="form-editCheck" name="form_editCheck">
-          
+
           <div class="input_box">
             <label for="password" class="visually">비밀번호</label>
             <input type="password" id="pw" name="password" placeholder="Password" />
@@ -43,43 +42,44 @@
           </div>
         </form>
       </div>
-    <div class="flex-container">
-    <script>
-      function pwCheck() {
-        const form = document.forms["form_editCheck"];
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return false;
-        }
-
-        if (form.password.value.length == 0) {
-          alert("비밀번호를 입력해주세요.");
-          form.password.focus();
-          return false;
-        }
-
-        let user = {
-          password: form.password.value,
-        };
-
-        axios({
-          method: "POST",
-          url: `/user/profile/editcheck`,
-          data: user,
-        })
-          .then((res) => {
-            if (res.data.result) {
-              document.location.href = "/user/profile/edit/";
-            } else {
-              alert("비밀번호가 일치하지 않습니다.");
-              const pw = document.getElementById("pw");
-              pw.value = "";
+      <div class="flex-container">
+        <script>
+          function pwCheck() {
+            const form = document.forms["form_editCheck"];
+            if (!form.checkValidity()) {
+              form.reportValidity();
+              return false;
             }
-          })
-          .catch((err) => {
-            alert("비밀번호 확인 실패");
-          });
-      }
-    </script>
-  </body>
+
+            if (form.password.value.length == 0) {
+              alert("비밀번호를 입력해주세요.");
+              form.password.focus();
+              return false;
+            }
+
+            let user = {
+              password: form.password.value,
+            };
+
+            axios({
+              method: "POST",
+              url: `/user/profile/editcheck`,
+              data: user,
+            })
+              .then((res) => {
+                if (res.data.result) {
+                  document.location.href = "/user/profile/edit/";
+                } else {
+                  alert("비밀번호가 일치하지 않습니다.");
+                  const pw = document.getElementById("pw");
+                  pw.value = "";
+                }
+              })
+              .catch((err) => {
+                alert("비밀번호 확인 실패");
+              });
+          }
+        </script>
+</body>
+
 </html>

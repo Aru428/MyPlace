@@ -1,0 +1,62 @@
+<style>
+  /* ABeeZee font import */
+  @import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+  a {
+    text-decoration: none;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 50px;
+  }
+
+  .navbar-brand {
+    text-align: center;
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 30px;
+  }
+
+  .container {
+    height: 140px;
+  }
+
+  li {
+    list-style: none;
+  }
+</style>
+
+<nav class="navbar navbar-expand-sm py-3 bg-transparent  text-dark" style="width: 1200px; margin: 0 auto;">
+  <div class="container">
+    <li class="nav-item">
+      <p class="navbar-brand fs-1">MyPlace</p>
+    </li>
+
+    <div class="d-flex justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active text-dark" aria-current="page" href="/main">홈</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="./gallery/category ">둘러보기</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#">찜</a>
+        </li>
+
+        <!-- 로그 아웃으로 로고 바꾸고, 로그아웃을 누를시 세션 종료+ 로그아웃 버튼이 로그안으로 돌아오도록 -->
+
+
+      </ul>
+    </div>
+
+    <div class="d-flex justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-dark border border-dark rounded-pill" href="/user/signin"
+            style="width: 100px; text-align: center;">로그인</a>
+        </li>
+      </ul>
+    </div>
+</nav>

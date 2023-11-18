@@ -1,35 +1,8 @@
-/* html {
-  width: 100%;
-} */
-
 body {
   font-family: Arial, sans-serif;
-  background-color: #bae0fb !important;
+  background-color: #bae0fb;
   display: flex;
   width: 100%;
-}
-
-/* ABeeZee font import */
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-a {
-  text-decoration: none;
-}
-
-h1 {
-  text-align: center;
-  font-family: 'ABeeZee', sans-serif;
-  font-size: 50px;
-}
-
-.nav-item::marker {
-  color: transparent;
-}
-
-.navbar-brand {
-  text-align: center;
-  font-family: 'ABeeZee', sans-serif;
-  font-size: 30px;
 }
 
 #map {
@@ -56,7 +29,10 @@ h1 {
   top: 10px;
 }
 
-.container {
+.aaa {
+}
+
+.container-side {
   display: flex;
   /* height: 100vh; */
   height: 1200px;
@@ -68,6 +44,8 @@ h1 {
 
   position: absolute;
   top: 142px;
+  left: 0px;
+  right: 0px;
 }
 
 .sidebar {
@@ -153,7 +131,7 @@ h1 {
 
 /* 지도 아이콘 버튼 */
 .iconBtn {
-  position: fixed;
+  position: absolute;
   width: auto;
   height: 30px;
   top: 1380px;
