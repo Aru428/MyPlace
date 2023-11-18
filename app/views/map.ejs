@@ -14,143 +14,143 @@
   <!-- jQuery CDN -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../static/map.css">
+  <link rel="stylesheet" href="../static/map_prev.css">
 </head>
 
 <body>
-  <!-- Bootstrap CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
+  <!-- nav바 불러오기 -->
+  <%-include("navbar.ejs")%>
 
-  <div class="test"></div>
+    <div class="container-a">
 
-  <div class="container">
-
-    <div class="sidebar">
-      <div class="toggle-btn btn-a" onclick="toggleSidebarA()"><a href="#"><i class="bi bi-list"></i></a></div>
-      <div class="toggle-btn btn-b" onclick="toggleSidebarB()"><a href="#"><i class="bi bi-heart-fill"></i></a></div>
-    </div>
-
-    <!-- 리스트 콘텐츠 영역 -->
-    <div class="content">
-      <div class="content-a">
-        <img
-          src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
-        <p>미분당 신촌본점</p>
-        <hr /><br />
-        <img
-          src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
-        <p>미분당 홍대점</p>
-        <hr /><br />
-        <img
-          src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
-        <p>미분당 가로수길점</p>
-        <hr /><br />
-        <img
-          src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
-        <p>미분당 강남점</p>
-        <hr /><br />
-        <img
-          src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
-        <p>미분당 명동점</p>
-        <hr /><br />
-        <img
-          src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
-        <p>미분당 안국점</p>
-        <hr /><br />
-        <img
-          src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
-        <p>미분당 여의도점</p>
-        <hr /><br />
+      <div class="sidebar">
+        <div class="toggle-btn btn-a" onclick="toggleSidebarA()"><a href="#"><i class="bi bi-list"></i></a></div>
+        <div class="toggle-btn btn-b" onclick="toggleSidebarB()"><a href="#"><i class="bi bi-heart-fill"></i></a>
+        </div>
       </div>
-    </div>
 
-    <!-- 정보창을 표시할 영역 -->
-    <div class="info-container">
-      <img src="../static/img/2016080902202_0.jpg">
-      <div class="info">
+      <!-- 리스트 콘텐츠 영역 -->
+      <div class="content">
+        <div class="content-a">
+          <img
+            src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
+          <p>미분당 신촌본점</p>
+          <hr /><br />
+          <img
+            src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
+          <p>미분당 홍대점</p>
+          <hr /><br />
+          <img
+            src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
+          <p>미분당 가로수길점</p>
+          <hr /><br />
+          <img
+            src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
+          <p>미분당 강남점</p>
+          <hr /><br />
+          <img
+            src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
+          <p>미분당 명동점</p>
+          <hr /><br />
+          <img
+            src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
+          <p>미분당 안국점</p>
+          <hr /><br />
+          <img
+            src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210814_169%2F16289298437603fJGF_JPEG%2FLE7J43EfgHCeAcS_HvOtDc8G.jpeg.jpg">
+          <p>미분당 여의도점</p>
+          <hr /><br />
+        </div>
 
       </div>
+
+      <!-- 정보창을 표시할 영역 -->
+      <div class="info-container">
+        <img src="../static/img/2016080902202_0.jpg">
+        <div class="info">
+
+        </div>
+      </div>
+
     </div>
 
-  </div>
+    <div id="map">지도</div>
 
-  <input type="button" value="아이콘" class="iconBtn" onclick="toggleInfoContainer()" />
+    <input type="button" value="아이콘" class="iconBtn" onclick="toggleInfoContainer()" />
 
-  <script>
-    let infoContainer = document.querySelector('.info-container');
-    let container = document.querySelector('.container');
-    let content = document.querySelector('.content');
+    <script>
+      let infoContainer = document.querySelector('.info-container');
+      let container = document.querySelector('.container');
+      let content = document.querySelector('.content');
 
-    // 사이드바 메뉴 버튼을 토글
-    function toggleSidebarA() {
-      if (content.style.display === 'none') {
-        if (infoContainer.display === 'none') {
-          content.style.display = 'block'
-          console.log("content를 엽니다. 1")
-        } else {
-          content.style.display = 'block'
-          console.log("content를 엽니다. 2")
-          infoContainer.style.left = '470px'
-        }
-      } else {
-        if (infoContainer.display === 'block') {
-          content.style.display = 'none'
-          console.log("content를 닫습니다. 3")
-        } else {
-          content.style.display = 'none'
-          console.log("content를 닫습니다. 4")
-          infoContainer.style.left = '60px'
-        }
-      }
-    }
-
-    // 사이드바 하트(찜목록) 버튼을 토글
-    function toggleSidebarB() {
-      if (content.style.display === 'none') {
-        if (infoContainer.display === 'none') {
-          content.style.display = 'block'
-          console.log("content를 엽니다. 1")
-        } else {
-          content.style.display = 'block'
-          console.log("content를 엽니다. 2")
-          infoContainer.style.left = '470px'
-        }
-      } else {
-        if (infoContainer.display === 'block') {
-          content.style.display = 'none'
-          console.log("content를 닫습니다. 3")
-        } else {
-          content.style.display = 'none'
-          console.log("content를 닫습니다. 4")
-          infoContainer.style.left = '60px'
-        }
-      }
-    }
-
-    // 정보창을 토글
-    function toggleInfoContainer() {
-      if (infoContainer.style.display === 'block') {
-        if (content.style.display === 'block') {
-          infoContainer.style.display = 'none';
-          console.log("infoContainer를 닫습니다 3");
-        } else {
-          infoContainer.style.display = 'none';
-          console.log("infoContainer를 닫습니다 2");
-        }
-      } else {
+      // 사이드바 메뉴 버튼을 토글
+      function toggleSidebarA() {
         if (content.style.display === 'none') {
-          infoContainer.style.display = 'block';
-          console.log("infoContainer를 엽니다 1");
+          if (infoContainer.display === 'none') {
+            content.style.display = 'block'
+            console.log("content를 엽니다. 1")
+          } else {
+            content.style.display = 'block'
+            console.log("content를 엽니다. 2")
+            infoContainer.style.left = '470px'
+          }
         } else {
-          infoContainer.style.display = 'block'
-          infoContainer.style.left = '470px'
-          console.log("infoContainer를 엽니다 4");
+          if (infoContainer.display === 'block') {
+            content.style.display = 'none'
+            console.log("content를 닫습니다. 3")
+          } else {
+            content.style.display = 'none'
+            console.log("content를 닫습니다. 4")
+            infoContainer.style.left = '60px'
+          }
         }
       }
-    }
 
-  </script>
+      // 사이드바 하트(찜목록) 버튼을 토글
+      function toggleSidebarB() {
+        if (content.style.display === 'none') {
+          if (infoContainer.display === 'none') {
+            content.style.display = 'block'
+            console.log("content를 엽니다. 1")
+          } else {
+            content.style.display = 'block'
+            console.log("content를 엽니다. 2")
+            infoContainer.style.left = '470px'
+          }
+        } else {
+          if (infoContainer.display === 'block') {
+            content.style.display = 'none'
+            console.log("content를 닫습니다. 3")
+          } else {
+            content.style.display = 'none'
+            console.log("content를 닫습니다. 4")
+            infoContainer.style.left = '60px'
+          }
+        }
+      }
+
+      // 정보창을 토글
+      function toggleInfoContainer() {
+        if (infoContainer.style.display === 'block') {
+          if (content.style.display === 'block') {
+            infoContainer.style.display = 'none';
+            console.log("infoContainer를 닫습니다 3");
+          } else {
+            infoContainer.style.display = 'none';
+            console.log("infoContainer를 닫습니다 2");
+          }
+        } else {
+          if (content.style.display === 'none') {
+            infoContainer.style.display = 'block';
+            console.log("infoContainer를 엽니다 1");
+          } else {
+            infoContainer.style.display = 'block'
+            infoContainer.style.left = '470px'
+            console.log("infoContainer를 엽니다 4");
+          }
+        }
+      }
+
+    </script>
 
 </html>

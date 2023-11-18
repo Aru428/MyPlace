@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>둘러보기</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>둘러보기</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <link rel="stylesheet" href="/static/list.css" />
-  </head>
-  <body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap" />
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <link rel="stylesheet" href="/static/list.css" />
+</head>
+
+<body>
+  <!-- nav바 불러오기 -->
+  <%-include("navbar.ejs")%>
+
     <section class="list-wrapper"></section>
     <h2>둘러보기</h2>
 
@@ -31,10 +30,7 @@
       <button type="button" onclick="location.href='/gallery/category' ">
         전체
       </button>
-      <button
-        type="button"
-        onclick="location.href='/gallery/category/exhibition' "
-      >
+      <button type="button" onclick="location.href='/gallery/category/exhibition' ">
         전시회
       </button>
       <button type="button" onclick="location.href='/gallery/category/artgallery' ">미술관</button>
@@ -46,22 +42,29 @@
       <form method="" action="" id="list_form">
         <div id="list-gallery">
           <!-- for문으로 div 추가 -->
-          <% for(var i = 0; i < data.length; i++){ %>
-          <div id="card">
-            <div id="img">
+          <% for(var i=0; i < data.length; i++){ %>
+            <div id="card">
+              <div id="img">
                 <img src="<%= data[i].imgurl%>" alt="박물관 사진">
               </div>
-            <div id="text">
-              <p id="address"><%=data[i].address %></p>
-              <p id="g_name"><%=data[i].g_name %></p>
-              <p id="deadline"><%=data[i].deadline %></p>
-              <button id="website">예매하기</button>
-              <button id="website">무료입장</button>
+              <div id="text">
+                <p id="address">
+                  <%=data[i].address %>
+                </p>
+                <p id="g_name">
+                  <%=data[i].g_name %>
+                </p>
+                <p id="deadline">
+                  <%=data[i].deadline %>
+                </p>
+                <button id="website">예매하기</button>
+                <button id="website">무료입장</button>
+              </div>
             </div>
-          </div>
-          <% } %>
+            <% } %>
         </div>
       </form>
     </div>
-  </body>
+</body>
+
 </html>
