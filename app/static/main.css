@@ -86,12 +86,12 @@ h1 {
 .main-select {
   position: absolute;
   width: 100%;
-  top: 250px;
+  top: -50px;
 
   color: black;
 
   /* text-align: right; */
-  margin-left: 150%;
+  margin-left: 140%;
 }
 
 .main-select img {

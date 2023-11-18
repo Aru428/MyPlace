@@ -24,8 +24,8 @@
     <div class="container-a">
 
       <div class="sidebar">
-        <div class="toggle-btn btn-a" onclick="toggleSidebarA()"><a href="#"><i class="bi bi-list"></i></a></div>
-        <div class="toggle-btn btn-b" onclick="toggleSidebarB()"><a href="#"><i class="bi bi-heart-fill"></i></a>
+        <div class="toggle-btn btn-a" onclick="toggleSidebar('a')"><a href="#"><i class="bi bi-list"></i></a></div>
+        <div class="toggle-btn btn-b" onclick="toggleSidebar('b')"><a href="#"><i class="bi bi-heart-fill"></i></a>
         </div>
       </div>
 
@@ -62,6 +62,9 @@
           <hr /><br />
         </div>
 
+        <div class="content-b">
+          찜목록
+        </div>
       </div>
 
       <!-- 정보창을 표시할 영역 -->
@@ -83,50 +86,35 @@
       let container = document.querySelector('.container');
       let content = document.querySelector('.content');
 
-      // 사이드바 메뉴 버튼을 토글
-      function toggleSidebarA() {
+      // 사이드바 버튼을 토글
+      function toggleSidebar(mode) {
         if (content.style.display === 'none') {
-          if (infoContainer.display === 'none') {
-            content.style.display = 'block'
-            console.log("content를 엽니다. 1")
-          } else {
-            content.style.display = 'block'
-            console.log("content를 엽니다. 2")
-            infoContainer.style.left = '470px'
-          }
+          $(".content").css("display", "block")
+          $(".content > div").css("display", 'none');
+          $(".content-" + mode).css("display", 'block');
         } else {
-          if (infoContainer.display === 'block') {
-            content.style.display = 'none'
-            console.log("content를 닫습니다. 3")
-          } else {
-            content.style.display = 'none'
-            console.log("content를 닫습니다. 4")
-            infoContainer.style.left = '60px'
-          }
-        }
-      }
 
-      // 사이드바 하트(찜목록) 버튼을 토글
-      function toggleSidebarB() {
-        if (content.style.display === 'none') {
-          if (infoContainer.display === 'none') {
-            content.style.display = 'block'
-            console.log("content를 엽니다. 1")
-          } else {
-            content.style.display = 'block'
-            console.log("content를 엽니다. 2")
-            infoContainer.style.left = '470px'
-          }
-        } else {
-          if (infoContainer.display === 'block') {
-            content.style.display = 'none'
-            console.log("content를 닫습니다. 3")
-          } else {
-            content.style.display = 'none'
-            console.log("content를 닫습니다. 4")
-            infoContainer.style.left = '60px'
-          }
+          $(".content").css("display", "none")
         }
+        // if (content.style.display === 'none') {
+        //   if (infoContainer.display === 'none') {
+        //     content.style.display = 'block'
+        //     console.log("content를 엽니다. 1")
+        //   } else {
+        //     content.style.display = 'block'
+        //     console.log("content를 엽니다. 2")
+        //     infoContainer.style.left = '470px'
+        //   }
+        // } else {
+        //   if (infoContainer.display === 'block') {
+        //     content.style.display = 'none'
+        //     console.log("content를 닫습니다. 3")
+        //   } else {
+        //     content.style.display = 'none'
+        //     console.log("content를 닫습니다. 4")
+        //     infoContainer.style.left = '60px'
+        //   }
+        // }
       }
 
       // 정보창을 토글
