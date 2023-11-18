@@ -5,30 +5,34 @@ html {
 body {
   font-family: Arial, sans-serif;
   background-color: #bae0fb;
-  display: flex;
+  /* display: flex; */
   width: 100%;
 }
 
 #map {
-  display : flex;
+  display: flex;
   position: absolute;
   left: 880px;
   width: 63%;
   height: 1200px;
-  margin: 30px 0 0 20px;
+
   border-radius: 15px;
+
+  margin: 0 0 0 20px;
+  background-color: antiquewhite;
+  top: 200px;
 }
 
 .btn-top-myplace {
-  display : flex;
-  z-index : 999;
+  display: flex;
+  z-index: 999;
   height: 30px;
   position: relative;
   left: 10px;
   top: 10px;
 }
 
-.container {
+.container-a {
   display: flex;
   /* height: 100vh; */
   height: 1200px;
@@ -37,6 +41,8 @@ body {
   /* overflow: hidden; */
   margin: 30px 0 0 0;
   padding: 0;
+
+  top: 140px;
 }
 
 .sidebar {
@@ -94,6 +100,9 @@ body {
 
   width: 450px;
   height: 1200px;
+
+  top: 200px;
+  left: 0;
 }
 
 .content-a {
@@ -122,10 +131,10 @@ body {
 
 /* 지도 아이콘 버튼 */
 .iconBtn {
-  position: fixed;
+  position: absolute;
   width: auto;
   height: 30px;
-  top: 1240px;
+  top: 1420px;
   left: 20px;
 }
 
