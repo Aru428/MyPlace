@@ -8,65 +8,92 @@
   body {
     font-family: "Roboto", sans-serif;
   }
-  
+
+#btn {
+    text-align: center;
+
+}
+
+#btn > button {
+    border: 0;
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 40px;
+}
+
+#btn > button:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-thickness: 2.5px;
+    color: #157DFF;
+}
+
+
+
+
 #list-container {
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 #list-gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 90%;
     margin: 0 auto;
-  }
+}
 
 #card {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 5px;
-    height: 310px;
+    height: 480px;
     width: 250px;
     padding: 5px;
     margin: 10px 10px 10px 10px;
     text-align: center;
-  }
+}
 
 #card #img img {
-    height: 150px;
-    width: 240px;
+    height: 297px;
+    width: 210px;
+    /* border-radius: 10px; */
 }
 
 #text #address {
     font-size: 13px;
-    margin: 5px 0px 15px 0px;
+    margin: 20px 15px 15px 15px;
+    text-align: left;
 }
 
 #text #g_name {
     font-size: 20px;
-    margin: 20px 0px 15px 0px;
+    margin: 20px 15px 15px 15px;
+    text-align: left;
 }
 
 #text #deadline {
     font-size: 16px;
-    margin: 15px 0px 15px 0px;
+    margin: 15px 15px 15px 15px;
+    text-align: left;
 }
 
 #card #text button {
-    color: #fff;
+    color: #157DFF;
     font-size: 16px;
     padding: 3px 8px;
-    background-color: #6a24fe;
+    background-color: transparent;
     border-radius: 6px;
     margin-top: 10px;
     padding: 5 10px;
     transition: .5s ease;
-    border: 1px solid #6a24fe;
+    border: 2px solid #157DFF;
 }
 
 #card #text button:hover {
     transition: .5s ease;
-    background-color: transparent;
-    color: #6a24fe;
-    border: 1px solid #6a24fe;
+    background-color: #157DFF;
+    color: #fff;
+    border: 2px solid #157DFF;
 }
