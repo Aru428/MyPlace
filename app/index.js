@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 const { mainRouter, userRouter, galleryRouter } = require("./routes");
 
 // 메인페이지 경로
-app.use("/main", mainRouter);
+app.use("/", mainRouter);
 
 // 회원 관련 경로
 app.use("/user", userRouter);
