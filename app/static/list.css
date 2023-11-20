@@ -4,6 +4,7 @@
     border: none;
     text-decoration: none;
     color: inherit;
+    box-sizing: border-box;
   }
   body {
     font-family: "Roboto", sans-serif;
@@ -17,8 +18,8 @@
 #btn > button {
     border: 0;
     background-color: transparent;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 25px;
+    font-weight: 700;
     margin: 40px;
 }
 
@@ -30,70 +31,75 @@
 }
 
 
-
-
 #list-container {
-    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
 }
 
 #list-gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    /* border: 1px solid red; */
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
 }
 
+
 #card {
-    /* border: 1px solid black; */
     border-radius: 5px;
-    height: 480px;
-    width: 250px;
-    padding: 5px;
-    margin: 10px 10px 10px 10px;
-    text-align: center;
+    width: 20%;
+    padding: 20px;
+    margin: 20px 0px 20px 0px;
+    position: relative;
+    height: 600px;
+    /* border: 1px solid black; */
 }
 
-#card #img img {
-    height: 297px;
-    width: 210px;
-    /* border-radius: 10px; */
+.flex-box {
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid black; */
 }
 
-#text #address {
-    font-size: 13px;
-    margin: 20px 15px 15px 15px;
+.flex-box #box {
+    /* border: 1px solid red; */
+}
+
+.flex-box #img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 370px;
+    width: 370px;
+}
+
+.flex-box #img img {
+    max-height: 370px;
+    max-width: 370px;
+    display: block;
+}
+
+.flex-box #text {
+    height: 170px;
+    width: 370px;
     text-align: left;
+    position: absolute; 
+    bottom:20px;
+    border-top: 2px solid #157DFF;
 }
 
-#text #g_name {
+.flex-box #text #address {
+    font-size: 18px;
+    margin: 20px 15px 15px 0px;
+}
+
+.flex-box #text #g_name {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 20px 15px 15px 0px;
+    line-height: 33px;
+}
+
+.flex-box #text #deadline {
     font-size: 20px;
-    margin: 20px 15px 15px 15px;
-    text-align: left;
-}
-
-#text #deadline {
-    font-size: 16px;
-    margin: 15px 15px 15px 15px;
-    text-align: left;
-}
-
-#card #text button {
-    color: #157DFF;
-    font-size: 16px;
-    padding: 3px 8px;
-    background-color: transparent;
-    border-radius: 6px;
-    margin-top: 10px;
-    padding: 5 10px;
-    transition: .5s ease;
-    border: 2px solid #157DFF;
-}
-
-#card #text button:hover {
-    transition: .5s ease;
-    background-color: #157DFF;
-    color: #fff;
-    border: 2px solid #157DFF;
+    margin: 15px 15px 15px 0px;
 }

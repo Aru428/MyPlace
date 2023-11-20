@@ -24,41 +24,43 @@
     <link rel="stylesheet" href="/static/list.css" />
   </head>
   <body>
-    <section class="list-wrapper"></section>
-
-    <div id="btn">
-      <button type="button" onclick="location.href='/gallery/category' ">
-        전체
-      </button>
-      <button
-        type="button"
-        onclick="location.href='/gallery/category/exhibition' "
-      >
-        전시회
-      </button>
-      <button type="button" onclick="location.href='/gallery/category/artgallery' ">미술관</button>
-      <button type="button" onclick="location.href='/gallery/category/popupstore' ">팝업스토어</button>
-      <button type="button" onclick="location.href='/gallery/category/museum' ">박물관</button>
-    </div>
-
-    <div id="list-container">
-      <form method="" action="" id="list_form">
-        <div id="list-gallery">
-          <% for(let i = 0; i < data.length; i++){ %>
-          <div id="card">
-            <div id="img">
-              <img src="<%= data[i].imgurl %>" alt="박물관사진" />
+      <div id="btn">
+        <button type="button" onclick="location.href='/gallery/category' ">
+          전체
+        </button>
+        <button
+          type="button"
+          onclick="location.href='/gallery/category/exhibition' "
+        >
+          전시회
+        </button>
+        <button type="button" onclick="location.href='/gallery/category/artgallery' ">미술관</button>
+        <button type="button" onclick="location.href='/gallery/category/popupstore' ">팝업스토어</button>
+        <button type="button" onclick="location.href='/gallery/category/museum' ">박물관</button>
+      </div>
+        <div id="list-container">
+          <form method="" action="" id="list_form">
+            <div id="list-gallery">
+              <% for(let i = 0; i < data.length; i++){ %>
+              <div id="card">
+                <div class="flex-box">
+                  <div id="box">
+                    <div id="img">
+                      <img src="<%= data[i].imgurl %>" alt="박물관사진" />
+                    </div>
+                    <div id="text">
+                      <p id="address"><%=data[i].address %></p>
+                      <p id="g_name"><%=data[i].g_name %></p>
+                      <p id="deadline"><%=data[i].deadline %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% } %>
             </div>
-            <div id="text">
-              <p id="address"><%=data[i].address %></p>
-              <p id="g_name"><%=data[i].g_name %></p>
-              <p id="deadline"><%=data[i].deadline %></p>
-              <!-- <button id="website">사이트로 이동하기</button> -->
-            </div>
-          </div>
-          <% } %>
+          </form>
         </div>
-      </form>
-    </div>
+      </div>
+      
   </body>
 </html>
