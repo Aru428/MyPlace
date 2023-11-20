@@ -69,6 +69,15 @@
 
       infowindow.open(map, marker);
 
+
+      function panTo() {
+        var moveLatLon = new kakao.maps.LatLng(
+        37.53369071500842,
+        126.96329157378412
+      );
+        map.panTo(moveLatLon);
+      }
+
       function getMap() {
         axios({
           method: "GET",
