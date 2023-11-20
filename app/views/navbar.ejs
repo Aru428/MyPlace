@@ -61,13 +61,12 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <% if(isAuthenticated) { %>
-            <% console.log(isAuthenticated) %>
-              <a class="nav-link text-dark border border-dark rounded-pill" href="#" onclick="logout()"
-                style="width: 100px; text-align: center;">로그아웃</a>
-              <% } else { %>
-                <a class="nav-link text-dark border border-dark rounded-pill" href="/user/signin"
-                  style="width: 100px; text-align: center;">로그인</a>
-                <% }%>
+            <a class="nav-link text-dark border border-dark rounded-pill" href="#" onclick="logout()"
+              style="width: 100px; text-align: center;">로그아웃</a>
+            <% } else { %>
+              <a class="nav-link text-dark border border-dark rounded-pill" href="/user/signin"
+              style="width: 100px; text-align: center;">로그인</a>
+            <% }%>
         </li>
       </ul>
     </div>

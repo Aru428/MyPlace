@@ -5,18 +5,19 @@ html {
 body {
   font-family: Arial, sans-serif;
   background-color: #bae0fb;
-  display: flex;
+  /* display: flex;   */
   width: 100%;
 }
 
 #map {
   display: flex;
   position: absolute;
-  left: 880px;
-  width: 63%;
+  left: 450px;
+  width: 2050px;
   height: 1200px;
-  margin: 30px 0 0 20px;
   border-radius: 15px;
+  margin: 0 0 0 20px;
+  top: 200px;
 }
 
 .btn-top-myplace {
@@ -28,15 +29,14 @@ body {
   top: 10px;
 }
 
-.container {
+.container-a {
   display: flex;
-  /* height: 100vh; */
   height: 1200px;
   width: 470px;
-  /* width: auto; */
-  /* overflow: hidden; */
   margin: 30px 0 0 0;
   padding: 0;
+
+  top: 140px;
 }
 
 .sidebar {
@@ -52,7 +52,6 @@ body {
 /* 사이드바 버튼 */
 .toggle-btn {
   position: absolute;
-  top: 10px;
   left: 10px;
   cursor: pointer;
   z-index: 2;
@@ -66,23 +65,12 @@ body {
 }
 .bi {
   font-size: 25px;
-  /* line-height: 30px; */
   color: black;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
 }
 
 /* 리스트 콘텐츠 영역 */
 .content {
   position: absolute;
-  /* z-index: -1; */
   flex: 1;
   padding: 20px;
   background-color: white;
@@ -91,12 +79,17 @@ body {
   overflow-y: scroll;
   transition: transform 0.4s ease;
   animation: slideIn 0.4s ease;
-
   width: 450px;
   height: 1200px;
+  top: 200px;
+  left: 0;
 }
 
 .content-a {
+  margin-left: 70px;
+}
+
+.content-b {
   margin-left: 70px;
 }
 
@@ -114,7 +107,6 @@ body {
 /* 스크롤바 막대 */
 ::-webkit-scrollbar-thumb {
   background: #828282; /* 스크롤바 막대 색상 */
-  /* border: 0px solid #828282;  */
   /* 스크롤바 막대 테두리 설정  */
   border-radius: 12px 12px 12px 12px;
   margin-right: 5px;
@@ -122,10 +114,10 @@ body {
 
 /* 지도 아이콘 버튼 */
 .iconBtn {
-  position: fixed;
+  position: absolute;
   width: auto;
   height: 30px;
-  top: 1240px;
+  top: 1420px;
   left: 20px;
 }
 
@@ -134,15 +126,15 @@ body {
   position: absolute;
   height: 1200px;
   width: 410px;
-  border-radius: 0 15px 15px 0;
+  border-radius: 15px;
   background-color: white;
-  margin: 0;
+  margin-bottom: 20px;
   display: none;
   /* overflow-y: scroll;   */
 }
 
 .info-container img {
-  border-radius: 0 15px 0 0;
+  border-radius: 15px 15px 0 0;
   width: 410px;
   height: 300px;
 }
@@ -152,7 +144,7 @@ body {
   top: 285px;
   width: 410px;
   height: 915px;
-  border-radius: 30px 30px 15px 0;
+  border-radius: 30px 30px 15px 15px;
   background-color: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }

@@ -24,9 +24,16 @@
     <link rel="stylesheet" href="../static/map.css" />
   </head>
   <body>
+    <!-- nav바 불러오기 -->
+    <%-include("navbar.ejs")%>
+
     <!-- 카카오맵 API 지도 -->
     <div id="map">
-      <button class="btn-top-myplace" type="button" onclick="panTo()">
+      <button
+        class="btn-top-myplace comment-btn"
+        type="button"
+        onclick="panTo()"
+      >
         내 위치
       </button>
       <!-- <div id="result"></div> -->
@@ -245,14 +252,12 @@
       crossorigin="anonymous"
     ></script>
 
-    <div class="test"></div>
-
-    <div class="container">
+    <div class="container-a">
       <div class="sidebar">
-        <div class="toggle-btn btn-a" onclick="toggleSidebarA()">
+        <div class="toggle-btn btn-a" onclick="toggleSidebar('a')">
           <a href="#"><i class="bi bi-list"></i></a>
         </div>
-        <div class="toggle-btn btn-b" onclick="toggleSidebarB()">
+        <div class="toggle-btn btn-b" onclick="toggleSidebar('b')">
           <a href="#"><i class="bi bi-heart-fill"></i></a>
         </div>
       </div>
@@ -267,6 +272,8 @@
           <br />
           <% } %>
         </div>
+
+        <div class="content-b">찜목록</div>
       </div>
 
       <!-- 정보창을 표시할 영역 -->
@@ -354,6 +361,13 @@
         </div>
       </div>
     </div>
+
+    <input
+      type="button"
+      style="visibility: hidden"
+      value="아이콘"
+      class="iconBtn"
+    />
 
     <!-- 리뷰 클릭이벤트 -->
     <script>
@@ -466,41 +480,36 @@
       let infoContainer = document.querySelector(".info-container");
       let container = document.querySelector(".container");
       let content = document.querySelector(".content");
+      let currentMode = ""; // 현재 선택된 모드(a or b)를 저장
 
-      // 사이드바 메뉴 버튼을 토글
-      function toggleSidebarA() {
+      // 사이드바 버튼을 토글
+      function toggleSidebar(mode) {
         if (content.style.display === "none") {
-          if (infoContainer.display === "none") {
-            content.style.display = "block";
-          } else {
-            content.style.display = "block";
-            infoContainer.style.left = "470px";
-          }
-        } else {
-          if (infoContainer.display === "block") {
-            content.style.display = "none";
-          } else {
-            content.style.display = "none";
-            infoContainer.style.left = "60px";
-          }
-        }
-      }
+          // 현재 content가 숨겨져 있다면
+          $(".content").css("display", "block"); // .contetn를 block으로 하고,
+          $(".content > div").css("display", "none"); // .content > div를 none으로 하고,
+          $(".content-" + mode).css("display", "block"); // .content-(none)을 block으로 한다
 
-      // 사이드바 하트(찜목록) 버튼을 토글
-      function toggleSidebarB() {
-        if (content.style.display === "none") {
-          if (infoContainer.display === "none") {
-            content.style.display = "block";
-          } else {
-            content.style.display = "block";
-            infoContainer.style.left = "470px";
-          }
+          $(".info-container").css("right", "470px"); // 정보창을 우로 470px 이동
+          $("#map").css("left", "450px"); // 지도를 우로 470px 이동
+
+          console.log("1");
+
+          currentMode = mode; // 현재 모드 업데이트
         } else {
-          if (infoContainer.display === "block") {
-            content.style.display = "none";
-          } else {
-            content.style.display = "none";
-            infoContainer.style.left = "60px";
+          // 현재 content가 보여져 있다면
+          // mode가 같으면, .content를 none으로 하고,
+          // mode가 다르면, .content를 black, mode를 토글한다
+          if (mode === "a") {
+            $(".content").css("display", "block");
+            $(".content-a").css("display", "block");
+            $(".content-b").css("display", "none");
+          } else if (mode === "b") {
+            infoContainer.style.display = "none";
+
+            $(".content").css("display", "block");
+            $(".content-b").css("display", "block");
+            $(".content-a").css("display", "none");
           }
         }
       }
@@ -508,17 +517,26 @@
       // 정보창을 토글
       function toggleInfoContainer() {
         if (infoContainer.style.display === "block") {
-          if (content.style.display === "block") {
-            infoContainer.style.display = "none";
-          } else {
-            infoContainer.style.display = "none";
-          }
+          // 정보창이 보여져 있다면
+          infoContainer.style.display = "none";
+          $("#map").css("left", "450px");
+          $("#map").css("width", "2050px");
+
+          console.log("infoContainer를 닫습니다 3");
         } else {
           if (content.style.display === "none") {
+            // 정보창이 숨겨져 있고, content가 숨겨져 있다면
             infoContainer.style.display = "block";
+            $(".info-container").css("transform", "translateX(60px)");
+            $("#map").css("left", "470px");
+
+            console.log("infoContainer를 엽니다 1");
           } else {
             infoContainer.style.display = "block";
             infoContainer.style.left = "470px";
+            $("#map").css("left", "880px");
+            $("#map").css("width", "1620px");
+            console.log("infoContainer를 엽니다 4");
           }
         }
       }
