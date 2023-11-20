@@ -1,60 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>signin</title>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <!-- Bootstrap CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signin</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap"
+    />
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  <link rel="stylesheet" href="/static/editProfile.css" />
-</head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="/static/editProfile.css" />
+  </head>
 
-<body>
-  <!-- nav바 불러오기 -->
-  <%-include("navbar.ejs")%>
+  <body>
+    <!-- nav바 불러오기 -->
+    <%-include("navbar.ejs")%>
 
     <div class="flex-container">
-
       <div class="editProfile-wrapper">
-
         <form id="form-editProfile" name="form_editProfile">
-
           <div class="input_box">
             <label for="u_id" class="visually">아이디</label>
-            <input type="text" name="u_id" placeholder="ID" value="<%=data.id %>" readonly />
+            <input
+              type="text"
+              name="u_id"
+              placeholder="ID"
+              value="<%=data.id %>"
+              readonly
+            />
           </div>
 
           <div class="input_box">
             <label for="u_id" class="visually">이메일</label>
-            <input type="text" name="email" placeholder="Email" value="<%=data.email %>" readonly />
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              value="<%=data.email %>"
+              readonly
+            />
           </div>
 
           <div class="input_box">
             <label for="name" class="visually">이름</label>
-            <input type="text" name="name" placeholder="Name" value="<%=data.name %>" />
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value="<%=data.name %>"
+            />
           </div>
 
           <div class="hr-sect">
-            <p>비밀번호 변경 시에만 입력</p> 
+            <p>비밀번호 변경 시에만 입력</p>
           </div>
 
           <div class="input_box">
             <label for="password" class="visually">새 비밀번호</label>
-            <input type="password" id="pw" name="password" placeholder="Password" />
+            <input
+              type="password"
+              id="pw"
+              name="password"
+              placeholder="Password"
+            />
           </div>
 
           <div class="input_box">
-          <label for="password-check" class="visually">새 비밀번호 확인</label>
-           <input
+            <label for="password-check" class="visually"
+              >새 비밀번호 확인</label
+            >
+            <input
               type="password"
               id="pwConfirm"
               name="password-check"
@@ -64,11 +98,11 @@
             <div id="pwResult"></div>
           </div>
 
-          <button type="button" name="edit" onclick="profileEdit()">수정</button>
-
+          <button type="button" name="edit" onclick="profileEdit()">
+            수정
+          </button>
         </form>
       </div>
-
     </div>
     <script>
       function profileEdit() {
@@ -139,9 +173,9 @@
         })
           .then((res) => {
             if (res.data.result) {
-              alert("비밀번호 변경 성공");
+              alert("회원정보 수정 성공");
             } else {
-              alert("비밀번호 변경 실패");
+              alert("회원정보 수정 실패");
             }
           })
           .catch((err) => {
@@ -149,6 +183,5 @@
           });
       }
     </script>
-</body>
-
+  </body>
 </html>
