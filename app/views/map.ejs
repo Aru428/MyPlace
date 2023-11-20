@@ -85,59 +85,79 @@
       let infoContainer = document.querySelector('.info-container');
       let container = document.querySelector('.container');
       let content = document.querySelector('.content');
+      let currentMode = ''; // 현재 선택된 모드(a or b)를 저장
 
       // 사이드바 버튼을 토글
       function toggleSidebar(mode) {
-        if (content.style.display === 'none') {
-          $(".content").css("display", "block")
-          $(".content > div").css("display", 'none');
-          $(".content-" + mode).css("display", 'block');
-        } else {
+        if (content.style.display === 'none') { // 현재 content가 숨겨져 있다면
+          $(".content").css("display", "block") // .contetn를 block으로 하고,
+          $(".content > div").css("display", 'none'); // .content > div를 none으로 하고,
+          $(".content-" + mode).css("display", 'block'); // .content-(none)을 block으로 한다
 
-          $(".content").css("display", "none")
+          $(".info-container").css('right', '470px') // 정보창을 우로 470px 이동
+          $("#map").css("left", '450px') // 지도를 우로 470px 이동
+
+          console.log("1")
+
+          currentMode = mode; // 현재 모드 업데이트
+
+        } else { // 현재 content가 보여져 있다면
+          // mode가 같으면, .content를 none으로 하고,
+          // mode가 다르면, .content를 black, mode를 토글한다
+          if (mode === 'a') {
+            $(".info-container").css("display", "none")
+
+            $(".content").css("display", "block")
+            $(".content-a").css("display", "block")
+            $(".content-b").css("display", "none")
+            $("#map").css("left", '450px') // 지도를 우로 470px 이동
+
+            console.log("2")
+          } else if (mode === 'b') {
+            infoContainer.style.display = 'none'
+            $(".info-container").css("display", "none")
+
+            $(".content").css("display", "block")
+            $(".content-b").css("display", "block")
+            $(".content-a").css("display", "none")
+            $("#map").css("left", '450px') // 지도를 우로 470px 이동
+
+            console.log("3")
+          }
         }
-        // if (content.style.display === 'none') {
-        //   if (infoContainer.display === 'none') {
-        //     content.style.display = 'block'
-        //     console.log("content를 엽니다. 1")
-        //   } else {
-        //     content.style.display = 'block'
-        //     console.log("content를 엽니다. 2")
-        //     infoContainer.style.left = '470px'
-        //   }
-        // } else {
-        //   if (infoContainer.display === 'block') {
-        //     content.style.display = 'none'
-        //     console.log("content를 닫습니다. 3")
-        //   } else {
-        //     content.style.display = 'none'
-        //     console.log("content를 닫습니다. 4")
-        //     infoContainer.style.left = '60px'
-        //   }
-        // }
       }
 
       // 정보창을 토글
       function toggleInfoContainer() {
-        if (infoContainer.style.display === 'block') {
-          if (content.style.display === 'block') {
-            infoContainer.style.display = 'none';
-            console.log("infoContainer를 닫습니다 3");
-          } else {
-            infoContainer.style.display = 'none';
-            console.log("infoContainer를 닫습니다 2");
-          }
+        if (infoContainer.style.display === 'block') { // 정보창이 보여져 있다면
+          infoContainer.style.display = 'none';
+          $("#map").css("left", '450px')
+          $("#map").css("width", '1500px');
+          // $("#map").css("transform", 'translateX(60px)');
+
+          console.log("infoContainer를 닫습니다 3");
         } else {
-          if (content.style.display === 'none') {
-            infoContainer.style.display = 'block';
+          if (content.style.display === 'none') { // 정보창이 숨겨져 있고, content가 숨겨져 있다면
+            infoContainer.style.display = 'block'
+            // $(".info-container").css("left", '60px')
+            $(".info-container").css("transform", 'translateX(60px)');
+            $("#map").css("left", '470px')
+            // $("#map").css("transform", 'translateX(450px)');
+
             console.log("infoContainer를 엽니다 1");
           } else {
             infoContainer.style.display = 'block'
             infoContainer.style.left = '470px'
+            // $(".info-container").css("transform", 'translateX(470px)');
+            // $("#map").css("transform", 'translateX(820px)');
+            $("#map").css("left", '880px');
+            $("#map").css("width", '1070px');
             console.log("infoContainer를 엽니다 4");
           }
         }
+
       }
+
 
     </script>
 
