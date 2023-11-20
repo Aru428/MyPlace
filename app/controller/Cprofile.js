@@ -21,7 +21,7 @@ exports.editCheckPw = (req, res) => {
       u_id: req.session.user,
     },
   }).then((result) => {
-    console.log("result 값좀 찍어줘:",result);
+    // console.log("result 값좀 찍어줘:",result);
 
     if(result) {
       pwSalt
@@ -92,21 +92,30 @@ exports.profileEdit = (req, res) => {
 
 exports.profileAllEdit = (req, res) => {
   // name,password 수정 실행
-  const data = {
-    password: req.body.pw,
-    name: req.body.name,
-  };
-  User.update(data, {
-    where: {
-      u_id: req.session.user,
-    },
-  }).then((row) => {
-    if (row) {
-      res.send({ result: true });
-    } else {
-      res.send({ result: false });
-    }
-  });
+  const pw = req.body.pw;
+  pwSalt
+        .hashPassword(pw)
+        .then(( {hashedPw, salt}) => {
+          console.log(hashedPw, salt);
+          const data = {
+            password: hashedPw,
+            name: req.body.name,
+            salt: salt,
+          };
+          User.update(data, {
+            where: {
+              u_id: req.session.user,
+
+            },
+          }).then((row) => {
+            console.log('update name && pw:', row);
+            if (row) {
+                  res.send({ result: true });
+                } else {
+                  res.send({ result: false });
+                }
+          })
+        })
 };
 
 // 회원 탈퇴 시 비밀번호 확인 페이지 관련
