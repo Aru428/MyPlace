@@ -69,12 +69,11 @@
 
       infowindow.open(map, marker);
 
-
       function panTo() {
         var moveLatLon = new kakao.maps.LatLng(
-        37.53369071500842,
-        126.96329157378412
-      );
+          37.53369071500842,
+          126.96329157378412
+        );
         map.panTo(moveLatLon);
       }
 
@@ -97,6 +96,7 @@
             positions[i].website,
             positions[i].detailaddr,
             positions[i].imgurl,
+            positions[i].g_id,
             i
           );
         }
@@ -111,6 +111,7 @@
         website,
         detailaddr,
         imgurl,
+        g_id,
         i
       ) {
         return new Promise((resolve, reject) => {
@@ -145,7 +146,7 @@
                 content: `<label for="myCheckbox">찜하기</label>
                             <input type="checkbox" id="myCheckbox" onchange="changeHeartMarker(this, '${i}','${g_name}'); checkboxIsChecked(this, '${i}', '${g_name}')"> 
                             <div style="font-weight:bold;">${g_name}<br/>
-                            <button type="button" onclick="imgurlAdd('${imgurl}'); info('${g_name}', '${deadline}', '${detailaddr}', '${website}')">더보기</button>
+                            <button type="button" onclick="imgurlAdd('${imgurl}'); info('${g_name}', '${deadline}', '${detailaddr}', '${website}', '${g_id}'); searchComment();">더보기</button>
                             <a href="https://map.kakao.com/" style="color:blue" target="_blank"><div style="width:400px;text-align:right;padding:10px 0;">길찾기</a></div>`,
                 removable: true,
               });
@@ -217,18 +218,21 @@
 
       function imgurlAdd(imgurl) {
         const infoImage = document.getElementById("infoImage");
-        console.log(imgurl);
+        // console.log(imgurl);
         infoImage.src = imgurl;
         toggleInfoContainer();
       }
 
-      function info(g_name, deadline, detailaddr, website) {
+      function info(g_name, deadline, detailaddr, website, g_id) {
         const result = document.getElementById("result");
         result.innerHTML = `
                           <div class="title">${g_name}</div>
                           <div class="deadline">${deadline}</div>
                           <div class="detailaddr">${detailaddr}</div>
-                          <div class="website">${website}</div>
+                          <div class="website">
+                            <a href="${website}" target="_blank">웹사이트</a>                           
+                          </div>
+                          <div id="galleryId" style="display:none;">${g_id}</div>
                           `;
       }
     </script>
@@ -269,43 +273,80 @@
       <div class="info-container">
         <img src="" id="infoImage" />
         <div class="info">
-          <div id="result"></div>
-          <hr />
+          <div id="result-box">
+            <div id="result"></div>
+            <hr />
+          </div>
           <div id="comment" class="comment-container">
             <div class="comment-text">
-              <p>방문자 리뷰 23</p>
-              <button type="button" onclick="changeComment()">리뷰 쓰기</button>
+              <div style="font-weight: bold">방문자 리뷰</div>
+              <button
+                type="button"
+                class="comment-btn"
+                onclick="changeComment()"
+              >
+                리뷰 쓰기
+              </button>
             </div>
             <!-- 리뷰 리스트 -->
-            <div id="list" class="comment-list">
-              <!--  for(let i = 0; i < 3; i++){ %>
-            <div class="comment-text">
-              <p>반짝반짝</p>
-              <p>⭐⭐⭐⭐⭐</p>
-            </div>
-            <p style="margin: 0 10px 0 10px">너무 좋은 전시였어요~</p>
-            <hr />
-             } %> -->
-            </div>
+            <div id="list" class="comment-list"></div>
             <!-- 리뷰 작성 -->
             <div id="write" class="comment-write">
               <p>별점을 표시해 주세요</p>
-              <p>⭐⭐⭐⭐⭐</p>
-              <form name="review">
+              <form name="review" class="mb-3" id="myform">
+                <fieldset>
+                  <input
+                    type="radio"
+                    name="reviewStar"
+                    value="5"
+                    id="rate1"
+                  /><label for="rate1">★</label>
+                  <input
+                    type="radio"
+                    name="reviewStar"
+                    value="4"
+                    id="rate2"
+                  /><label for="rate2">★</label>
+                  <input
+                    type="radio"
+                    name="reviewStar"
+                    value="3"
+                    id="rate3"
+                  /><label for="rate3">★</label>
+                  <input
+                    type="radio"
+                    name="reviewStar"
+                    value="2"
+                    id="rate4"
+                  /><label for="rate4">★</label>
+                  <input
+                    type="radio"
+                    name="reviewStar"
+                    value="1"
+                    id="rate5"
+                  /><label for="rate5">★</label>
+                </fieldset>
                 <input
                   name="commentText"
                   class="comment-box"
                   type="text"
                   placeholder="리뷰를 써 주세요. (10자 이상)"
                 />
-                <div class="comment-btn">
+                <div class="comment-button">
                   <button
                     type="button"
-                    onclick="backCommentList(); searchComment();"
+                    class="comment-btn"
+                    onclick="backCommentList()"
                   >
                     취소
                   </button>
-                  <button type="button" onclick="getComment()">등록</button>
+                  <button
+                    type="button"
+                    class="comment-btn"
+                    onclick="getComment()"
+                  >
+                    등록
+                  </button>
                 </div>
               </form>
             </div>
@@ -319,59 +360,105 @@
       const list = document.getElementById("list");
       const write = document.getElementById("write");
 
+      // 별 체크
+      // 라디오 버튼 요소들을 가져옴
+      let star = 0;
+      var radioButtons = document.querySelectorAll(
+        'input[type="radio"][name="reviewStar"]'
+      );
+      // 라디오 버튼 변경 이벤트 핸들러 함수
+      function handleRadioChange(event) {
+        // 선택된 값 출력
+        console.log("star value", event.target.value);
+        star = event.target.value;
+      }
+      // 라디오 버튼에 이벤트 리스너 추가
+      radioButtons.forEach(function (radioButton) {
+        radioButton.addEventListener("change", handleRadioChange);
+      });
+
       function changeComment() {
         list.style.display = "none";
+        list.innerHTML = "";
         write.style.display = "flex";
       }
 
+      // 리뷰 작성 취소
+      let infoOpen = false;
       function backCommentList() {
+        infoOpen = false;
+        searchComment();
         list.style.display = "";
         write.style.display = "none";
       }
 
+      // 리뷰 작성
       function getComment() {
         const form = document.forms["review"];
-        // console.log(form.commentText.value);
+        const g_id = document.getElementById("galleryId");
+
+        if (form.commentText.value.length == 0) {
+          alert("리뷰를 입력해주세요.");
+          form.commentText.focus();
+          return false;
+        }
+
         const data = {
           review: form.commentText.value,
+          g_id: parseInt(g_id.innerText),
+          star: parseInt(star),
         };
 
+        infoOpen = false;
         axios({
           method: "post",
           url: "/gallery/comment",
           data: data,
         }).then((res) => {
+          searchComment();
           form.commentText.value = "";
           list.style.display = "";
           write.style.display = "none";
         });
       }
 
+      // 리뷰 조회
       function searchComment() {
-        const comment = document.getElementById("comment");
+        const g_id = document.getElementById("galleryId");
 
-        axios({
-          method: "post",
-          url: "/gallery/commentfind",
-        }).then((res) => {
-          for (let data of res.data.result) {
-            // console.log(data.u_id);
+        let data = {
+          g_id: parseInt(g_id.innerText),
+        };
 
-            let comStar = "";
-            for (let i = 0; i < data.star; i++) {
-              comStar += "⭐";
-            }
+        if (list.innerHTML == "" && infoOpen == false) {
+          infoOpen = true;
+          axios({
+            method: "post",
+            url: "/gallery/commentfind",
+            data: data,
+          }).then((res) => {
+            for (let data of res.data.result) {
+              // console.log(data.u_id);
 
-            let newDiv = document.createElement("div");
-            newDiv.innerHTML = `<div class="comment-text">
+              let comStar = "";
+              for (let i = 0; i < data.star; i++) {
+                comStar += "⭐";
+              }
+
+              let newDiv = document.createElement("div");
+              newDiv.innerHTML = `<div class="comment-list-text">
                 <p>${data.u_id}</p>
                 <p>${comStar}</p>
                 </div>
                 <p style="margin: 0 10px 0 10px">${data.review}</p>
                 <hr />`;
-            list.appendChild(newDiv);
-          }
-        });
+              list.appendChild(newDiv);
+            }
+          });
+        } else {
+          list.innerHTML = "";
+          infoOpen = false;
+        }
       }
     </script>
 
