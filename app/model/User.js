@@ -4,7 +4,7 @@ function User(Sequelize, DataTypes){
         {
             // u_id, email, password, name
             u_id: {
-                type: DataTypes.STRING(8),
+                type: DataTypes.STRING(20),
                 allowNull: false,
                 primaryKey: true
             }, 
@@ -17,7 +17,7 @@ function User(Sequelize, DataTypes){
                 allowNull: false,
             },
             salt: {
-                type: DataTypes.STRING(100),
+                type: DataTypes.STRING(255),
                 allowNull: false,
             },
             name: {
