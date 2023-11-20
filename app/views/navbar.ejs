@@ -39,14 +39,20 @@
           <a class="nav-link active text-dark" aria-current="page" href="/main">홈</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="./gallery/category ">둘러보기</a>
+          <a class="nav-link text-dark" href="/gallery/category ">둘러보기</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" href="#">찜</a>
         </li>
 
         <!-- 로그 아웃으로 로고 바꾸고, 로그아웃을 누를시 세션 종료+ 로그아웃 버튼이 로그안으로 돌아오도록 -->
+        <% if(isAuthenticated) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/profile">마이페이지</a>
+          </li>
+          <% } else { %>
 
+            <% }%>
 
       </ul>
     </div>
@@ -54,9 +60,34 @@
     <div class="d-flex justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link text-dark border border-dark rounded-pill" href="/user/signin"
-            style="width: 100px; text-align: center;">로그인</a>
+          <% if(isAuthenticated) { %>
+            <% console.log(isAuthenticated) %>
+            <a class="nav-link text-dark border border-dark rounded-pill" href="#" onclick="logout()"
+              style="width: 100px; text-align: center;">로그아웃</a>
+            <% } else { %>
+              <a class="nav-link text-dark border border-dark rounded-pill" href="/user/signin"
+              style="width: 100px; text-align: center;">로그인</a>
+            <% }%>
         </li>
       </ul>
     </div>
 </nav>
+
+<script>
+</script>
+
+<script>
+    function logout() {
+      axios({
+        method: 'post',
+        url: '/main/logout',
+      }).then((res) => {
+        if (res.data.result) {
+          alert("로그아웃 성공!!");
+          document.location.href = "/main";
+        } else {
+          alert("로그아웃을 실패 하였습니다..");
+        }
+      })
+    }
+  </script>

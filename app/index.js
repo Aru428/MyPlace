@@ -15,10 +15,17 @@ app.use(
     saveUninitialized: true,
     cookie: {
       httpOnly: true,
-      maxAge: 10 * 60 * 1000,
+      maxAge: 30 * 60 * 1000,
     },
   })
 );
+
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.isAuthenticated;
+  res.locals.user = req.session.user;
+  console.log(res.locals.user);
+  next();
+});
 
 const { mainRouter, userRouter, galleryRouter } = require("./routes");
 
@@ -30,8 +37,6 @@ app.use("/user", userRouter);
 
 // 갤러리 관련 경로
 app.use("/gallery", galleryRouter);
-
-
 
 app.listen(PORT, function () {
   console.log(`Sever Open: ${PORT}`);
