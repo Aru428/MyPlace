@@ -1,4 +1,4 @@
-a {
+/* a {
   text-decoration: none;
 }
 
@@ -6,8 +6,9 @@ h1 {
   text-align: center;
   font-family: 'ABeeZee', sans-serif;
   font-size: 50px;
-}
+} */
 
+/* nav bar css */
 .nav-item::marker {
   color: transparent;
 }
@@ -16,6 +17,8 @@ h1 {
   text-align: center;
   font-family: 'ABeeZee', sans-serif;
   font-size: 30px;
+  /* margin 값은 main.css와 map.css에 들어가 있음 */
+  margin-top: 15px;
 }
 
 /* main 이미지 */
@@ -34,7 +37,6 @@ h1 {
   align-items: center;
 }
 
-
 .main-text {
   position: absolute;
   top: 150px;
@@ -46,7 +48,6 @@ h1 {
   font-size: 65px;
   font-weight: 1000;
 }
-
 
 .intoMap {
   display: inline-block;
@@ -66,8 +67,6 @@ h1 {
   color: #ffffff;
 }
 
-
-
 .main-img {
   max-width: 100%;
   max-height: 100%;
@@ -76,13 +75,12 @@ h1 {
 
 .main-img img {
   width: 450px;
-
 }
 
 .exhibition-img img {
   position: absolute;
   left: 0px;
-  top: 80px; 
+  top: 80px;
 }
 
 .popup-img img {
@@ -102,8 +100,3 @@ h1 {
   right: 0px;
   top: 80px;
 }
-
-
-
-
-

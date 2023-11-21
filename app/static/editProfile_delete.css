@@ -1,79 +1,75 @@
 * {
-    padding: 0;
-    margin: 0;
-    border: none;
-  }
-  body {
-    font-size: 14px;
-    font-family: "Roboto", sans-serif;
-  }
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
-  .flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .delete-wrapper {
-    width: 400px;
-    padding: 40px;
-    height: 320px;
-    box-sizing: border-box;
-    margin: 100px 100px 50px 100px;
-    border-radius: 20px;
-    box-shadow: 3px 3px 10px 3px #d2d2d2;
-  }
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-  .delete-wrapper > p {
-    font-size: 15px;
-    color: #000000;
-    margin: 15px 0px 40px 0px;
-    text-align: center;
-  }
+.delete-wrapper {
+  width: 400px;
+  padding: 40px;
+  height: 320px;
+  box-sizing: border-box;
+  margin: 100px 100px 50px 100px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px 3px #d2d2d2;
+}
 
-  
-  #form-delete {
-    width: 90%;
-    margin: 0 auto;
-  }
+.delete-wrapper > p {
+  font-size: 15px;
+  color: #000000;
+  margin: 15px 0px 40px 0px;
+  text-align: center;
+}
 
+#form-delete {
+  width: 90%;
+  margin: 0 auto;
+}
 
-  .input-box > input {
-    width: 100%;
-    height: 48px;
-    padding: 0 10px;
-    box-sizing: border-box;
-    margin: 8px 0px 30px 0px;
-    border-radius: 6px;
-    background-color: #f8f8f8;
-  }
+.input-box > input {
+  width: 100%;
+  height: 48px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin: 8px 0px 30px 0px;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+}
 
-  .input-box > input::placeholder {
-    color: #d2d2d2;
-  }
+.input-box > input::placeholder {
+  color: #d2d2d2;
+}
 
+.button-box {
+  display: flex;
+  justify-content: center;
+}
 
-  .button-box {
-    display: flex;
-    justify-content: center;
-  }
+.button-box > button::placeholder {
+  color: #d2d2d2;
+}
 
-  .button-box > button::placeholder {
-    color: #d2d2d2;
-  }
+.button-box > button {
+  width: 50%;
+  height: 48px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #157dff;
+}
 
-  .button-box > button {
-    width: 50%;
-    height: 48px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 16px;
-    background-color: #157DFF;
-  }
-  
-  .button-box > .b1 {
-    margin-right: 5px;
-  }
+.button-box > .b1 {
+  margin-right: 5px;
+}
