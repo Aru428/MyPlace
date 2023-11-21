@@ -9,8 +9,13 @@ body {
   width: 100%;
 }
 
+/* nav bar css */
 nav {
   height: 120px;
+}
+
+.navbar-brand {
+  margin-top: 10px;
 }
 
 #map {
@@ -18,7 +23,7 @@ nav {
   position: absolute;
   left: 450px;
   width: 2050px;
-  height: 88vh;
+  height: 1150px;
   border-radius: 15px;
   margin: 0 0 0 20px;
   top: 130px;
@@ -35,7 +40,7 @@ nav {
 
 .container-a {
   display: flex;
-  height: 88vh;
+  height: 1150px;
   width: 470px;
   margin: 10px 0 0 0;
   padding: 0;
@@ -84,7 +89,7 @@ nav {
   transition: transform 0.4s ease;
   animation: slideIn 0.4s ease;
   width: 450px;
-  height: 88vh;
+  height: 1150px;
   top: 130px;
   left: 0;
 }
