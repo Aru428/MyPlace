@@ -12,7 +12,7 @@ function Comment(Sequelize, DataTypes) {
       u_id: {
         type: DataTypes.STRING(20),
         allowNull: false,
-        // index.js 에서 조인설정해놈
+        // index.js 에서 조인
       },
       g_id: {
         type: DataTypes.INTEGER,
