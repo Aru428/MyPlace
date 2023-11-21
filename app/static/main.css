@@ -1,14 +1,3 @@
-/* :root {
-} */
-
-/* body {
-  margin: 0;
-  padding: 0;
-} */
-
-/* ABeeZee font import */
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 a {
   text-decoration: none;
 }
@@ -33,11 +22,10 @@ h1 {
 .main-container {
   position: relative;
   text-align: center;
-  top: 40px;
+  /* top: 40px; */
 
-  width: 1200px;
-  height: 800px;
-  border: 1px solid black;
+  width: 1600px;
+  height: 1000px;
 
   margin: 0 auto;
   display: flex;
@@ -46,23 +34,19 @@ h1 {
   align-items: center;
 }
 
-.main-container img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-
-  /* 반응형. 이미지가 400px 보다 작아지지 않도록 함 */
-  /* min-width: 400px; */
-}
 
 .main-text {
   position: absolute;
-  bottom: 10px;
-  left: 30px;
-  margin: 0px;
-  text-align: left;
+  top: 150px;
+  text-align: center;
   color: black;
 }
+
+.main-text p {
+  font-size: 65px;
+  font-weight: 1000;
+}
+
 
 .intoMap {
   display: inline-block;
@@ -82,36 +66,44 @@ h1 {
   color: #ffffff;
 }
 
-/* 이미지 4개 */
-.main-select {
+
+
+.main-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+}
+
+.main-img img {
+  width: 450px;
+
+}
+
+.exhibition-img img {
   position: absolute;
-  width: 100%;
-  top: -50px;
-
-  color: black;
-
-  /* text-align: right; */
-  margin-left: 140%;
+  left: 0px;
+  top: 80px; 
 }
 
-.main-select img {
-  border-radius: 5%;
-}
-
-.row {
-  /* 가로 - 줄바꿈 없음 */
-  flex-wrap: nowrap;
-
+.popup-img img {
   position: absolute;
-  justify-content: flex-end;
+  left: 250px;
+  bottom: 170px;
 }
 
-.row > p {
-  margin: 0 0;
+.gallery-img img {
+  position: absolute;
+  right: 250px;
+  bottom: 170px;
 }
 
-.col-4 {
-  width: 200px;
-  text-align: center;
-  margin-right: 20px;
+.museum-img img {
+  position: absolute;
+  right: 0px;
+  top: 80px;
 }
+
+
+
+
+
