@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&amp;display=swap" />
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  <link rel="stylesheet" href="/static/wishList.css" />
+  <link rel="stylesheet" href="/static/list.css" />
 </head>
 
 <body>
@@ -24,15 +24,7 @@
   <%-include("navbar.ejs")%>
 
     <div id="btn">
-      <button type="button" onclick="location.href='/gallery/category' ">
-        전체
-      </button>
-      <button type="button" onclick="location.href='/gallery/category/exhibition' ">
-        전시회
-      </button>
-      <button type="button" onclick="location.href='/gallery/category/artgallery' ">미술관</button>
-      <button type="button" onclick="location.href='/gallery/category/popupstore' ">팝업스토어</button>
-      <button type="button" onclick="location.href='/gallery/category/museum' ">박물관</button>
+      <button type="button" onclick="location.href='/gallery/heartlist' ">찜</button>
     </div>
     <div id="list-container">
       <form method="" action="" id="list_form">
