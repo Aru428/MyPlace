@@ -21,19 +21,23 @@ exports.getMap = (req, res) => {
 // 리뷰 생성
 exports.createComment = (req, res) => {
   const data = {
-    u_id: "sohee3",
+    u_id: req.session.user,
     g_id: req.body.g_id,
     star: req.body.star,
     review: req.body.review,
   };
 
-  Comment.create(data)
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      res.status(500).send("오류 발생");
-    });
+  if (req.session.isAuthenticated == true) {
+    Comment.create(data)
+      .then((result) => {
+        res.send(result);
+      })
+      .catch((err) => {
+        res.status(500).send("오류 발생");
+      });
+  } else {
+    res.send({ login: false });
+  }
 };
 
 // 리뷰 조회
