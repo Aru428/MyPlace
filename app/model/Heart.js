@@ -18,10 +18,6 @@ function Heart(Sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      heart_checked: {
-        type: DataTypes.BOOLEAN,
-        allowNull: true,
-      },
     },
     {
       tableName: "heart",
