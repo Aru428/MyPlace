@@ -4,8 +4,8 @@
   border: none;
 }
 body {
-  font-size: 14px;
-  font-family: "Roboto", sans-serif;
+  /* font-size: 14px; */
+  font-family: 'Roboto', sans-serif;
 }
 
 .flex-container {
@@ -27,7 +27,7 @@ body {
 .signin-wrapper > h2 {
   font-size: 24px;
   font-weight: 900;
-  color: #157DFF;
+  color: #157dff;
   margin: 10px 0px 40px 0px;
   text-align: center;
 }
@@ -40,7 +40,6 @@ body {
 .input_box {
   margin-bottom: 25px;
 }
-
 
 .input_box > input {
   width: 100%;
@@ -68,20 +67,19 @@ body {
 #form-signin > button::placeholder {
   color: #d2d2d2;
 }
-#form-signin > button[type="button"] {
+#form-signin > button[type='button'] {
   color: #fff;
   font-size: 16px;
-  background-color: #157DFF;
+  background-color: #157dff;
   margin-top: 20px;
 }
-
 
 .linkToSignin {
   font-size: 16px;
 }
 
 .linkToSignin > span {
-  color: #157DFF;
+  color: #157dff;
   font-weight: 800;
-  cursor:pointer;
+  cursor: pointer;
 }

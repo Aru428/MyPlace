@@ -2,32 +2,37 @@
   /* ABeeZee font import */
   @import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@1&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-  a {
+  /* a {
     text-decoration: none;
-  }
+  } */
 
-  h1 {
+  /* h1 {
     text-align: center;
     font-family: 'ABeeZee', sans-serif;
     font-size: 50px;
+  } */
+
+  li.nav-item {
+    list-style: none;
+  }
+
+  .li.nav-item::marker {
+    list-style: none;
   }
 
   .navbar-brand {
     text-align: center;
     font-family: 'ABeeZee', sans-serif;
     font-size: 30px;
+    /* margin-top: 20px; */
   }
 
   .container {
     height: 140px;
   }
-
-  li {
-    list-style: none;
-  }
 </style>
 
-<nav class="navbar navbar-expand-sm py-3 bg-transparent  text-dark" style="width: 1200px; margin: 0 auto;">
+<nav class="navbar navbar-expand-sm py-3 bg-transparent  text-dark" style="width: 1600px; margin: 0 auto;">
   <div class="container">
     <li class="nav-item">
       <p class="navbar-brand fs-1">MyPlace</p>
@@ -65,8 +70,8 @@
               style="width: 100px; text-align: center;">로그아웃</a>
             <% } else { %>
               <a class="nav-link text-dark border border-dark rounded-pill" href="/user/signin"
-              style="width: 100px; text-align: center;">로그인</a>
-            <% }%>
+                style="width: 100px; text-align: center;">로그인</a>
+              <% }%>
         </li>
       </ul>
     </div>
