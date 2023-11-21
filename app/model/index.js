@@ -41,7 +41,7 @@ db.Gallery.hasMany(db.Heart, {
   foreignKey: "g_id",
 });
 db.Heart.belongsTo(db.Gallery, {
-  //  onDelete: "cascade",
+  onDelete: "cascade",
   foreignKey: "g_id",
 });
 db.User.hasMany(db.Heart, {

@@ -151,7 +151,8 @@
               var infowindow = new kakao.maps.InfoWindow({
                 // changeHeartMarker함수에 checkbox를 담아야되기때문에 this를 넣고, 각배열의 index를 찾아가야되기때문에 i를 걸어줌
                 content: `<label for="myCheckbox">찜하기</label>
-                            <input type="checkbox" id="myCheckbox" onchange="changeHeartMarker(this, '${i}','${g_name}'); checkboxIsChecked(this, '${i}', '${g_name}')"> 
+                            <input type="checkbox" id="myCheckbox" onchange="changeHeartMarker(this, '${i}','${g_name}'); checkboxIsChecked(this, '${i}', '${g_name}')
+                            handleCheckboxChange(this, ${g_id}); heartGalleryRequest(${g_id}); heartUser();"> 
                             <div style="font-weight:bold;">${g_name}<br/>
                             <button type="button" onclick="imgurlAdd('${imgurl}'); info('${g_name}', '${deadline}', '${detailaddr}', '${website}', '${g_id}'); searchComment();">더보기</button>
                             <a href="https://map.kakao.com/" style="color:blue" target="_blank"><div style="width:400px;text-align:right;padding:10px 0;">길찾기</a></div>`,
@@ -275,6 +276,88 @@
 
         <div class="content-b">찜목록</div>
       </div>
+
+      <script>
+        heartUser();
+
+        // 찜한 갤러리 불러오기 (맨처음 select * 갤러리)
+        function heartGalleryRequest(g_id) {
+          axios({
+            method: "GET",
+            url: "/gallery/heartgallery",
+            params: {
+              g_id: g_id,
+              // heart_checked: true,
+            },
+          }).then((res) => {});
+        }
+
+        function heartUser() {
+          axios({
+            method: "GET",
+            url: "/gallery/heartuser",
+          })
+            .then((res) => {
+              const data = res.data;
+
+              const contentContainer = document.querySelector(".content-b");
+              contentContainer.innerHTML = ""; // 기존 내용 초기화
+              if (data && data.length > 0) {
+                for (let i = 0; i < data.length; i++) {
+                  const img = document.createElement("img");
+                  img.src = data[i].imgurl;
+
+                  const p = document.createElement("p");
+                  p.textContent = data[i].g_name;
+
+                  const contentItem = document.createElement("div");
+                  // contentItem.className = 'content-item';
+                  contentItem.appendChild(img);
+                  contentItem.appendChild(p);
+
+                  contentContainer.appendChild(contentItem);
+                }
+              }
+            })
+            .catch((error) => {
+              console.error("데이터 불러오기 중 오류가 발생했습니다:", error);
+            });
+        }
+
+        // 체크박스 상태 변화를 처리하는 함수
+        function handleCheckboxChange(checkbox, g_id) {
+          const checked = checkbox.checked;
+          const data = {
+            g_id: g_id,
+          };
+
+          if (checked) {
+            axios({
+              method: "POST",
+              url: "/gallery/heartlist",
+              data: data,
+            })
+              .then((res) => {
+                alert("찜 완료!");
+              })
+              .catch((error) => {
+                console.error("데이터 저장 중 오류가 발생했습니다:", error);
+              });
+          } else {
+            axios({
+              method: "DELETE",
+              url: `/gallery/heartlist/${g_id}`,
+            })
+              .then((res) => {
+                alert("찜 삭제!");
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }
+          heartUser();
+        }
+      </script>
 
       <!-- 정보창을 표시할 영역 -->
       <div class="info-container">

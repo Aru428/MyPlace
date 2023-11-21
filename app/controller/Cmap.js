@@ -1,4 +1,4 @@
-const { Gallery, Comment } = require("../model");
+const { Gallery, Comment, Heart } = require("../model");
 
 // 지도 화면 UI
 exports.mapUiPage = (req, res) => {
@@ -51,4 +51,84 @@ exports.getComment = (req, res) => {
   }).then((result) => {
     res.send({ result: result });
   });
+};
+
+exports.heartGallery = (req, res) => {
+  const u_id = req.session.user;
+  const g_id = req.query.g_id;
+
+  // Heart 모델에서 heart_checked가 true인 데이터를 조회합니다
+  Heart.findAll({
+    where: {
+      u_id: u_id,
+      g_id: g_id,
+      // heart_checked: true,
+    },
+  }).then((result) => {
+    res.send({ data: result });
+  });
+};
+
+exports.getHeartList = (req, res) => {
+  // const imgurl = req.query.imgurl;
+  const g_id = req.query.g_id;
+  Gallery.findOne({
+    attribute: ["g_name", "imgurl"],
+    where: {
+      g_id: g_id,
+    },
+  }).then((res) => {
+    res.send(res);
+  });
+};
+
+// 사용자가 찜한 갤러리 정보 불러오기
+exports.getHeartUser = (req, res) => {
+  Gallery.findAll({
+    attribute: ["gallery.*"],
+    include: [
+      {
+        model: Heart,
+        where: { u_id: req.session.user },
+        required: true,
+      },
+    ],
+  }).then((result) => {
+    res.send(result);
+  });
+};
+
+// 체크된 경우, 데이터베이스에 저장
+exports.createHeart = (req, res) => {
+  const data = {
+    u_id: req.session.user,
+    g_id: req.body.g_id,
+  };
+
+  Heart.create(data)
+    .then((result) => {
+      res.send({ data: result });
+    })
+    .catch((error) => {
+      console.error("데이터 저장 중 오류가 발생했습니다:", error);
+      res.status(500).send({ error: "데이터 저장 중 오류가 발생했습니다" });
+    });
+};
+
+exports.deleteHeart = (req, res) => {
+  const g_id = req.params.g_id;
+
+  Heart.destroy({
+    where: {
+      u_id: req.session.user,
+      g_id: g_id,
+    },
+  })
+    .then((result) => {
+      res.send({ result: result });
+    })
+    .catch((error) => {
+      console.error("데이터 삭제 중 오류가 발생했습니다:", error);
+      res.status(500).send({ error: "데이터 삭제 중 오류가 발생했습니다" });
+    });
 };

@@ -50,7 +50,12 @@ galleryRouter.get("/category/museum", category.categoryMuseum);
 galleryRouter.get("/category/popupstore", category.categoryPopup);
 
 // 찜목록 관련
-galleryRouter.get("/heartlist", category.heartListPage);
+galleryRouter.get("/heartlistpage", category.heartListPage);
+galleryRouter.get("/heartgallery", map.heartGallery);
+galleryRouter.get("/heartuser", map.getHeartUser);
+galleryRouter.get("/heartlist", map.getHeartList);
+galleryRouter.post("/heartlist", map.createHeart);
+galleryRouter.delete("/heartlist/:g_id", map.deleteHeart);
 
 module.exports = {
   mainRouter,

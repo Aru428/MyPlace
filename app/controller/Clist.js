@@ -50,17 +50,23 @@ exports.categoryPopup = (req, res) => {
 
 // 찜 목록 페이지 렌더
 exports.heartListPage = (req, res) => {
-  Gallery.findAll({
-    attributes: ["g_name", "imgurl", "address", "deadline"],
-    include: [
-      {
-        model: Heart,
-        attributes: [],
-        where: { u_id: "sohee1" },
-        required: true,
-      },
-    ],
-  }).then((result) => {
-    res.render("heartlist", { data: result });
-  });
+  if (req.session.isAuthenticated) {
+    Gallery.findAll({
+      attributes: ["g_name", "imgurl", "address", "deadline"],
+      include: [
+        {
+          model: Heart,
+          attributes: [],
+          where: { u_id: req.session.user },
+          required: true,
+        },
+      ],
+    }).then((result) => {
+      res.render("heartlist", { data: result });
+    });
+  } else {
+    res.send(
+      '<script>alert("로그인이 필요합니다."); window.location="/user/signin";</script>'
+    );
+  }
 };
