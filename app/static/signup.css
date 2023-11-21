@@ -4,8 +4,8 @@
   border: none;
 }
 body {
-  font-size: 14px;
-  font-family: "Roboto", sans-serif;
+  /* font-size: 14px; */
+  font-family: 'Roboto', sans-serif;
 }
 
 .flex-container {
@@ -23,7 +23,6 @@ body {
   border-radius: 20px;
   box-shadow: 3px 3px 10px 3px #d2d2d2;
 }
-
 
 #form-register {
   width: 90%;
@@ -60,7 +59,7 @@ body {
   border-radius: 3px;
   background-color: white;
   border: 1px solid #d9d9d9;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .input_box > #id_double > input {
@@ -84,11 +83,11 @@ body {
 .input_box > input::placeholder {
   color: #d2d2d2;
 }
- 
-.input_box > input[type="button"] {
+
+.input_box > input[type='button'] {
   color: #fff;
   font-size: 16px;
-  background-color: #157DFF;
+  background-color: #157dff;
   margin-top: 20px;
 }
 
@@ -99,26 +98,25 @@ body {
   box-sizing: border-box;
   border-radius: 6px;
   background-color: #f8f8f8;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 #form-register > button::placeholder {
   color: #d2d2d2;
 }
-#form-register > button[type="button"] {
+#form-register > button[type='button'] {
   color: #fff;
   font-size: 16px;
-  background-color: #157DFF;
+  background-color: #157dff;
   margin-top: 20px;
 }
-
 
 .linkToSignin {
   font-size: 16px;
 }
 
 .linkToSignin > span {
-  color: #157DFF;
+  color: #157dff;
   font-weight: 800;
-  cursor:pointer;
+  cursor: pointer;
 }

@@ -1,105 +1,102 @@
 * {
-    padding: 0;
-    margin: 0;
-    border: none;
-    text-decoration: none;
-    color: inherit;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: "Roboto", sans-serif;
-  }
+  padding: 0;
+  margin: 0;
+  border: none;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
 #btn {
-    text-align: center;
-
+  text-align: center;
 }
 
 #btn > button {
-    border: 0;
-    background-color: transparent;
-    font-size: 25px;
-    font-weight: 700;
-    margin: 40px;
+  border: 0;
+  background-color: transparent;
+  font-size: 25px;
+  font-weight: 700;
+  margin: 40px;
 }
 
 #btn > button:hover {
-    text-decoration: underline;
-    text-underline-position: under;
-    text-decoration-thickness: 2.5px;
-    color: #157DFF;
+  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-thickness: 2.5px;
+  color: #157dff;
 }
 
-
 #list-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 #list-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
 }
 
-
 #card {
-    border-radius: 5px;
-    width: 20%;
-    padding: 20px;
-    margin: 20px 0px 20px 0px;
-    position: relative;
-    height: 600px;
-    /* border: 1px solid black; */
+  border-radius: 5px;
+  width: 20%;
+  padding: 20px;
+  margin: 20px 0px 20px 0px;
+  position: relative;
+  height: 600px;
+  /* border: 1px solid black; */
 }
 
 .flex-box {
-    display: flex;
-    justify-content: center;
-    /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid black; */
 }
 
 .flex-box #box {
-    /* border: 1px solid red; */
+  /* border: 1px solid red; */
 }
 
 .flex-box #img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 370px;
-    width: 370px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 370px;
+  width: 370px;
 }
 
 .flex-box #img img {
-    max-height: 370px;
-    max-width: 370px;
-    display: block;
+  max-height: 370px;
+  max-width: 370px;
+  display: block;
 }
 
 .flex-box #text {
-    height: 170px;
-    width: 370px;
-    text-align: left;
-    position: absolute; 
-    bottom:20px;
-    border-top: 2px solid #157DFF;
+  height: 170px;
+  width: 370px;
+  text-align: left;
+  position: absolute;
+  bottom: 20px;
+  border-top: 2px solid #157dff;
 }
 
 .flex-box #text #address {
-    font-size: 18px;
-    margin: 20px 15px 15px 0px;
+  font-size: 18px;
+  margin: 20px 15px 15px 0px;
 }
 
 .flex-box #text #g_name {
-    font-size: 25px;
-    font-weight: 700;
-    margin: 20px 15px 15px 0px;
-    line-height: 33px;
+  font-size: 25px;
+  font-weight: 700;
+  margin: 20px 15px 15px 0px;
+  line-height: 33px;
 }
 
 .flex-box #text #deadline {
-    font-size: 20px;
-    margin: 15px 15px 15px 0px;
+  font-size: 20px;
+  margin: 15px 15px 15px 0px;
 }
