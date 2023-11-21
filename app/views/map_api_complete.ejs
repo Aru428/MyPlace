@@ -122,7 +122,6 @@
 
           var geocoder = new kakao.maps.services.Geocoder();
           geocoder.addressSearch(detailaddr, function (result, status) {
-            // console.log(i, status, kakao.maps.services.Status.OK) //배열에 뭐가 담기는지 확인을 위해 console 찍음
             if (status === kakao.maps.services.Status.OK) {
               var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
               // 마커 이미지의 이미지 크기 입니다
@@ -144,7 +143,9 @@
               var infowindow = new kakao.maps.InfoWindow({
                 // changeHeartMarker함수에 checkbox를 담아야되기때문에 this를 넣고, 각배열의 index를 찾아가야되기때문에 i를 걸어줌
                 content: `<label for="myCheckbox">찜하기</label>
-                            <input type="checkbox" id="myCheckbox" onchange="changeHeartMarker(this, '${i}','${g_name}'); checkboxIsChecked(this, '${i}', '${g_name}')"> 
+                            <input type="checkbox" id="myCheckbox" onchange="changeHeartMarker(this, '${i}','${g_name}'); 
+                            checkboxIsChecked(this, '${i}', '${g_name}');
+                            handleCheckboxChange(this, ${g_id}); heartGalleryRequest(${g_id}); heartUser();"> 
                             <div style="font-weight:bold;">${g_name}<br/>
                             <button type="button" onclick="imgurlAdd('${imgurl}'); info('${g_name}', '${deadline}', '${detailaddr}', '${website}', '${g_id}'); searchComment();">더보기</button>
                             <a href="https://map.kakao.com/" style="color:blue" target="_blank"><div style="width:400px;text-align:right;padding:10px 0;">길찾기</a></div>`,
@@ -176,7 +177,6 @@
 
       // onchage에 걸려있는 changeHeartMarker의 index를 써야되기때문에 변수로 index 넣어줌
       function changeHeartMarker(objInput, index, g_name) {
-        // console.log(markerArr, index)
         let clickimageSrc = "https://youip.net/images/marker_kakao.png", // 마커이미지의 주소입니다
           clickimageSize = new kakao.maps.Size(50, 65), // 마커이미지의 크기입니다
           clickimageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
@@ -187,7 +187,6 @@
           clickimageOption
         );
 
-        // console.log(objInput.checked)
 
         let imageSrc =
           "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
@@ -206,19 +205,14 @@
 
       function checkboxIsChecked(checkbox, index, g_name) {
         if (checkbox.checked) {
-          console.log(`Checkbox ${index}, ${g_name}가 체크되었습니다.`);
-
           const infoContainer = document.querySelector(".info-container");
           const infoImage = infoContainer.querySelector("#infoImage");
           const result = infoContainer.querySelector("#result");
-        } else {
-          console.log(`Checkbox ${index}, ${g_name}가 체크 해제되었습니다.`);
         }
       }
 
       function imgurlAdd(imgurl) {
         const infoImage = document.getElementById("infoImage");
-        // console.log(imgurl);
         infoImage.src = imgurl;
         toggleInfoContainer();
       }
@@ -257,17 +251,108 @@
         </div>
       </div>
 
-      <!-- 리스트 콘텐츠 영역 -->
-      <div class="content">
-        <div class="content-a">
-          <% for(let i = 0; i < data.length; i++){ %>
-          <img src="<%= data[i].imgurl %>" alt="박물관사진" />
-          <p><%=data[i].g_name %></p>
-          <hr />
-          <br />
-          <% } %>
-        </div>
+<!-- 이미지와 이름 표시 부분 -->
+    <!-- 리스트 콘텐츠 영역 -->
+    <div class="content">
+      <div class="content-a">
+        <img src="" alt="이미지">
+        <p></p>
+        <hr />
+        <br />
       </div>
+    </div>
+
+<script>
+  heartUser();
+
+// 찜한 갤러리 불러오기 (맨처음 select * 갤러리)
+function heartGalleryRequest(g_id){
+        axios({
+        method: "GET",
+        url: "/gallery/heartgallery",
+        params: {
+          g_id: g_id,  
+          heart_checked: true
+        }
+      }).then((res) => {
+      });
+}
+
+
+function heartUser() {
+  axios({
+    method: "GET",
+    url: "/gallery/heartuser",
+  })
+    .then((res) => {
+      const data = res.data;
+      
+      const contentContainer = document.querySelector('.content');
+      contentContainer.innerHTML = ''; // 기존 내용 초기화
+      if (data && data.length > 0) {
+
+        for (let i = 0; i < data.length; i++) {
+          const img = document.createElement('img');
+          img.src = data[i].imgurl;
+
+          const p = document.createElement('p');
+          p.textContent = data[i].g_name;
+
+          const contentItem = document.createElement('div');
+          contentItem.className = 'content-item';
+          contentItem.appendChild(img);
+          contentItem.appendChild(p);
+
+          contentContainer.appendChild(contentItem);
+        }
+      }
+    })
+    .catch((error) => {
+      console.error('데이터 불러오기 중 오류가 발생했습니다:', error);
+    }); 
+}
+
+
+  // 체크박스 상태 변화를 처리하는 함수
+  function handleCheckboxChange(checkbox, g_id) {
+
+    const checked = checkbox.checked;
+    const data = {
+      g_id: g_id
+    }
+
+    if (checked) {
+      axios({
+        method : "POST",
+        url : "/gallery/heartlist",
+        data : data
+        })
+        .then((res) => {
+          alert("찜 완료!")
+        })
+        .catch((error) => {
+          console.error('데이터 저장 중 오류가 발생했습니다:', error);
+        });
+    } else {
+      axios({
+        method : "DELETE",
+        url : `/gallery/heartlist/${g_id}`,
+         })
+        .then((res) => {
+          alert("찜 삭제!")
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+    }
+    heartUser()
+  }
+</script>
+      
+
+      <!-- 리스트 콘텐츠 영역 -->
+
+
 
       <!-- 정보창을 표시할 영역 -->
       <div class="info-container">

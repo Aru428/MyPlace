@@ -41,6 +41,18 @@ galleryRouter.get("/mapexhibition", map.getMap);
 galleryRouter.post("/comment", map.createComment);
 galleryRouter.post("/commentfind", map.getComment);
 
+
+// 찜하기 관련
+galleryRouter.get("/heartgallery", map.heartGallery);
+galleryRouter.get("/heartuser", map.getHeartUser);
+galleryRouter.get("/heartlist", map.getHeartList);
+galleryRouter.post("/heartlist", map.createHeart);
+galleryRouter.delete("/heartlist/:g_id", map.deleteHeart);
+
+
+
+
+
 // 카테고리 관련
 const category = require("../controller/Clist");
 galleryRouter.get("/category", category.categoryAllPage);
