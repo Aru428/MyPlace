@@ -51,16 +51,16 @@ exports.categoryPopup = (req, res) => {
 // 찜 목록 페이지 렌더
 exports.heartListPage = (req, res) => {
   Gallery.findAll({
-    attribute: ["g_name", "imgurl", "address", "deadline"],
+    attributes: ["g_name", "imgurl", "address", "deadline"],
     include: [
       {
         model: Heart,
+        attributes: [],
         where: { u_id: "sohee1" },
         required: true,
       },
     ],
   }).then((result) => {
-    // res.send(result);
     res.render("heartlist", { data: result });
   });
 };
