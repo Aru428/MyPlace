@@ -57,7 +57,7 @@ exports.heartListPage = (req, res) => {
         {
           model: Heart,
           attributes: [],
-          where: { u_id: "sohee1" },
+          where: { u_id: req.session.user },
           required: true,
         },
       ],
