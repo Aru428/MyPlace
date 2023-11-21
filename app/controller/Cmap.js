@@ -54,19 +54,23 @@ exports.getComment = (req, res) => {
 };
 
 exports.heartGallery = (req, res) => {
-  const u_id = req.session.user;
-  const g_id = req.query.g_id;
+  if (req.session.isAuthenticated == true) {
+    const u_id = req.session.user;
+    const g_id = req.query.g_id;
 
-  // Heart 모델에서 heart_checked가 true인 데이터를 조회합니다
-  Heart.findAll({
-    where: {
-      u_id: u_id,
-      g_id: g_id,
-      // heart_checked: true,
-    },
-  }).then((result) => {
-    res.send({ data: result });
-  });
+    // Heart 모델에서 heart_checked가 true인 데이터를 조회합니다
+    Heart.findAll({
+      where: {
+        u_id: u_id,
+        g_id: g_id,
+        // heart_checked: true,
+      },
+    }).then((result) => {
+      res.send({ data: result });
+    });
+  } else {
+    res.send({ login: false });
+  }
 };
 
 exports.getHeartList = (req, res) => {
@@ -84,51 +88,63 @@ exports.getHeartList = (req, res) => {
 
 // 사용자가 찜한 갤러리 정보 불러오기
 exports.getHeartUser = (req, res) => {
-  Gallery.findAll({
-    attribute: ["gallery.*"],
-    include: [
-      {
-        model: Heart,
-        where: { u_id: req.session.user },
-        required: true,
-      },
-    ],
-  }).then((result) => {
-    res.send(result);
-  });
+  if (req.session.isAuthenticated == true) {
+    Gallery.findAll({
+      attribute: ["gallery.*"],
+      include: [
+        {
+          model: Heart,
+          where: { u_id: req.session.user },
+          required: true,
+        },
+      ],
+    }).then((result) => {
+      res.send(result);
+    });
+  } else {
+    res.send({ login: false });
+  }
 };
 
 // 체크된 경우, 데이터베이스에 저장
 exports.createHeart = (req, res) => {
-  const data = {
-    u_id: req.session.user,
-    g_id: req.body.g_id,
-  };
+  if (req.session.isAuthenticated == true) {
+    const data = {
+      u_id: req.session.user,
+      g_id: req.body.g_id,
+    };
 
-  Heart.create(data)
-    .then((result) => {
-      res.send({ data: result });
-    })
-    .catch((error) => {
-      console.error("데이터 저장 중 오류가 발생했습니다:", error);
-      res.status(500).send({ error: "데이터 저장 중 오류가 발생했습니다" });
-    });
+    Heart.create(data)
+      .then((result) => {
+        res.send({ data: result });
+      })
+      .catch((error) => {
+        console.error("데이터 저장 중 오류가 발생했습니다:", error);
+        res.status(500).send({ error: "데이터 저장 중 오류가 발생했습니다" });
+      });
+  } else {
+    res.send({ login: false });
+  }
 };
 
 exports.deleteHeart = (req, res) => {
-  const g_id = req.params.g_id;
+  if (req.session.isAuthenticated == true) {
+    const g_id = req.params.g_id;
 
-  Heart.destroy({
-    where: {
-      u_id: req.session.user,
-      g_id: g_id,
-    },
-  })
-    .then((result) => {
-      res.send({ result: result });
+    Heart.destroy({
+      where: {
+        u_id: req.session.user,
+        g_id: g_id,
+      },
     })
-    .catch((error) => {
-      console.error("데이터 삭제 중 오류가 발생했습니다:", error);
-      res.status(500).send({ error: "데이터 삭제 중 오류가 발생했습니다" });
-    });
+      .then((result) => {
+        res.send({ result: result });
+      })
+      .catch((error) => {
+        console.error("데이터 삭제 중 오류가 발생했습니다:", error);
+        res.status(500).send({ error: "데이터 삭제 중 오류가 발생했습니다" });
+      });
+  } else {
+    res.send({ login: false });
+  }
 };

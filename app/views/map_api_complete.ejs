@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>다음 지도 API</title>
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap icon CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css"
+    />
+    <!-- jQuery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../static/map.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>다음 지도 API</title>
-  <!-- Bootstrap CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
-  <!-- Bootstrap icon CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
-  <!-- jQuery CDN -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../static/map.css" />
-</head>
-
-<body>
-  <!-- nav바 불러오기 -->
-  <%-include("navbar.ejs")%>
+  <body>
+    <!-- nav바 불러오기 -->
+    <%-include("navbar.ejs")%>
 
     <!-- 카카오맵 API 지도 -->
     <div id="map">
-      <button class="btn-top-myplace comment-btn" type="button" onclick="panTo()">
+      <button
+        class="btn-top-myplace comment-btn"
+        type="button"
+        onclick="panTo()"
+      >
         내 위치
       </button>
       <!-- <div id="result"></div> -->
@@ -253,16 +266,14 @@
       <div class="content">
         <div class="content-a">
           <% for(let i=0; i < data.length; i++){ %>
-            <img src="<%= data[i].imgurl %>" alt="박물관사진" />
-            <p>
-              <%=data[i].g_name %>
-            </p>
-            <hr />
-            <br />
-            <% } %>
+          <img src="<%= data[i].imgurl %>" alt="박물관사진" />
+          <p><%=data[i].g_name %></p>
+          <hr />
+          <br />
+          <% } %>
         </div>
 
-        <div class="content-b">찜목록</div>
+        <div class="content-b">찜목록은 로그인 후 사용가능합니다</div>
       </div>
 
       <script>
@@ -277,7 +288,9 @@
               g_id: g_id,
               // heart_checked: true,
             },
-          }).then((res) => {});
+          }).then((res) => {
+            console.log(res.data);
+          });
         }
 
         function heartUser() {
@@ -286,24 +299,27 @@
             url: "/gallery/heartuser",
           })
             .then((res) => {
-              const data = res.data;
+              if (res.data.login == false) {
+              } else {
+                const data = res.data;
 
-              const contentContainer = document.querySelector(".content-b");
-              contentContainer.innerHTML = ""; // 기존 내용 초기화
-              if (data && data.length > 0) {
-                for (let i = 0; i < data.length; i++) {
-                  const img = document.createElement("img");
-                  img.src = data[i].imgurl;
+                const contentContainer = document.querySelector(".content-b");
+                contentContainer.innerHTML = ""; // 기존 내용 초기화
+                if (data && data.length > 0) {
+                  for (let i = 0; i < data.length; i++) {
+                    const img = document.createElement("img");
+                    img.src = data[i].imgurl;
 
-                  const p = document.createElement("p");
-                  p.textContent = data[i].g_name;
+                    const p = document.createElement("p");
+                    p.textContent = data[i].g_name;
 
-                  const contentItem = document.createElement("div");
-                  // contentItem.className = 'content-item';
-                  contentItem.appendChild(img);
-                  contentItem.appendChild(p);
+                    const contentItem = document.createElement("div");
+                    // contentItem.className = 'content-item';
+                    contentItem.appendChild(img);
+                    contentItem.appendChild(p);
 
-                  contentContainer.appendChild(contentItem);
+                    contentContainer.appendChild(contentItem);
+                  }
                 }
               }
             })
@@ -326,7 +342,11 @@
               data: data,
             })
               .then((res) => {
-                alert("찜 완료!");
+                if (res.data.login == false) {
+                  alert("로그인 후 사용 가능합니다");
+                } else {
+                  alert("찜 완료!");
+                }
               })
               .catch((error) => {
                 console.error("데이터 저장 중 오류가 발생했습니다:", error);
@@ -337,7 +357,11 @@
               url: `/gallery/heartlist/${g_id}`,
             })
               .then((res) => {
-                alert("찜 삭제!");
+                if (res.data.login == false) {
+                  alert("로그인 후 사용 가능합니다");
+                } else {
+                  alert("찜 삭제!");
+                }
               })
               .catch((error) => {
                 console.log(error);
@@ -358,7 +382,11 @@
           <div id="comment" class="comment-container">
             <div class="comment-text">
               <div style="font-weight: bold">방문자 리뷰</div>
-              <button type="button" class="comment-btn" onclick="changeComment()">
+              <button
+                type="button"
+                class="comment-btn"
+                onclick="changeComment()"
+              >
                 리뷰 쓰기
               </button>
             </div>
@@ -369,18 +397,56 @@
               <p>별점을 표시해 주세요</p>
               <form name="review" class="mb-3" id="myform">
                 <fieldset>
-                  <input type="radio" name="reviewStar" value="5" id="rate1" /><label for="rate1">★</label>
-                  <input type="radio" name="reviewStar" value="4" id="rate2" /><label for="rate2">★</label>
-                  <input type="radio" name="reviewStar" value="3" id="rate3" /><label for="rate3">★</label>
-                  <input type="radio" name="reviewStar" value="2" id="rate4" /><label for="rate4">★</label>
-                  <input type="radio" name="reviewStar" value="1" id="rate5" /><label for="rate5">★</label>
+                  <input
+                    type="radio"
+                    name="reviewStar"
+                    value="5"
+                    id="rate1"
+                  /><label for="rate1">★</label>
+                  <input
+                    type="radio"
+                    name="reviewStar"
+                    value="4"
+                    id="rate2"
+                  /><label for="rate2">★</label>
+                  <input
+                    type="radio"
+                    name="reviewStar"
+                    value="3"
+                    id="rate3"
+                  /><label for="rate3">★</label>
+                  <input
+                    type="radio"
+                    name="reviewStar"
+                    value="2"
+                    id="rate4"
+                  /><label for="rate4">★</label>
+                  <input
+                    type="radio"
+                    name="reviewStar"
+                    value="1"
+                    id="rate5"
+                  /><label for="rate5">★</label>
                 </fieldset>
-                <input name="commentText" class="comment-box" type="text" placeholder="리뷰를 써 주세요. (10자 이상)" />
+                <input
+                  name="commentText"
+                  class="comment-box"
+                  type="text"
+                  placeholder="리뷰를 써 주세요. (10자 이상)"
+                />
                 <div class="comment-button">
-                  <button type="button" class="comment-btn" onclick="backCommentList()">
+                  <button
+                    type="button"
+                    class="comment-btn"
+                    onclick="backCommentList()"
+                  >
                     취소
                   </button>
-                  <button type="button" class="comment-btn" onclick="getComment()">
+                  <button
+                    type="button"
+                    class="comment-btn"
+                    onclick="getComment()"
+                  >
                     등록
                   </button>
                 </div>
@@ -573,6 +639,5 @@
         }
       }
     </script>
-</body>
-
+  </body>
 </html>
