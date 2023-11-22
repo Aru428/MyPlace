@@ -35,20 +35,20 @@ body {
 }
 
 #list-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    width: 1600px;
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 1600px;
+  margin: 0 auto;
 }
 
 #card {
-    border-radius: 5px;
-    width: 25%;
-    padding: 20px;
-    margin: 20px 0px 20px 0px;
-    position: relative;
-    height: 600px;
-    /* border: 1px solid black; */
+  border-radius: 5px;
+  width: 25%;
+  padding: 20px;
+  margin: 20px 0px 20px 0px;
+  position: relative;
+  height: 600px;
+  /* border: 1px solid black; */
 }
 
 .flex-box {
@@ -99,4 +99,11 @@ body {
 .flex-box #text #deadline {
   font-size: 20px;
   margin: 15px 15px 15px 0px;
+}
+
+.btnCurrent {
+  /* text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-thickness: 2.5px; */
+  color: #157dff;
 }

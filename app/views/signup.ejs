@@ -51,6 +51,7 @@
             <label for="password" class="visually">비밀번호</label>
             <input type="password" id="pw" name="password" placeholder="Password"
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,14}$" title="소문자, 대문자, 숫자로 조합된 6~14자리로 입력" />
+            <div id="pwCheck"></div>
           </div>
 
           <div class="input_box">
@@ -105,11 +106,11 @@
 
       document.getElementById("pw").addEventListener("input", function () {
         if (!this.checkValidity()) {
-          document.getElementById("pwResult").innerHTML =
+          document.getElementById("pwCheck").innerHTML =
             "비밀번호 형식이 올바르지 않습니다. (소문자, 대문자, 숫자로 조합된 6~14자리)";
-          document.getElementById("pwResult").style.color = "rgb(255, 89, 89)";
+          document.getElementById("pwCheck").style.color = "rgb(255, 89, 89)";
         } else {
-          document.getElementById("pwResult").innerHTML = "";
+          document.getElementById("pwCheck").innerHTML = "";
         }
       });
 
