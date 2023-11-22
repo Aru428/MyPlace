@@ -138,14 +138,12 @@ nav {
   background-color: white;
   margin-bottom: 20px;
   display: none;
-  /* overflow-y: scroll;   */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .info-container img {
   border-radius: 15px 15px 0 0;
   width: 410px;
-  height: 300px;
+  height: 310px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -156,6 +154,7 @@ nav {
   height: 865px;
   border-radius: 30px 30px 15px 15px;
   background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* 전시회 정보 */
