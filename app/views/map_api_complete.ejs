@@ -164,13 +164,7 @@
         });
       }
 
-      function mouseEvent(){
-                // // 클릭한 위도, 경도 정보를 가져옵니다 
-
-        var latlng = mouseEvent.latLng;
-      }
-
-      function makeClickListener(map, marker, infowindow, coords, markerImage,) {
+      function makeClickListener(map, marker, infowindow, coords, markerImage) {
         return function () {
           infowindow.open(map, marker);
           map.setCenter(coords);
@@ -267,7 +261,7 @@
             method: "GET",
             url: "/gallery/heartgallery",
             params: {
-              g_id: g_id,
+              g_id: g_id
             },
           }).then((res) => {
           });
@@ -301,6 +295,7 @@
                     contentItem.appendChild(hr);
 
                     contentContainer.appendChild(contentItem);
+
                   }
                 }
               }

@@ -35,8 +35,7 @@ userRouter.post("/profile/delete", profile.userDelete);
 
 // 지도관련
 const map = require("../controller/Cmap");
-galleryRouter.get("/map", map.mapUiPage);
-galleryRouter.get("/maptest", map.mapPage);
+galleryRouter.get("/map", map.mapPage);
 galleryRouter.get("/mapexhibition", map.getMap);
 galleryRouter.post("/comment", map.createComment);
 galleryRouter.post("/commentfind", map.getComment);
@@ -53,7 +52,6 @@ galleryRouter.get("/category/popupstore", category.categoryPopup);
 galleryRouter.get("/heartlistpage", category.heartListPage);
 galleryRouter.get("/heartgallery", map.heartGallery);
 galleryRouter.get("/heartuser", map.getHeartUser);
-galleryRouter.get("/heartlist", map.getHeartList);
 galleryRouter.post("/heartlist", map.createHeart);
 galleryRouter.delete("/heartlist/:g_id", map.deleteHeart);
 
