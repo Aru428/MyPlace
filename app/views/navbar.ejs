@@ -29,31 +29,40 @@
 
   .container {
     height: 140px;
+    margin-right: 170px;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    color: black;
   }
 </style>
 
 <nav class="navbar navbar-expand-sm py-3 bg-transparent  text-dark" style="width: 1600px; margin: 0 auto;">
   <div class="container">
     <li class="nav-item">
-      <p class="navbar-brand fs-1">MyPlace</p>
+      <p class="navbar-brand fs-1 fw-bold"><a href="/">MyPlace</a></p>
     </li>
 
-    <div class="d-flex justify-content-end" id="navbarSupportedContent">
+    <div class=" d-flex justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active text-dark" aria-current="page" href="/">홈</a>
+          <a class="nav-link active text-dark fs-4 fw-bold" aria-current="page" href="/">홈</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="/gallery/category ">둘러보기</a>
+          <a class="nav-link text-dark fs-4 fw-bold" href="/gallery/maptest ">지도</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="/gallery/heartlistpage">찜</a>
+          <a class="nav-link text-dark fs-4 fw-bold" href="/gallery/category ">둘러보기</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark fs-4 fw-bold" href="/gallery/heartlistpage">찜</a>
         </li>
 
         <!-- 로그 아웃으로 로고 바꾸고, 로그아웃을 누를시 세션 종료+ 로그아웃 버튼이 로그안으로 돌아오도록 -->
         <% if(isAuthenticated) { %>
           <li class="nav-item">
-            <a class="nav-link" href="/user/profile">마이페이지</a>
+            <a class="nav-link ext-dark fs-4 fw-bold" href="/user/profile">마이페이지</a>
           </li>
           <% } else { %>
 
@@ -66,11 +75,11 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <% if(isAuthenticated) { %>
-            <a class="nav-link text-dark border border-dark rounded-pill" href="#" onclick="logout()"
-              style="width: 100px; text-align: center;">로그아웃</a>
+            <a class="nav-link text-dark border border-dark rounded-pill fw-bold" href="#" onclick="logout()"
+              style="width: 100px; height: 40px; line-height: 22px; text-align: center;">로그아웃</a>
             <% } else { %>
-              <a class="nav-link text-dark border border-dark rounded-pill" href="/user/signin"
-                style="width: 100px; text-align: center;">로그인</a>
+              <a class="nav-link text-dark border border-dark rounded-pill fw-bold" href="/user/signin"
+                style="width: 100px;  height: 40px; line-height: 22px; text-align: center;">로그인</a>
               <% }%>
         </li>
       </ul>
