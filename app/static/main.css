@@ -1,12 +1,6 @@
-/* a {
+*{
   text-decoration: none;
 }
-
-h1 {
-  text-align: center;
-  font-family: 'ABeeZee', sans-serif;
-  font-size: 50px;
-} */
 
 /* nav bar css */
 .nav-item::marker {
@@ -19,6 +13,33 @@ h1 {
   font-size: 30px;
   /* margin 값은 main.css와 map.css에 들어가 있음 */
   margin-top: 15px;
+}
+
+
+.into-map {
+  background-color: #157dff;
+  color: #fff;
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  margin-top: 10px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+
+.into-map:hover{
+  transform: scale( 1.1 )
+}
+
+
+.into-map a {
+  text-decoration: none;
+  color: #fff;
+  font-size:larger;
+  font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 /* main 이미지 */
@@ -42,30 +63,15 @@ h1 {
   top: 150px;
   text-align: center;
   color: black;
+  font-family: 'Unbounded', sans-serif;
 }
 
 .main-text p {
   font-size: 65px;
   font-weight: 1000;
+  font-family: 'Unbounded', sans-serif;
 }
 
-.intoMap {
-  display: inline-block;
-  width: 180px;
-  height: 50px;
-  background-color: #157dff;
-  border-radius: 45px;
-  text-align: center;
-  padding-top: 12px;
-}
-
-.intoMap:hover {
-  background-color: #e6e6e6;
-}
-
-.intoMap span {
-  color: #ffffff;
-}
 
 .main-img {
   max-width: 100%;
@@ -100,3 +106,4 @@ h1 {
   right: 0px;
   top: 80px;
 }
+
