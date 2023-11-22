@@ -269,6 +269,7 @@ nav {
   width: 350px;
   height: 200px;
   margin: 40px 0 40px 0;
+  resize: none;
 }
 
 /* 별 */
