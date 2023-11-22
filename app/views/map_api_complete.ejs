@@ -102,6 +102,7 @@
             positions[i].detailaddr,
             positions[i].imgurl,
             positions[i].g_id,
+            positions[i].address,
             i
           );
         }
@@ -115,6 +116,7 @@
         detailaddr,
         imgurl,
         g_id,
+        address,
         i
       ) {
         return new Promise((resolve, reject) => {
@@ -144,7 +146,7 @@
                             handleCheckboxChange(this, ${g_id}); heartGalleryRequest(${g_id}); heartUser();"> 
                             <div style="font-weight:bold;">${g_name}<br/>
                             <button type="button" onclick="imgurlAdd('${imgurl}'); info('${g_name}', '${deadline}', '${detailaddr}', '${website}', '${g_id}'); searchComment();">더보기</button>
-                            <a href="https://map.kakao.com/" style="color:blue" target="_blank"><div style="width:400px;text-align:right;padding:10px 0;">길찾기</a></div>`,
+                            <a href="https://map.kakao.com/link/search/${address}" style="color:blue" target="_blank"><div style="width:400px;text-align:right;padding:10px 0;">길찾기</a></div>`,
                 removable: true,
               });
               kakao.maps.event.addListener(
@@ -162,7 +164,13 @@
         });
       }
 
-      function makeClickListener(map, marker, infowindow, coords, markerImage) {
+      function mouseEvent(){
+                // // 클릭한 위도, 경도 정보를 가져옵니다 
+
+        var latlng = mouseEvent.latLng;
+      }
+
+      function makeClickListener(map, marker, infowindow, coords, markerImage,) {
         return function () {
           infowindow.open(map, marker);
           map.setCenter(coords);
