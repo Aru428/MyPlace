@@ -4,13 +4,13 @@
 
 ## Team
 
-|                  팀원명                   | 역할       |
-| :---------------------------------------: | :--------- |
-| [권소희(팀장)](https://github.com/Aru428) | Back       |
-|   [이동욱](https://github.com/ldw0123)    | Front      |
-|  [윤병우](https://github.com/yoonbung12)  | Front/Back |
-|   [조연주](https://github.com/J-Yeonju)   | Front      |
-|  [황주리](https://github.com/joojooring)  | Back       |
+|                  팀원명                   | 역할                                                                                                                     |
+| :---------------------------------------: | :----------------------------------------------------------------------------------------------------------------------- |
+| [권소희(팀장)](https://github.com/Aru428) | FE) review, heartlist <br/> BE) main, navbar, mypage(modify, delete), category, gallerylist, review, 데이터수집 ,DB 설계 |
+|   [이동욱](https://github.com/ldw0123)    | FE) main, navbar, maptoggle, 발표                                                                                        |
+|  [윤병우](https://github.com/yoonbung12)  | FE) map <br/> BE) signin, signup, logout, gallerylist , 데이터수집, DB 설계, 서버 배                                     |
+|   [조연주](https://github.com/J-Yeonju)   | FE) main, signin, singup, mypage(modify, delete), category, 와이어프레임 설계                                            |
+|  [황주리](https://github.com/joojooring)  | FE) map, heartlist <br/> BE) signup, map, hearlist, 데이터수집, DB 설                                                    |
 
 ## Tech Stack
 
