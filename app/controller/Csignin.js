@@ -8,11 +8,10 @@ exports.postLogin = (req, res) => {
   User.findOne({
     where: {
       // 컬럼명 : 사용자가 적은값
-      u_id: req.body.u_id,
+      u_id: req.body.u_id
     },
   })
     .then((result) => {
-      console.log("findONe 있냐? ", result);
       if (result) {
         pwSalt
           .comparePassword(req.body.password, result.salt, result.password)
@@ -21,8 +20,7 @@ exports.postLogin = (req, res) => {
               // u_id 세션에 저장(로그인 했을때).
               req.session.user = result.u_id;
               req.session.isAuthenticated = true; // 로그인 상태를 true로 설정
-              // console.log("postLogin: ", result);
-              // console.log("session", req.session);
+
               res.send({ result: true, id: result.u_id });
             } else {
               res.send({ result: false });

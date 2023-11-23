@@ -8,20 +8,17 @@ exports.selectProfilePage = (req, res) => {
 // 회원 수정 페이지 관련
 exports.editCheckPage = (req, res) => {
   // 수정 시 비밀번호 확인 페이지 렌더
-  console.log('req.session.user:::', req.session.user);
   res.render("editProfile_editCheck");
 };
 
 exports.editCheckPw = (req, res) => {
   // ---------------- 암호화 적용후
-  console.log("req.session.user: ", req.session.user);
   
   User.findOne({
     where: {
       u_id: req.session.user,
     },
   }).then((result) => {
-    // console.log("result 값좀 찍어줘:",result);
 
     if(result) {
       pwSalt
@@ -32,21 +29,18 @@ exports.editCheckPw = (req, res) => {
             )
             .then((pwCorrect) => {
               if(pwCorrect) {
-                console.log("pwCorrect", pwCorrect);
                 res.send({result: true});
               } else {
                 res.send({ result: false});
               }
             })
               .catch((error) => {
-                console.log('password에러 입니다.', error);
                 res.send({result: false});
               }); 
     } else {
       res.send({ result: false});
     } 
   }).catch((error) => {
-    console.log("유저의 존재를 못찾겠습니다.", error);
     res.send({result: false});
   })
   
@@ -59,7 +53,6 @@ exports.profilePage = (req, res) => {
       u_id: req.session.user,
     },
   }).then((result) => {
-    console.log("result ==", result);
     const data = {
       id: result.u_id,
       email: result.email,
@@ -81,7 +74,6 @@ exports.profileEdit = (req, res) => {
       u_id: req.session.user,
     },
   }).then((row) => {
-    console.log("row:", row);
     if (row) {
       res.send({ result: true });
     } else {
@@ -96,7 +88,6 @@ exports.profileAllEdit = (req, res) => {
   pwSalt
         .hashPassword(pw)
         .then(( {hashedPw, salt}) => {
-          console.log(hashedPw, salt);
           const data = {
             password: hashedPw,
             name: req.body.name,
@@ -108,7 +99,6 @@ exports.profileAllEdit = (req, res) => {
 
             },
           }).then((row) => {
-            console.log('update name && pw:', row);
             if (row) {
                   res.send({ result: true });
                 } else {
@@ -120,13 +110,11 @@ exports.profileAllEdit = (req, res) => {
 
 // 회원 탈퇴 시 비밀번호 확인 페이지 관련
 exports.deleteCheckPage = (req, res) => {
-  console.log("req.session.user:::::::::", req.session.user);
   res.render("editProfile_delete");
 };
 
 // 회원 탈퇴
 exports.userDelete = (req, res) => {
-  console.log("req.session.user", req.session.user);
   User.findOne({
     where: {
       u_id : req.session.user,
@@ -155,14 +143,12 @@ exports.userDelete = (req, res) => {
                 res.send({result: false});
               }
             }).catch((error) => {
-              console.log("pw ERROR", error);
               res.send({result: false});
             });
      } else {
        res.send({result: false});
      }
   }).catch((error) => {
-    console.log('no user:' , error);
     res.send({result: false});
   });
 };

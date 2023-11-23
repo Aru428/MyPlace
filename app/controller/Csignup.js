@@ -21,7 +21,6 @@ exports.postSignUp = (req, res) => {
             name: name,
           })
             .then((result) => {
-              console.log('User create 성공: ', result);
               res.send({result: true});
             })
             .catch((err) => {
@@ -40,11 +39,8 @@ exports.postSignUpCheck = (req, res) => {
   User.findOne({
     where: { u_id: req.body.u_id },
   }).then((result) => {
-    console.log('User findOne:', result)
     if (result) res.send({ result: true, id: result.id })
     else res.send({ result: false })
   })
 }
 
-// userRouter.get("/signup", signup.signUpPage);
-// userRouter.post("/signup", signup.postSignUp);
