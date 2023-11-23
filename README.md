@@ -1,16 +1,23 @@
 # 🏛 MyPlace
 
-내 위치 근처 전시회/팝업 스토어 찾는 웹사이트 프로젝트
+**내 위치 근처 전시회/팝업 스토어 찾는 웹사이트 프로젝트 (2023/11/07 ~ 2023/11/23)**
+
+## 기획 의도
+
+서울 시민의 문화시설에 대한 정보를 제공하고자 제작
+근처에 있는 미술관, 박물관, 팝업스토어, 전시회를 한 번에 빠르게 찾기 위해 기획
 
 ## Team
 
 |                  팀원명                   | 역할                                                                                                                     |
 | :---------------------------------------: | :----------------------------------------------------------------------------------------------------------------------- |
-| [권소희(팀장)](https://github.com/Aru428) | FE) review, heartlist <br/> BE) main, navbar, mypage(modify, delete), category, gallerylist, review, 데이터수집 ,DB 설계 |
+| [권소희(팀장)](https://github.com/Aru428) | FE) review, heartlist <br/> BE) main, navbar, mypage(modify, delete), category, gallerylist, review, 데이터수집, DB 설계 |
 |   [이동욱](https://github.com/ldw0123)    | FE) main, navbar, maptoggle, 발표                                                                                        |
-|  [윤병우](https://github.com/yoonbung12)  | FE) map <br/> BE) signin, signup, logout, gallerylist , 데이터수집, DB 설계, 서버 배                                     |
+|  [윤병우](https://github.com/yoonbung12)  | FE) map <br/> BE) signin, signup, logout, gallerylist , 데이터수집, DB 설계, 서버 배포                                   |
 |   [조연주](https://github.com/J-Yeonju)   | FE) main, signin, singup, mypage(modify, delete), category, 와이어프레임 설계                                            |
-|  [황주리](https://github.com/joojooring)  | FE) map, heartlist <br/> BE) signup, map, hearlist, 데이터수집, DB 설                                                    |
+|  [황주리](https://github.com/joojooring)  | FE) map, heartlist <br/> BE) signup, map, hearlist, 데이터수집, DB 설계                                                  |
+
+## 주요 기능
 
 ## Tech Stack
 
