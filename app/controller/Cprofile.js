@@ -21,7 +21,6 @@ exports.editCheckPw = (req, res) => {
       u_id: req.session.user,
     },
   }).then((result) => {
-    // console.log("result 값좀 찍어줘:",result);
 
     if(result) {
       pwSalt

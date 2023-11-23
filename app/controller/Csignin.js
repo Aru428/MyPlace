@@ -21,8 +21,6 @@ exports.postLogin = (req, res) => {
               // u_id 세션에 저장(로그인 했을때).
               req.session.user = result.u_id;
               req.session.isAuthenticated = true; // 로그인 상태를 true로 설정
-              // console.log("postLogin: ", result);
-              // console.log("session", req.session);
               res.send({ result: true, id: result.u_id });
             } else {
               res.send({ result: false });

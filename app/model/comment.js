@@ -2,7 +2,6 @@ function Comment(Sequelize, DataTypes) {
   return Sequelize.define(
     "comment",
     {
-      // c_id(pk), g_id(fk), star, review
       c_id: {
         type: DataTypes.INTEGER,
         allowNull: false,

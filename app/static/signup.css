@@ -4,8 +4,7 @@
   border: none;
 }
 body {
-  /* font-size: 14px; */
-  font-family: 'Roboto', sans-serif;
+  font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 .flex-container {
