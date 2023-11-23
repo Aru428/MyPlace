@@ -3,6 +3,7 @@
 **내 위치 근처 전시회/팝업 스토어 찾는 웹사이트 프로젝트 (2023/11/07 ~ 2023/11/23)**
 
 팀 이름: 마운틴척척
+<br/>
 개발 기간: 2023/11/07 ~ 2023/11/23
 
 ## 기획 의도
@@ -37,7 +38,7 @@ MY PLACE는 문화시설에 대한 정보를 제공하는 플랫폼
 ### 메인페이지
 
 <div align="center">
-	<img src="/app/static/img/Information Architecture.png">
+	<img src="/app/static/img/main.jpg">
 </div>
 
 ### 리스트
