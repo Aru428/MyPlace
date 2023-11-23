@@ -2,7 +2,6 @@ function Heart(Sequelize, DataTypes) {
   return Sequelize.define(
     "heart",
     {
-      // h_id, u_id, g_id
       h_id: {
         type: DataTypes.INTEGER,
         allowNull: false,

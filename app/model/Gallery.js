@@ -2,7 +2,6 @@ function Gallery(Sequelize, DataTypes) {
   return Sequelize.define(
     "gallery",
     {
-      // g_id, g_name, address,deadline, website, category
       g_id: {
         type: DataTypes.INTEGER,
         allowNull: false,

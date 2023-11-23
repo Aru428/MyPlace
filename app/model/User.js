@@ -2,7 +2,6 @@ function User(Sequelize, DataTypes){
     return Sequelize.define(
         "user",
         {
-            // u_id, email, password, name
             u_id: {
                 type: DataTypes.STRING(20),
                 allowNull: false,
