@@ -46,5 +46,3 @@ exports.postSignUpCheck = (req, res) => {
   })
 }
 
-// userRouter.get("/signup", signup.signUpPage);
-// userRouter.post("/signup", signup.postSignUp);
