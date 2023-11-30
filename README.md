@@ -13,7 +13,7 @@
 
 |                  팀원명                   | 역할                                                                                                                     |                  회고록                   |
 | :---------------------------------------: | :----------------------------------------------------------------------------------------------------------------------- | :---------------------------------------: |
-| [권소희(팀장)](https://github.com/Aru428) | FE) review, heartlist <br/> BE) main, navbar, mypage(modify, delete), category, gallerylist, review, 데이터수집, DB 설계 | [Link](#) |
+| [권소희(팀장)](https://github.com/Aru428) | FE) review, heartlist <br /> BE) main, navbar, mypage(modify, delete), category, gallerylist, review, 데이터수집, <br /> DB 설계 | [Link](#) |
 |   [이동욱](https://github.com/ldw0123)    | FE) main, navbar, maptoggle, 발표                                                                                        | [Link](https://velog.io/@ldw0123/%EC%83%88%EC%8B%B9x%EC%BD%94%EB%94%A9%EC%98%A8-%ED%92%80%EC%8A%A4%ED%83%9D-%EC%9B%B9-%EC%9C%B5%ED%95%A9-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%96%91%EC%84%B1-%EA%B3%BC%EC%A0%95-1%EC%B0%A8-%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0) |
 |  [윤병우](https://github.com/yoonbung12)  | FE) map <br/> BE) signin, signup, logout, gallerylist , 데이터수집, DB 설계, 서버 배포                                   | [Link](https://velog.io/@yoonbung12/%EC%83%88%EC%8B%B9-1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0%EB%A1%9D-MyPlace) |
 |   [조연주](https://github.com/J-Yeonju)   | FE) main, signin, singup, mypage(modify, delete), category, 와이어프레임 설계                                            | [Link](#) |
